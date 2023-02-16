@@ -136,7 +136,7 @@
                         <div class="table-head">
                             <span class="th-column">UID</span>
                             <span class="th-column">Nama</span>
-                            <span class="th-column">Alamat</span>
+                            <!-- <span class="th-column">Alamat</span> -->
                             <span class="th-column">Jam Masuk</span>
                             <span class="th-column">Status</span>
                             <span class="th-column">Action</span>
@@ -145,7 +145,7 @@
                             <div class="tbody-row">
                                 <span class="td-column">20981BA001</span>
                                 <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">GBR 3</span>
+                                <!-- <span class="td-column">Jl. Sukasenang II No.3</span> -->
                                 <span class="td-column">07:30AM</span>
                                 <span class="td-column">
                                     <div id="status-badge">
@@ -159,7 +159,7 @@
                             <div class="tbody-row">
                                 <span class="td-column">20981BA001</span>
                                 <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">GBR 3</span>
+                                <!-- <span class="td-column">Asrama Pussenif</span> -->
                                 <span class="td-column">07:30AM</span>
                                 <span class="td-column">
                                     <div id="status-badge">
@@ -173,7 +173,7 @@
                             <div class="tbody-row">
                                 <span class="td-column">20981BA001</span>
                                 <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">GBR 3</span>
+                                <!-- <span class="td-column">GBR 3</span> -->
                                 <span class="td-column">10:30AM</span>
                                 <span class="td-column">
                                     <div id="status-badge">
@@ -187,7 +187,7 @@
                             <div class="tbody-row">
                                 <span class="td-column">20981BA001</span>
                                 <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">GBR 3</span>
+                                <!-- <span class="td-column">GBR 3</span> -->
                                 <span class="td-column">07:30AM</span>
                                 <span class="td-column">
                                     <div id="status-badge">
@@ -201,7 +201,7 @@
                             <div class="tbody-row">
                                 <span class="td-column">20981BA001</span>
                                 <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">GBR 3</span>
+                                <!-- <span class="td-column">GBR 3</span> -->
                                 <span class="td-column">11:30AM</span>
                                 <span class="td-column">
                                     <div id="status-badge">
@@ -225,7 +225,7 @@
 
         <!-- Modal View -->
         <div class="modal-bg" id="modal-view">
-            <div class="modal">
+            <div class="modal-view">
                 <div class="modal-title">
                     <span>Detail Karyawan</span>
                     <div class="modal-close" id="modal-add-close" onclick="closeModalView()">X</div>
@@ -233,6 +233,7 @@
                 <!-- Modal Form -->
                 <div class="modal-form">
                     <form action="">
+                        <img src="" alt="" srcset="">
                         <div class="input-form input-disable">
                             <input type="text" placeholder="ID Karyawan" value="20981BA009" disabled>
                         </div>
@@ -242,11 +243,35 @@
                         </div>
                         <div class="input-form">
                             <i class="uil uil-lock"></i>
-                            <input type="text" placeholder="Password">
+                            <input type="text" placeholder="Alamat">
+                        </div>
+                        <div class="input-form">
+                            <i class="uil uil-lock"></i>
+                            <input type="text" placeholder="Tanggal Masuk">
+                        </div>
+                        <div class="input-form">
+                            <i class="uil uil-lock"></i>
+                            <input type="text" placeholder="Jam Masuk">
+                        </div>
+                        <div class="input-form">
+                            <i class="uil uil-lock"></i>
+                            <input type="text" placeholder="Status">
                         </div>
                         <div class="input-form">
                             <i class="uil uil-map-pin"></i>
-                            <input type="text" placeholder="Alamat">
+                            <input type="text" placeholder="Latitude">
+                        </div>
+                        <div class="input-form">
+                            <i class="uil uil-map-pin"></i>
+                            <input type="text" placeholder="Longitude">
+                        </div>
+                        <div class="input-form">
+                            <i class="uil uil-map-pin"></i>
+                            <input type="text" placeholder="Altitude">
+                        </div>
+                        <div class="input-form">
+                            <i class="uil uil-map-pin"></i>
+                            <input type="text" placeholder="Gambar">
                         </div>
                         <button type="submit" class="btn-add">Submit</button>
                     </form>

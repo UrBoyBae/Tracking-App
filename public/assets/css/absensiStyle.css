@@ -526,7 +526,8 @@ form .search-form {
 .table .table-head {
     height: 40px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    /* grid-template-columns: repeat(6, 1fr); */
+    grid-template-columns: repeat(5, 1fr);
     border: 1px solid var(--TableBorderColor);
     background-color: var(--bg-row);
     border-radius: 8px 8px 0 0;
@@ -550,7 +551,8 @@ form .search-form {
 
 .table .table-body .tbody-row {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    /* grid-template-columns: repeat(6, 1fr); */
+    grid-template-columns: repeat(5, 1fr);
     width: 100%;
     border-bottom: 1px solid var(--TableBorderColor);
     border-left: 1px solid var(--TableBorderColor);
@@ -626,7 +628,7 @@ form .search-form {
   visibility: hidden;
 }
 
-.modal {
+.modal-view {
   width: 350px;
   height: 390px;
   background-color: #fff;
@@ -650,7 +652,7 @@ form .search-form {
   -o-border-radius: 15px;
 }
 
-.modal .modal-title {
+.modal-view .modal-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -658,12 +660,12 @@ form .search-form {
   border-bottom: 1px solid var(--borderColor);
 }
 
-.modal .modal-title span {
+.modal-view .modal-title span {
   font-size: 20px;
   font-weight: 300;
 }
 
-.modal .modal-title .modal-close {
+.modal-view .modal-title .modal-close {
   height: 22px;
   width: 22px;
   display: flex;
@@ -686,7 +688,7 @@ form .search-form {
   -o-transition: var(--transition-3); */
 }
 
-.modal .modal-title .modal-close:hover {
+.modal-view .modal-title .modal-close:hover {
   background-color: var(--close-modal);
   color: var(--defaultColor);
 }
