@@ -483,11 +483,11 @@ form .search-form {
   font-weight: 600;
   color: var(--close-modal);
   cursor: pointer;
-  transition: var(--transition-3);
+  /* transition: var(--transition-3);
   -webkit-transition: var(--transition-3);
   -moz-transition: var(--transition-3);
   -ms-transition: var(--transition-3);
-  -o-transition: var(--transition-3);
+  -o-transition: var(--transition-3); */
 }
 
 .modal .modal-title .modal-close:hover {
@@ -559,11 +559,11 @@ form .search-form {
   font-weight: 500;
   margin-top: 12px;
   cursor: pointer;
-  transition: var(--transition-3);
+  /* transition: var(--transition-3);
   -webkit-transition: var(--transition-3);
   -moz-transition: var(--transition-3);
   -ms-transition: var(--transition-3);
-  -o-transition: var(--transition-3);
+  -o-transition: var(--transition-3); */
 }
 
 .modal-form .btn-add:hover {
@@ -586,11 +586,11 @@ form .search-form {
   font-weight: 500;
   margin-top: 12px;
   cursor: pointer;
-  transition: var(--transition-3);
+  /* transition: var(--transition-3);
   -webkit-transition: var(--transition-3);
   -moz-transition: var(--transition-3);
   -ms-transition: var(--transition-3);
-  -o-transition: var(--transition-3);
+  -o-transition: var(--transition-3); */
 }
 
 .modal-form .btn-update:hover {
@@ -613,11 +613,11 @@ form .search-form {
   font-weight: 500;
   margin-top: 12px;
   cursor: pointer;
-  transition: var(--transition-3);
+  /* transition: var(--transition-3);
   -webkit-transition: var(--transition-3);
   -moz-transition: var(--transition-3);
   -ms-transition: var(--transition-3);
-  -o-transition: var(--transition-3);
+  -o-transition: var(--transition-3); */
 }
 
 .modal-form .btn-delete:hover {
