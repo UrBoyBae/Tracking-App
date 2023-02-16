@@ -148,8 +148,8 @@
                                 <span class="td-column">GBR 3</span>
                                 <span class="td-column">07:30AM</span>
                                 <span class="td-column">
-                                    <div class="status-ontime-badge">
-                                        <span class="title-badge">Tepat Waktu</span>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Tepat Waktu</span>
                                     </div>
                                 </span>
                                 <div class="td-column">
@@ -162,8 +162,8 @@
                                 <span class="td-column">GBR 3</span>
                                 <span class="td-column">07:30AM</span>
                                 <span class="td-column">
-                                    <div class="status-ontime-badge">
-                                        <span class="title-badge">Tepat Waktu</span>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Tepat Waktu</span>
                                     </div>
                                 </span>
                                 <div class="td-column">
@@ -176,8 +176,8 @@
                                 <span class="td-column">GBR 3</span>
                                 <span class="td-column">10:30AM</span>
                                 <span class="td-column">
-                                    <div class="status-late-badge">
-                                        <span class="title-badge">Terlambat</span>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
                                     </div>
                                 </span>
                                 <div class="td-column">
@@ -190,8 +190,8 @@
                                 <span class="td-column">GBR 3</span>
                                 <span class="td-column">07:30AM</span>
                                 <span class="td-column">
-                                    <div class="status-ontime-badge">
-                                        <span class="title-badge">Tepat Waktu</span>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Tepat Waktu</span>
                                     </div>
                                 </span>
                                 <div class="td-column">
@@ -204,8 +204,8 @@
                                 <span class="td-column">GBR 3</span>
                                 <span class="td-column">11:30AM</span>
                                 <span class="td-column">
-                                    <div class="status-late-badge">
-                                        <span class="title-badge">Terlambat</span>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
                                     </div>
                                 </span>
                                 <div class="td-column">
@@ -257,5 +257,6 @@
 </body>
 <script src="{{asset('assets/js/modals.js')}}"></script>
 <script src="{{asset('assets/js/dropdown.js')}}"></script>
+<script src="{{asset('assets/js/statusBadge.js')}}"></script>
 
 </html>
