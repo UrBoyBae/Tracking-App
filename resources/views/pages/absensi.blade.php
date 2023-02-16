@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{asset('assets/images/v-tax-logo.png')}}" rel="shortcut icon">
-
     <title>Attendance | Admin</title>
     <!-- My CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/absensiStyle.css')}}">
@@ -96,9 +95,39 @@
                         <span>Selasa, 14 Februari 2023</span>
                     </div>
                     <!-- Button Filter -->
-                    <div class="btn" id="modal" onclick="">
-                        <span>Sort By</span>
-                        <i class="uil uil-sliders-v-alt"></i>
+                    <div class="sort-by">
+                        <div class="btn" id="toggle-filter">
+                            <span>Sort By</span>
+                            <i class="uil uil-sliders-v-alt"></i>
+                        </div>
+                        <!-- Dropdown Sort By -->
+                        <div class="dropdown-sortby">
+                            <span class="title-sortby">Cari Data Berdasarkan :</span>
+                            <!-- Form Sort By -->
+                            <form action="">
+                                <div class="form-sortby">
+                                    <div class="sort-input">
+                                        <div class="input-group">
+                                            <label for="">Dari Tanggal</label>
+                                            <input type="date" name="firstDate" id="firstDate">
+                                        </div>
+                                        <span>-</span>
+                                        <div class="input-group">
+                                            <label for="">Sampai Tanggal</label>
+                                            <input type="date" name="secondDate" id="secondDate">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="">UID Karyawan</label>
+                                        <input type="text" name="uidkaryawan" id="uidkaryawan" placeholder="Masukkan UID">
+                                    </div>
+                                </div>
+                                <button type="submit" name="search" class="sortby-search">
+                                    <i class="uil uil-search-alt"></i>
+                                    Search
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="data-view">
@@ -227,5 +256,6 @@
     </div>
 </body>
 <script src="{{asset('assets/js/modals.js')}}"></script>
+<script src="{{asset('assets/js/dropdown.js')}}"></script>
 
 </html>

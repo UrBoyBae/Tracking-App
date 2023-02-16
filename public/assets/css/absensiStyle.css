@@ -10,9 +10,10 @@ body {
 :root {
   /* ==== Colors ==== */
   --primaryColor: #00296b;
+  --dropdownColor: #fafafa;
   --bgColor: #e9ecef;
   --bg-row : #FCFCFC;
-  --panelColor: #fff;
+  --defaultColor: #fff;
   --textColor: #000;
   --blackLight: #707070;
   --borderColor: #e6e5e5;
@@ -29,6 +30,8 @@ body {
   --late-color-badge: #AC1616;
   --view-bg: #FAFDD4;
   --view-color: #AC9D16;
+  --sortby-bg: rgba(0, 163, 255, 0.1);
+  --sortby-color: #00A3FF;
 
   /* ==== Transition ==== */
   --transition-5: all 0.5s ease;
@@ -63,7 +66,7 @@ nav {
   height: 89vh;
   width: 300px;
   padding: 30px 25px;
-  background-color: var(--panelColor);
+  background-color: var(--defaultColor);
   border: 2px solid var(--borderColor);
   border-radius: 30px;
   -webkit-border-radius: 30px;
@@ -170,7 +173,7 @@ nav .nav-menu ul li a:hover .link-name {
 
 /* ==== Content ==== */
 .content-view {
-  background-color: var(--panelColor);
+  background-color: var(--defaultColor);
   padding: 30px;
   width: 1030px;
   height: 89vh;
@@ -253,7 +256,7 @@ nav .nav-menu ul li a:hover .link-name {
 .content-center .addData {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     padding: 0 20px;
 }
@@ -344,10 +347,47 @@ form .search-form {
   color: var(--titleIcon);
 }
 
+.sort-by {
+  position: relative;
+  display: flex;
+  justify-content: end;
+}
+
+.sort-by.active-dropdown .btn::before {
+  top: 13px;
+  transform: rotate(137deg);
+  -webkit-transform: rotate(137deg);
+  -moz-transform: rotate(137deg);
+  -ms-transform: rotate(137deg);
+  -o-transform: rotate(137deg);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 7.5px;
+  right: 16px;
+  height: 7px;
+  width: 8px;
+  border: 2px solid var(--defaultColor);
+  border-left: 2px solid var(--primaryColor);
+  border-bottom: 2px solid var(--primaryColor);
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transition: var(--transition-3);
+  -webkit-transition: var(--transition-3);
+  -moz-transition: var(--transition-3);
+  -ms-transition: var(--transition-3);
+  -o-transition: var(--transition-3);
+}
+
 .btn {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     border: 2px solid var(--primaryColor) ;
     padding: 0 3px 0 10px;
     border-radius: 7px;
@@ -363,11 +403,101 @@ form .search-form {
     color: var(--primaryColor);
     cursor: pointer;
     gap: 4px;
+    width: 120px;
 }
 
-.btn:hover {
-    background-color: var(--primaryColor);
-    color: var(--panelColor);
+.sort-by .dropdown-sortby {
+  position: absolute;
+  width: 320px;
+  margin-top: 40px;
+  padding: 18px 18px 25px;
+  color: var(--textColor);
+  background-color: var(--dropdownColor);
+  border: 1px solid var(--dropdownColor);
+  box-shadow: 0px 1px 5px rgb(171, 171, 171);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  visibility: hidden;
+}
+
+.sort-by.active-dropdown .dropdown-sortby {
+  visibility: visible;
+}
+
+.dropdown-sortby .title-sortby {
+  border-bottom: 1px solid var(--TableBorderColor);
+  padding-bottom: 5px;
+}
+
+.form-sortby {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.input-group label {
+  font-size: 13px;
+}
+
+.input-group input[type='text'] {
+  width: 170px;
+  margin-top: 3px;
+  padding: 2px 10px;
+  background-color: var(--dropdownColor);
+  border: 1px solid var(--TableBorderColor);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.sort-input {
+  display: flex;
+  align-items: flex-end;
+  gap: 7px;
+  margin-top: 2px;
+}
+
+.input-group input[type='date'] {
+  margin-top: 3px;
+  padding: 2px 5px;
+  background-color: var(--dropdownColor);
+  border: 1px solid var(--TableBorderColor);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+.sortby-search {
+  margin-top: 30px;
+  padding: 5px 12px;
+  color: var(--sortby-color);
+  background: var(--dropdownColor);
+  border: 1px solid var(--sortby-color);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  cursor: pointer;
+}
+
+.sortby-search:hover {
+  background-color: var(--sortby-color);
+  color: var(--dropdownColor);
 }
   
 .addData .btn i {
@@ -549,16 +679,16 @@ form .search-form {
   font-weight: 600;
   color: var(--close-modal);
   cursor: pointer;
-  transition: var(--transition-3);
+  /* transition: var(--transition-3);
   -webkit-transition: var(--transition-3);
   -moz-transition: var(--transition-3);
   -ms-transition: var(--transition-3);
-  -o-transition: var(--transition-3);
+  -o-transition: var(--transition-3); */
 }
 
 .modal .modal-title .modal-close:hover {
   background-color: var(--close-modal);
-  color: var(--panelColor);
+  color: var(--defaultColor);
 }
 
 
@@ -621,19 +751,19 @@ form .search-form {
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
   width: 100%;
-  color: var(--panelColor);
+  color: var(--defaultColor);
   font-weight: 500;
   margin-top: 12px;
   cursor: pointer;
-  transition: var(--transition-3);
+  /* transition: var(--transition-3);
   -webkit-transition: var(--transition-3);
   -moz-transition: var(--transition-3);
   -ms-transition: var(--transition-3);
-  -o-transition: var(--transition-3);
+  -o-transition: var(--transition-3); */
 }
 
 .modal-form .btn-add:hover {
-  background-color: var(--panelColor);
+  background-color: var(--defaultColor);
   border: 1px solid var(--submit-modal);
   color: var(--submit-modal);
 }
@@ -648,19 +778,19 @@ form .search-form {
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
   width: 100%;
-  color: var(--panelColor);
+  color: var(--defaultColor);
   font-weight: 500;
   margin-top: 12px;
   cursor: pointer;
-  transition: var(--transition-3);
+  /* transition: var(--transition-3);
   -webkit-transition: var(--transition-3);
   -moz-transition: var(--transition-3);
   -ms-transition: var(--transition-3);
-  -o-transition: var(--transition-3);
+  -o-transition: var(--transition-3); */
 }
 
 .modal-form .btn-update:hover {
-  background-color: var(--panelColor);
+  background-color: var(--defaultColor);
   border: 1px solid var(--update-modal);
   color: var(--update-modal);
 }
@@ -675,19 +805,19 @@ form .search-form {
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
   width: 100%;
-  color: var(--panelColor);
+  color: var(--defaultColor);
   font-weight: 500;
   margin-top: 12px;
   cursor: pointer;
-  transition: var(--transition-3);
+  /* transition: var(--transition-3);
   -webkit-transition: var(--transition-3);
   -moz-transition: var(--transition-3);
   -ms-transition: var(--transition-3);
-  -o-transition: var(--transition-3);
+  -o-transition: var(--transition-3); */
 }
 
 .modal-form .btn-delete:hover {
-  background-color: var(--panelColor);
+  background-color: var(--defaultColor);
   border: 1px solid var(--close-modal);
   color: var(--close-modal);
 }
