@@ -60,7 +60,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="{{ route('logout') }}">
                             <i class="uil uil-signout"></i>
                             <span class="link-name">Log Out</span>
                         </a>

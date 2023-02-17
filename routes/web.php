@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 
@@ -19,6 +20,8 @@ use App\Http\Controllers\PageController;
 // });
 
 Route::get('/', [PageController::class, 'login']);
-Route::get('/pages/dashboard', [PageController::class, 'dashboard']);
+Route::post('/login', [LoginController::class, 'loginaksi'])->name('login');
+Route::get('/logout', [LoginController::class, 'logoutaksi'])->name('logout');
+Route::get('/pages/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 Route::get('/pages/karyawan', [PageController::class, 'indexKaryawan']);
 Route::get('/pages/absensi', [PageController::class, 'dataAbsensi']);
