@@ -273,6 +273,7 @@
                             <i class="uil uil-map-pin"></i>
                             <input type="text" placeholder="Gambar">
                         </div>
+                        <img src="https://trackingimage.000webhostapp.com/images/16-02-2023-002-Gifari.jpeg" width="120px">
                         <button type="submit" class="btn-add">Submit</button>
                     </form>
                 </div>
