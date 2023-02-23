@@ -15,6 +15,7 @@ class LoginController extends Controller
         {
             return redirect('home');
         }
+        
         else
         {
             return view('login');
@@ -31,8 +32,9 @@ class LoginController extends Controller
         if (Auth::Attempt($data)) 
         {
             $request->session()->regenerate();
-            return redirect('/pages/dashboard');
+            return redirect('/dashboard');
         }
+
         else
         {
             return back()->with('loginError', 'Username or password doesnt match');
@@ -44,6 +46,7 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+
         return redirect('/');
     }
 }

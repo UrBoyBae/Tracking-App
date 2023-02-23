@@ -38,19 +38,19 @@
             <div class="nav-menu">
                 <ul class="nav-link">
                     <li>
-                        <a href="/pages/dashboard" class="selected-link">
+                        <a href="{{route('dashboard')}}" class="selected-link">
                             <i class="uil uil-estate selected-link"></i>
                             <span class="link-name selected-link">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/pages/karyawan">
+                        <a href="{{route('karyawan')}}">
                             <i class="uil uil-users-alt"></i>
                             <span class="link-name">Data Karyawan</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/pages/absensi">
+                        <a href="{{route('absensi')}}">
                             <i class="uil uil-file-info-alt"></i>
                             <span class="link-name">Data Absensi</span>
                         </a>
@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="{{route('logout')}}">
                             <i class="uil uil-signout"></i>
                             <span class="link-name">Log Out</span>
                         </a>
@@ -76,7 +76,7 @@
         <div class="content-view">
             <div class="content-top">
                 <div class="left-content">
-                    <a href="/pages/dashboard">
+                    <a href="{{route('dashboard')}}">
                         <i class="uil uil-estate"></i>
                     </a>
                     <span class="link-name">Dashboard</span>
@@ -91,17 +91,17 @@
                 <div class="card-view">
                     <div class="card-content">
                         <i class="uil uil-users-alt"></i>
-                        <span class="count">200</span>
+                        <span class="count">{{$kar}}</span>
                         <span class="title-card">Jumlah Karyawan</span>
                     </div>
                     <div class="card-content">
                         <i class="uil uil-file-info-alt"></i>
-                        <span class="count">10</span>
+                        <span class="count">{{$abs}}</span>
                         <span class="title-card">Absensi</span>
                     </div>
                     <div class="card-content">
                         <i class="uil uil-schedule"></i>
-                        <span class="count">3</span>
+                        <span class="count">{{$cuti}}</span>
                         <span class="title-card">Permohonan Cuti</span>
                     </div>
                 </div>

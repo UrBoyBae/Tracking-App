@@ -21,7 +21,12 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, 'login']);
 Route::post('/login', [LoginController::class, 'loginaksi'])->name('login');
+Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+Route::get('/karyawan', [PageController::class, 'indexKaryawan'])->name('karyawan');
+Route::get('/absensi', [PageController::class, 'dataAbsensi'])->name('absensi');
+Route::get('/absensi/filter',[PageController::class, 'filter'])->name('search');
+Route::get('/karyawan/cari', [PageController::class, 'cari'])->name('cari');
+Route::post('/karyawan/tambah', [PageController::class, 'createkar'])->name('tambah');
+Route::get('/edit/{id_karyawan}', [PageController::class,'update'])->name('edit');
+Route::get('/delete/{id_karyawan}', [PageController::class, 'destroy'])->name('deleteRoute');
 Route::get('/logout', [LoginController::class, 'logoutaksi'])->name('logout');
-Route::get('/pages/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
-Route::get('/pages/karyawan', [PageController::class, 'indexKaryawan']);
-Route::get('/pages/absensi', [PageController::class, 'dataAbsensi']);

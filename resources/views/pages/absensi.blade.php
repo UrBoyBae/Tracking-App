@@ -35,19 +35,19 @@
             <div class="nav-menu">
                 <ul class="nav-link">
                     <li>
-                        <a href="/pages/dashboard">
+                        <a href="{{route('dashboard')}}">
                             <i class="uil uil-estate"></i>
                             <span class="link-name">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/pages/karyawan">
+                        <a href="{{route('karyawan')}}">
                             <i class="uil uil-users-alt"></i>
                             <span class="link-name">Data Karyawan</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/pages/absensi" class="selected-link">
+                        <a href="{{route('absensi')}}" class="selected-link">
                             <i class="uil uil-file-info-alt selected-link"></i>
                             <span class="link-name selected-link">Data Absensi</span>
                         </a>
@@ -59,7 +59,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="{{route('logout')}}">
                             <i class="uil uil-signout"></i>
                             <span class="link-name">Log Out</span>
                         </a>
@@ -74,7 +74,7 @@
             <!-- Dashboard Top -->
             <div class="content-top">
                 <div class="left-content">
-                    <a href="/pages/dashboard">
+                    <a href="{{route('dashboard')}}">
                         <i class="uil uil-estate"></i>
                     </a>
                     <h2>></h2>
@@ -92,7 +92,7 @@
                     <!-- Date Time -->
                     <div class="date-time">
                         <i class="uil uil-calendar-alt"></i>
-                        <span>Selasa, 14 Februari 2023</span>
+                        <span>{{ $day }}, {{ $tanggal }}</span>
                     </div>
                     <!-- Button Filter -->
                     <div class="sort-by">
@@ -104,17 +104,17 @@
                         <div class="dropdown-sortby">
                             <span class="title-sortby">Cari Data Berdasarkan :</span>
                             <!-- Form Sort By -->
-                            <form action="">
+                                <form action="/pages/absensi/filter" method="get">
                                 <div class="form-sortby">
                                     <div class="sort-input">
                                         <div class="input-group">
                                             <label for="">Dari Tanggal</label>
-                                            <input type="date" name="firstDate" id="firstDate">
+                                            <input type="date" name="firstDate" id="firstDate" value="">
                                         </div>
                                         <span>-</span>
                                         <div class="input-group">
                                             <label for="">Sampai Tanggal</label>
-                                            <input type="date" name="secondDate" id="secondDate">
+                                            <input type="date" name="secondDate" id="secondDate" value="">
                                         </div>
                                     </div>
                                     <div class="input-group">
@@ -137,75 +137,20 @@
                             <span class="th-column">UID</span>
                             <span class="th-column">Nama</span>
                             <!-- <span class="th-column">Alamat</span> -->
-                            <span class="th-column">Jam Masuk</span>
+                            <span class="th-column">Tanggal Absen</span>
                             <span class="th-column">Status</span>
                             <span class="th-column">Action</span>
                         </div>
+                        @foreach ($absen as $index=>$abs)
                         <div class="table-body">
                             <div class="tbody-row">
-                                <span class="td-column">20981BA001</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
+                                <span class="td-column">{{ $abs->id_karyawan}}</span>
+                                <span class="td-column">{{ $abs->nama}}</span>
                                 <!-- <span class="td-column">Jl. Sukasenang II No.3</span> -->
-                                <span class="td-column">07:30AM</span>
+                                <span class="td-column">{{ $abs->jam_masuk}}</span>
                                 <span class="td-column">
                                     <div id="status-badge">
-                                        <span id="title-badge" class="title-badge">Tepat Waktu</span>
-                                    </div>
-                                </span>
-                                <div class="td-column">
-                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA001</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <!-- <span class="td-column">Asrama Pussenif</span> -->
-                                <span class="td-column">07:30AM</span>
-                                <span class="td-column">
-                                    <div id="status-badge">
-                                        <span id="title-badge" class="title-badge">Tepat Waktu</span>
-                                    </div>
-                                </span>
-                                <div class="td-column">
-                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA001</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <!-- <span class="td-column">GBR 3</span> -->
-                                <span class="td-column">10:30AM</span>
-                                <span class="td-column">
-                                    <div id="status-badge">
-                                        <span id="title-badge" class="title-badge">Terlambat</span>
-                                    </div>
-                                </span>
-                                <div class="td-column">
-                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA001</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <!-- <span class="td-column">GBR 3</span> -->
-                                <span class="td-column">07:30AM</span>
-                                <span class="td-column">
-                                    <div id="status-badge">
-                                        <span id="title-badge" class="title-badge">Tepat Waktu</span>
-                                    </div>
-                                </span>
-                                <div class="td-column">
-                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA001</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <!-- <span class="td-column">GBR 3</span> -->
-                                <span class="td-column">11:30AM</span>
-                                <span class="td-column">
-                                    <div id="status-badge">
-                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                        <span id="title-badge" class="title-badge">{{ $abs->status }}</span>
                                     </div>
                                 </span>
                                 <div class="td-column">
@@ -213,8 +158,10 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                     <div class="pagination">
+                        {{ $absen->links()}}
                     </div>
                 </div>
                 <!-- <span class="footer">Made With <i class="uil uil-heart" style="color: red;"></i> &copy; 2023</span> -->
