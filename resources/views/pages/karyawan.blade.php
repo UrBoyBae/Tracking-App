@@ -36,19 +36,19 @@
             <div class="nav-menu">
                 <ul class="nav-link">
                     <li>
-                        <a href="/pages/dashboard">
+                        <a href="{{route('dashboard')}}">
                             <i class="uil uil-estate"></i>
                             <span class="link-name">Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/pages/karyawan" class="selected-link">
+                        <a href="{{route('karyawan')}}" class="selected-link">
                             <i class="uil uil-users-alt selected-link"></i>
                             <span class="link-name selected-link">Data Karyawan</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/pages/absensi">
+                        <a href="{{route('absensi')}}">
                             <i class="uil uil-file-info-alt"></i>
                             <span class="link-name">Data Absensi</span>
                         </a>
@@ -60,7 +60,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/">
+                        <a href="{{ route('logout') }}">
                             <i class="uil uil-signout"></i>
                             <span class="link-name">Log Out</span>
                         </a>
@@ -75,7 +75,7 @@
             <!-- Dashboard Top -->
             <div class="content-top">
                 <div class="left-content">
-                    <a href="/pages/dashboard">
+                    <a href="{{route('dashboard')}}">
                         <i class="uil uil-estate"></i>
                     </a>
                     <h2>></h2>
@@ -91,11 +91,11 @@
             <div class="content-center">
                 <div class="addData">
                     <!-- Search Form -->
-                    <form action="">
+                    <form action="{{ route('cari') }}" method="GET">
                         <div class="search-form">
                             <select name="filter" id="filter">
                                 <option value="" selected disabled>Search By</option>
-                                <option value="uid">UID</option>
+                                <option value="id_karyawan">UID</option>
                                 <option value="nama">Nama</option>
                             </select>
                             <div class="search">
@@ -112,6 +112,8 @@
                         <span>Tambah Karyawan</span>
                     </div>
                 </div>
+                
+                
                 <div class="data-view">
                     <!-- Table -->
                     <div class="table">
@@ -124,106 +126,94 @@
                             <span class="th-column">No.Hp</span>
                             <span class="th-column">Action</span>
                         </div>
+                        @foreach ($karyawan as $index=>$kyw)
                         <div class="table-body">
                             <div class="tbody-row">
-                                <span class="td-column">20981BA001</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">09876527</span>
-                                <span class="td-column">GBR 3</span>
-                                <span class="td-column">Laki Laki</span>
-                                <span class="td-column">0987652121</span>
+                                <span class="td-column">{{ $kyw->id_karyawan }}</span>
+                                <span class="td-column">{{ $kyw->nama}}</span>
+                                <span class="td-column">{{ $kyw->password}}</span>
+                                <span class="td-column">{{ Str::limit($kyw->alamat, 30) }}</span>
+                                <span class="td-column">{{ $kyw->jk}}</span>
+                                <span class="td-column">{{ $kyw->hp}}</span>
                                 <div class="td-column">
-                                    <a id="modal-update-trigger" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a id="modal-delete-trigger" onclick="modalDeleteUp()"><i class="uil uil-trash-alt" style="color: red;"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA002</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">09876527</span>
-                                <span class="td-column">GBR 3</span>
-                                <span class="td-column">Laki Laki</span>
-                                <span class="td-column">0987652121</span>
-                                <div class="td-column">
-                                    <a id="modal-update-trigger" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a id="modal-delete-trigger" onclick="modalDeleteUp()"><i class="uil uil-trash-alt" style="color: red;"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA003</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">09876527</span>
-                                <span class="td-column">GBR 3</span>
-                                <span class="td-column">Laki Laki</span>
-                                <span class="td-column">0987652121</span>
-                                <div class="td-column">
-                                    <a id="modal-update-trigger" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a id="modal-delete-trigger" onclick="modalDeleteUp()"><i class="uil uil-trash-alt" style="color: red;"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA004</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">09876527</span>
-                                <span class="td-column">GBR 3</span>
-                                <span class="td-column">Laki Laki</span>
-                                <span class="td-column">0987652121</span>
-                                <div class="td-column">
-                                    <a id="modal-update-trigger" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a id="modal-delete-trigger" onclick="modalDeleteUp()"><i class="uil uil-trash-alt" style="color: red;"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA005</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">09876527</span>
-                                <span class="td-column">GBR 3</span>
-                                <span class="td-column">Laki Laki</span>
-                                <span class="td-column">0987652121</span>
-                                <div class="td-column">
-                                    <a id="modal-update-trigger" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a id="modal-delete-trigger" onclick="modalDeleteUp()"><i class="uil uil-trash-alt" style="color: red;"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA006</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">09876527</span>
-                                <span class="td-column">GBR 3</span>
-                                <span class="td-column">Laki Laki</span>
-                                <span class="td-column">0987652121</span>
-                                <div class="td-column">
-                                    <a id="modal-update-trigger" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a id="modal-delete-trigger" onclick="modalDeleteUp()"><i class="uil uil-trash-alt" style="color: red;"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA007</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">09876527</span>
-                                <span class="td-column">GBR 3</span>
-                                <span class="td-column">Laki Laki</span>
-                                <span class="td-column">0987652121</span>
-                                <div class="td-column">
-                                    <a id="modal-update-trigger" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a id="modal-delete-trigger" onclick="modalDeleteUp()"><i class="uil uil-trash-alt" style="color: red;"></i></a>
-                                </div>
-                            </div>
-                            <div class="tbody-row">
-                                <span class="td-column">20981BA008</span>
-                                <span class="td-column">Ali Akbar Abdillah</span>
-                                <span class="td-column">09876527</span>
-                                <span class="td-column">GBR 3</span>
-                                <span class="td-column">Laki Laki</span>
-                                <span class="td-column">0987652121</span>
-                                <div class="td-column">
-                                    <a id="modal-update-trigger" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a id="modal-delete-trigger" onclick="modalDeleteUp()"><i class="uil uil-trash-alt" style="color: red;"></i></a>
+                                <!-- <a id="modal-update-trigger" data-toggle="modal" data-target="#modal-update" data-id="{{ $kyw->id_karyawan }}" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a value="{{$kyw->id_karyawan}}" id="modal-delete-trigger" onclick="modalDeleteUp()"><i class="uil uil-trash-alt" style="color: red;"></i></a> -->
+                                <a id="modal-update-trigger" data-toggle="modal" data-target="#modal-update" data-id="{{ $kyw->id_karyawan }}" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a value="{{$kyw->id_karyawan}}" href="{{route ('deleteRoute', $kyw->id_karyawan)}}"><i class="uil uil-trash-alt" style="color: red;"></i></a>
+                                <!-- <a id="modal-update-trigger" data-toggle="modal" data-target="#modal-update" data-id="{{ $kyw->id_karyawan }}" onclick="modalUpdateUp()"><i class="uil uil-edit" style="margin-right: 7px; color: green;"></i></a><a value="{{$kyw->id_karyawan}}" id="modal-delete-trigger" onclick="modalDeleteUp()"><i class="uil uil-trash-alt" style="color: red;"></i></a> -->
                                 </div>
                             </div>
                         </div>
+                        <!-- Modal update -->
+                        <div class="modal-bg" id="modal-update">
+                            <div class="modal">
+                                <div class="modal-title">
+                                    <span>Update Karyawan</span>
+                                    <div class="modal-close" id="modal-update-close" onclick="closeModalUpdate()">X</div>
+                                </div>
+                                <!-- Modal Form -->
+                                <div class="modal-form">
+                                    <form action="{{route('edit', $kyw->id_karyawan)}}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="input-form input-disable">
+                                            <input type="text" name="UID" placeholder="ID Karyawan" value="{{ $kyw->id_karyawan }}" readonly>
+                                        </div>
+                                        <div class="input-form">
+                                            <i class="uil uil-user"></i>
+                                            <input type="text" name="nama" placeholder="Nama Karyawan" value="{{ $kyw->nama}}">
+                                        </div>
+                                        <div class="input-form">
+                                            <i class="uil uil-lock"></i>
+                                            <input type="text" name="password" placeholder="Password" value="{{ $kyw->password}}">
+                                        </div>
+                                        <div class="input-form">
+                                            <i class="uil uil-map-pin"></i>
+                                            <input type="text" name="alamat" placeholder="Alamat" value="{{ $kyw->alamat}}">
+                                        </div>
+                                        <div class="input-form">
+                                            <i class="uil uil-mars"></i>
+                                            <input type="text" name="jk" placeholder="Jenis Kelamin" value="{{ $kyw->jk}}">
+                                        </div>
+                                        <div class="input-form">
+                                            <i class="uil uil-phone"></i>
+                                            <input type="text" name="hp" placeholder="No.Hp" value="{{ $kyw->hp}}">
+                                        </div>
+                                        <button type="submit" class="btn-update">Update Data</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal Delete -->
+                        <div class="modal-bg" id="modal-delete">
+                            <div class="modal modal-delete">
+                                <div class="modal-title">
+                                    <span>Delete Karyawan ?</span>
+                                    <div class="modal-close" id="modal-delete-close" onclick="closeModalDelete()">X</div>
+                                </div>
+                                <!-- Modal Form -->
+                                <div class="modal-form">
+                                    <form action="{{route ('deleteRoute', ['id_karyawan' => $kyw->id_karyawan])}}" method="post">    
+                                    @csrf
+                                        <div class="delete-confirm">
+                                            <input type="hidden" value="{{$kyw->id_karyawan}}" name="value">
+                                            <span>Apakah Anda Yakin Ingin Menghapus Data <b>"{{$kyw->nama}}"</b> Ini ?</span>
+                                        </div>
+                                        <button type="submit" class="btn-delete">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
                     <div class="pagination">
+                       {{ $karyawan->links() }} 
                     </div>
                 </div>
+
                 <!-- <span class="footer">Made With <i class="uil uil-heart" style="color: red;"></i> &copy; 2023</span> -->
             </div>
 
         </div>
         <!-- Content -->
-
         <!-- Modal Add -->
         <div class="modal-bg" id="modal-create">
             <div class="modal">
@@ -233,89 +223,32 @@
                 </div>
                 <!-- Modal Form -->
                 <div class="modal-form">
-                    <form action="">
+                    <form action="{{route('tambah')}}" method="POST">
+                        @csrf
                         <div class="input-form input-disable">
-                            <input type="text" placeholder="ID Karyawan" value="20981BA009" disabled>
+                            <input type="text" name="UID" placeholder="ID Karyawan" value="{{ $new_id }}" readonly>
                         </div>
                         <div class="input-form">
                             <i class="uil uil-user"></i>
-                            <input type="text" placeholder="Nama Karyawan">
+                            <input type="text" name="nama" placeholder="Nama Karyawan">
                         </div>
                         <div class="input-form">
                             <i class="uil uil-lock"></i>
-                            <input type="text" placeholder="Password">
+                            <input type="text" name="password" placeholder="Password">
                         </div>
                         <div class="input-form">
                             <i class="uil uil-map-pin"></i>
-                            <input type="text" placeholder="Alamat">
+                            <input type="text" name="alamat" placeholder="Alamat">
                         </div>
                         <div class="input-form">
                             <i class="uil uil-mars"></i>
-                            <input type="text" placeholder="Jenis Kelamin">
+                            <input type="text" name="jk" placeholder="Jenis Kelamin">
                         </div>
                         <div class="input-form">
                             <i class="uil uil-phone"></i>
-                            <input type="text" placeholder="No.Hp">
+                            <input type="text" name="hp" placeholder="No.Hp">
                         </div>
                         <button type="submit" class="btn-add">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal update -->
-        <div class="modal-bg" id="modal-update">
-            <div class="modal">
-                <div class="modal-title">
-                    <span>Update Karyawan</span>
-                    <div class="modal-close" id="modal-update-close" onclick="closeModalUpdate()">X</div>
-                </div>
-                <!-- Modal Form -->
-                <div class="modal-form">
-                    <form action="">
-                        <div class="input-form input-disable">
-                            <input type="text" placeholder="ID Karyawan" value="20981BA009" disabled>
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-user"></i>
-                            <input type="text" placeholder="Nama Karyawan">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-lock"></i>
-                            <input type="text" placeholder="Password">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-map-pin"></i>
-                            <input type="text" placeholder="Alamat">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-mars"></i>
-                            <input type="text" placeholder="Jenis Kelamin">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-phone"></i>
-                            <input type="text" placeholder="No.Hp">
-                        </div>
-                        <button type="submit" class="btn-update">Update Data</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Delete -->
-        <div class="modal-bg" id="modal-delete">
-            <div class="modal modal-delete">
-                <div class="modal-title">
-                    <span>Delete Karyawan ?</span>
-                    <div class="modal-close" id="modal-delete-close" onclick="closeModalDelete()">X</div>
-                </div>
-                <!-- Modal Form -->
-                <div class="modal-form">
-                    <form action="">
-                        <div class="delete-confirm">
-                            <span>Apakah Anda Yakin Ingin Menghapus Data <b>"Ali Akbar Abdillah"</b> Ini ?</span>
-                        </div>
-                        <button type="submit" class="btn-delete">Delete</button>
                     </form>
                 </div>
             </div>

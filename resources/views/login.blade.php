@@ -27,7 +27,8 @@
                 <p id="text">remember to enter your username and password right</p>
             </div>
             <!-- Form Login -->
-            <!-- <form action=""> -->
+            <form action="{{ route('login') }}" method="post">
+                @csrf
                 <div class="form-input">
                     <div class="input-group">
                         <i class="uil uil-user"></i>
@@ -37,9 +38,14 @@
                         <i class="uil uil-padlock"></i>
                         <input type="password" name="password" placeholder="Password" id="password">
                     </div>
+                    @if(session()->has('loginError'))
+                        <small style="color:red;">
+                            {{ session('loginError')}}
+                        </small>
+                    @endif
                 </div>
                 <a href="/pages/dashboard"><button class="btn-login" name="login">Log In</button></a>
-            <!-- </form> -->
+            </form>
             <img src="{{asset('assets/images/v-tax.png')}}" width="70px">
         </div>
     </div>

@@ -8,6 +8,8 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Arr;
 use InvalidArgumentException;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 abstract class Seeder
 {
@@ -174,6 +176,7 @@ abstract class Seeder
      *
      * @throws \InvalidArgumentException
      */
+    
     public function __invoke(array $parameters = [])
     {
         if (! method_exists($this, 'run')) {
