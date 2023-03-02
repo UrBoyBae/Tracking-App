@@ -35,7 +35,7 @@
                 ->paginate(5);
             
             // mengirim data karyawan ke view karyawan
-            return view('pages/karyawan', ['karyawan' => $karyawan, 'new_id' => $new_id, 'pag' => KaryawanModel::paginate(5)]);
+            return view('pages/karyawan', ['karyawan' => $karyawan, 'new_id' => $new_id, 'page' => KaryawanModel::paginate(5)]);
         }
 
         public function createkar(Request $request)

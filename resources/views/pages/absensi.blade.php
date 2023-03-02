@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{asset('assets/images/v-tax-logo.png')}}" rel="shortcut icon">
-    <title>Testing</title>
+    <title>Attendance | Adminx</title>
+    <!-- DataTable CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bulma.min.css">
     <!-- My CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/absensiStyle.css')}}">
     <!-- Google Font -->
@@ -23,7 +26,7 @@
 
     <div class="main-content">
         <!-- SideBar -->
-        <nav>
+        <nav class="sidebar">
             <!-- Title -->
             <div class="logo">
                 <div class="logo-image">
@@ -81,7 +84,7 @@
                     <span class="link-name">Data Absensi</span>
                 </div>
                 <div class="right-content">
-                    <div class="notification"></div>
+                    <div class="notif"></div>
                     <i class="uil uil-bell"></i>
                     <img src="{{asset('assets/images/account.png')}}" alt="">
                 </div>
@@ -104,7 +107,7 @@
                         <div class="dropdown-sortby">
                             <span class="title-sortby">Cari Data Berdasarkan :</span>
                             <!-- Form Sort By -->
-                                <form action="/pages/absensi/filter" method="get">
+                            <form action="/pages/absensi/filter" method="get">
                                 <div class="form-sortby">
                                     <div class="sort-input">
                                         <div class="input-group">
@@ -130,40 +133,321 @@
                         </div>
                     </div>
                 </div>
-                <div class="data-view">
+
+                <div class="table-container">
                     <!-- Table -->
-                    <div class="table">
-                        <div class="table-head">
-                            <span class="th-column">UID</span>
-                            <span class="th-column">Nama</span>
-                            <!-- <span class="th-column">Alamat</span> -->
-                            <span class="th-column">Tanggal Absen</span>
-                            <span class="th-column">Status</span>
-                            <span class="th-column">Action</span>
-                        </div>
-                        @foreach ($absen as $index=>$abs)
-                        <div class="table-body">
-                            <div class="tbody-row">
-                                <span class="td-column">{{ $abs->id_karyawan}}</span>
-                                <span class="td-column">{{ $abs->nama}}</span>
-                                <!-- <span class="td-column">Jl. Sukasenang II No.3</span> -->
-                                <span class="td-column">{{ $abs->jam_masuk}}</span>
-                                <span class="td-column">
+                    <table id="tableAbsensi" class="table is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>UID</th>
+                                <th>Nama</th>
+                                <th>Alamat</th>
+                                <th>Tanggal Absen</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody> 
+                            @foreach ($absen as $index=>$abs)
+                            <tr>
+                                <td>{{ $abs->id_karyawan}}</td>
+                                <td>{{ $abs->nama}}</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>{{ $abs->jam_masuk}}</td>
+                                <td>
                                     <div id="status-badge">
                                         <span id="title-badge" class="title-badge">{{ $abs->status }}</span>
                                     </div>
-                                </span>
-                                <div class="td-column">
+                                </td>
+                                <td>
                                     <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                    <div class="pagination">
-                        {{ $absen->links()}}
-                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>001</td>
+                                <td>Ali</td>
+                                <td>Jl. Sukasenang II No.3</td>
+                                <td>20:00</td>
+                                <td>
+                                    <div id="status-badge">
+                                        <span id="title-badge" class="title-badge">Terlambat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+
                 <!-- <span class="footer">Made With <i class="uil uil-heart" style="color: red;"></i> &copy; 2023</span> -->
             </div>
 
@@ -228,6 +512,12 @@
         </div>
     </div>
 </body>
+<!-- DataTable JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.3/js/dataTables.bulma.min.js"></script>
+<!-- Main JS -->
+<script src="{{asset('assets/js/mainAbsensi.js')}}"></script>
 <script src="{{asset('assets/js/modals.js')}}"></script>
 <script src="{{asset('assets/js/dropdown.js')}}"></script>
 <script src="{{asset('assets/js/statusBadge.js')}}"></script>
