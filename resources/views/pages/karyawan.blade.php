@@ -38,7 +38,7 @@
                     <li>
                         <a href="{{route('dashboard')}}">
                             <i class="uil uil-estate"></i>
-                            <span class="link-name">Dashboard</span>
+                            <span class="link-name">dashboard</span>
                         </a>
                     </li>
                     <li>
