@@ -76,7 +76,7 @@
             // $absen = AbsenModel::where('jam_masuk', '=', '2023-02-16');
             // $absen->paginate(5);
             $absen = DB::table('absen')
-                ->where('jam_masuk', 'like', '%'.$date.'%');
+                ->where('jam_masuk', 'like', '%'.$date.'%')->get();
                 // ->orderBy('id_karyawan', 'asc');
                 // ->paginate(5);
 
@@ -136,3 +136,4 @@
             return redirect()->route('karyawan')->with('success', 'Data berhasil diubah.');
         }
 }
+?>
