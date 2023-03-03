@@ -76,9 +76,9 @@
             // $absen = AbsenModel::where('jam_masuk', '=', '2023-02-16');
             // $absen->paginate(5);
             $absen = DB::table('absen')
-                ->where('jam_masuk', 'like', '%'.$date.'%')
-                ->orderBy('id_karyawan', 'asc')
-                ->paginate(5);
+                ->where('jam_masuk', 'like', '%'.$date.'%');
+                // ->orderBy('id_karyawan', 'asc');
+                // ->paginate(5);
 
             return view('pages/absensi', ['absen' => $absen, 'day' => $day, 'tanggal' => $tanggal]);
         }
