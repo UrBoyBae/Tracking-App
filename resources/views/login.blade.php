@@ -41,11 +41,11 @@
                     <form action="{{ route('login') }}" method="post">
                         @csrf
                         <div class="form-input">
-                            <div class="input-group">
+                            <div class="input-group" id="wrap-username">
                                 <i class="uil uil-user"></i>
                                 <input type="text" id="username" placeholder="Username" name="username" autocomplete="off" required>
                             </div>
-                            <div class="input-group">
+                            <div class="input-group" id="wrap-password">
                                 <i class="uil uil-padlock"></i>
                                 <input type="password" name="password" placeholder="Password" id="password" autocomplete="off" required>
                             </div>
@@ -63,5 +63,6 @@
         </div>
     </div>
 </body>
+<script src="{{asset('assets/js/mainLogin.js')}}"></script>
 
 </html>
