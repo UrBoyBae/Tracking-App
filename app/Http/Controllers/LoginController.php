@@ -37,7 +37,7 @@ class LoginController extends Controller
 
         else
         {
-            return back()->with('loginError', 'Username or password doesnt match');
+            return back()->with('loginError', 'Username or Password Doesnt Match');
         }
     }
 

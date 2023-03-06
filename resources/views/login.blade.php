@@ -21,34 +21,46 @@
     <div class="container" id="container">
         <!-- Card Login -->
         <div class="card-login">
-            <!-- Title Login -->
-            <div class="top">
-                <h1 class="title">Log In</h1>
-                <p id="text">remember to enter your username and password right</p>
+            <div class="image-content">
+                <img src="{{asset('assets/images/backdrop.jpg')}}">
+                <!-- images from https://unsplash.com/photos/u8Jn2rzYIps -->
+                <div class="blur-effect"></div>
             </div>
-            <!-- Form Login -->
-            <form action="{{ route('login') }}" method="post">
-                @csrf
-                <div class="form-input">
-                    <div class="input-group">
-                        <i class="uil uil-user"></i>
-                        <input type="text" id="username" placeholder="Username" name="username">
-                    </div>
-                    <div class="input-group">
-                        <i class="uil uil-padlock"></i>
-                        <input type="password" name="password" placeholder="Password" id="password">
-                    </div>
-                    @if(session()->has('loginError'))
-                        <small style="color:red;">
-                            {{ session('loginError')}}
-                        </small>
-                    @endif
+            <div class="login-form">
+                <!-- App Name -->
+                <div class="app-name">
+                    <span>V-Attendance</span>
                 </div>
-                <a href="/pages/dashboard"><button class="btn-login" name="login">Log In</button></a>
-            </form>
-            <img src="{{asset('assets/images/v-tax.png')}}" width="70px">
+                <div class="main-form">
+                    <!-- Title Login -->
+                    <div class="top">
+                        <span class="title">Log In</span>
+                        <p class="text">Don't forget to enter the appropriate username and password</p>
+                    </div>
+                    <!-- Form Login -->
+                    <form action="{{ route('login') }}" method="post">
+                        @csrf
+                        <div class="form-input">
+                            <div class="input-group">
+                                <i class="uil uil-user"></i>
+                                <input type="text" id="username" placeholder="Username" name="username" autocomplete="off" required>
+                            </div>
+                            <div class="input-group">
+                                <i class="uil uil-padlock"></i>
+                                <input type="password" name="password" placeholder="Password" id="password" autocomplete="off" required>
+                            </div>
+                            @if(session()->has('loginError'))
+                            <small class="error-message">
+                                *{{ session('loginError')}}
+                            </small>
+                            @endif
+                        </div>
+                        <button class="btn-login" name="login">Log In</button>
+                    </form>
+                </div>
+                <span class="footer">&copy; 2023 V-Attendance. All Rights Reserved</span>
+            </div>
         </div>
-    </div>
     </div>
 </body>
 

@@ -77,8 +77,6 @@
             // $absen->paginate(5);
             $absen = DB::table('absen')
                 ->where('jam_masuk', 'like', '%'.$date.'%')->get();
-                // ->orderBy('id_karyawan', 'asc');
-                // ->paginate(5);
 
             return view('pages/absensi', ['absen' => $absen, 'day' => $day, 'tanggal' => $tanggal]);
         }
