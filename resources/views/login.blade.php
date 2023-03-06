@@ -42,11 +42,11 @@
                         @csrf
                         <div class="form-input">
                             <div class="input-group" id="wrap-username">
-                                <i class="uil uil-user"></i>
+                                <i class="uil uil-user" id="user-icon"></i>
                                 <input type="text" id="username" placeholder="Username" name="username" autocomplete="off" required>
                             </div>
                             <div class="input-group" id="wrap-password">
-                                <i class="uil uil-padlock"></i>
+                                <i class="uil uil-padlock" id="pass-icon"></i>
                                 <input type="password" name="password" placeholder="Password" id="password" autocomplete="off" required>
                             </div>
                             @if(session()->has('loginError'))
