@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{asset('assets/images/v-tax-logo.png')}}" rel="shortcut icon">
-
     <title>Attendance Tracking | Admin</title>
     <!-- My CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/dashboardStyle.css')}}">
@@ -19,96 +18,63 @@
 </head>
 
 <body>
-    <div class="bg-color"></div>
-    <div class="main-content">
+    <div class="my-container">
         <!-- SideBar -->
-        <nav>
-            <!-- Title -->
-            <div class="logo">
-                <div class="logo-image">
-                    <img src="{{asset('assets/images/v-tax.png')}}" alt="">
-                </div>
-                <!-- <div class="logo-name">
-                <span class="title">Attendance</span>
-                <span class="title mt">Apps</span>
-            </div> -->
+        <div class="my-sidebar">
+            <!-- Brand -->
+            <div class="my-brand">
+                <img src="{{asset('assets/images/icon-app.png')}}" width="40px">
+                <span class="my-title">V-Attendance</span>
             </div>
-
-            <!-- Nav Links -->
-            <div class="nav-menu">
-                <ul class="nav-link">
+            <!-- Menu -->
+            <div class="my-sidebar-menu">
+                <ul class="my-sidebar-link">
                     <li>
-                        <a href="{{route('dashboard')}}" class="selected-link">
-                            <i class="uil uil-estate selected-link"></i>
-                            <span class="link-name selected-link">Dashboard</span>
+                        <a href="{{route('dashboard')}}" class="my-selected-link">
+                            <i class="uil uil-estate my-selected-link"></i>
+                            <span class="my-link-name my-selected-link">Dashboard</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{route('karyawan')}}">
                             <i class="uil uil-users-alt"></i>
-                            <span class="link-name">Data Karyawan</span>
+                            <span class="my-link-name">Data Karyawan</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{route('absensi')}}">
                             <i class="uil uil-file-info-alt"></i>
-                            <span class="link-name">Data Absensi</span>
+                            <span class="my-link-name">Data Absensi</span>
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <i class="uil uil-schedule"></i>
-                            <span class="link-name">Permohonan Cuti</span>
+                            <span class="my-link-name">Permohonan Cuti</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{route('logout')}}">
                             <i class="uil uil-signout"></i>
-                            <span class="link-name">Log Out</span>
+                            <span class="my-link-name">Log Out</span>
                         </a>
                     </li>
                 </ul>
             </div>
-        </nav>
-        <!-- SideBar -->
+        </div>
+        <!-- Akhir Sidebar -->
 
-        <!-- Content -->
-        <div class="content-view">
-            <div class="content-top">
-                <div class="left-content">
-                    <a href="{{route('dashboard')}}">
-                        <i class="uil uil-estate"></i>
-                    </a>
-                    <span class="link-name">Dashboard</span>
-                </div>
-                <div class="right-content">
-                    <div class="notification"></div>
-                    <i class="uil uil-bell"></i>
-                    <img src="{{asset('assets/images/account.png')}}" alt="">
-                </div>
+        <!-- Main Content -->
+        <div class="my-main-content">
+            <!-- Navbar -->
+            <div class="my-navbar">
+
             </div>
-            <div class="content-center">
-                <div class="card-view">
-                    <div class="card-content">
-                        <i class="uil uil-users-alt"></i>
-                        <span class="count">{{$kar}}</span>
-                        <span class="title-card">Jumlah Karyawan</span>
-                    </div>
-                    <div class="card-content">
-                        <i class="uil uil-file-info-alt"></i>
-                        <span class="count">{{$abs}}</span>
-                        <span class="title-card">Absensi</span>
-                    </div>
-                    <div class="card-content">
-                        <i class="uil uil-schedule"></i>
-                        <span class="count">{{$cuti}}</span>
-                        <span class="title-card">Permohonan Cuti</span>
-                    </div>
-                </div>
-                <span class="footer">Made With <i class="uil uil-heart" style="color: red;"></i> &copy; 2023</span>
+            <!-- Inner Content -->
+            <div class="my-inner-content">
+
             </div>
         </div>
-        <!-- Content -->
     </div>
 </body>
 

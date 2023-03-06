@@ -8,118 +8,106 @@ body {
 }
 
 :root {
-  /* === Colors === */
-  --primaryColor: #00296b;
-  --bgColor: #e9ecef;
-  --panelColor: #fff;
-  --textColor: #000;
+  /* ==== Colors ==== */
+  --main-background-color: #141332;
+  --content-background-color: #1D1D41;
+  --primaryColor: #6359E9;
+  --textColor: #fff;
+  --submit-modal: #3772ff;
+  --update-modal: #4caf50;
+  --close-modal: #e53535;
+  --ontime-bg-badge: #dcfdd4;
+  --ontime-color-badge: #4fac16;
+  --late-bg-badge: #fdd4d4;
+  --late-color-badge: #ac1616;
+  --view-bg: #fafdd4;
+  --view-color: #ac9d16;
+
+  --bg-row: #fcfcfc;
   --blackLight: #707070;
   --borderColor: #e6e5e5;
-  --titleIcon: #fff;
+  --TableBorderColor: #7d8398;
+  --form-color: #87898e;
+  --search-form: #eff2ff;
+  
 
-  /* === Transition === */
+  /* ==== Transition ==== */
   --transition-5: all 0.5s ease;
   --transition-4: all 0.4s ease;
   --transition-3: all 0.3s ease;
   --transition-2: all 0.2s ease;
 }
 
-body {
-  background-color: var(--bgColor);
-}
-
-.bg-color {
-  position: absolute;
-  width: 100%;
-  height: 235px;
-  background-color: var(--primaryColor);
-}
-
-.main-content {
-  position: absolute;
+.my-container {
+  background-color: var(--main-background-color);
   width: 100%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
 }
 
 /* === SideBar === */
-nav {
-  height: 89vh;
-  width: 300px;
-  padding: 30px 25px;
-  background-color: var(--panelColor);
-  border: 2px solid var(--borderColor);
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  box-shadow: 0 0 0px #cfcfcf;
+.my-sidebar {
+  height: 100vh;
+  width: 320px;
+  padding: 35px 25px;
+  background-color: var(--content-background-color);
+  border-radius: 0 20px 20px 0;
+  -webkit-border-radius: 0 20px 20px 0;
+  -moz-border-radius: 0 20px 20px 0;
+  -ms-border-radius: 0 20px 20px 0;
+  -o-border-radius: 0 20px 20px 0;
 }
 
-nav .logo {
-  display: flex;
+.my-sidebar .my-brand {
+  width: 100%;
+  display: flex; 
   align-items: center;
-  justify-content: center;
-  padding-bottom: 20px;
-  border-bottom: 2px solid var(--blackLight);
+  gap: 5px;
 }
 
-nav .logo-image img {
-  width: 140px;
-  margin-left: -20px;
-}
-
-.logo-name {
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-}
-
-.logo-name .title {
-  font-size: 22px;
+.my-brand .my-title {
+  font-size: 24px;
   font-weight: 600;
   color: var(--textColor);
 }
 
-.mt {
-  margin-top: -7px;
-}
-
-nav .nav-menu {
+.my-sidebar-menu {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100% - 110px);
-  margin-top: 30px;
+  margin-top: 80px;
 }
 
-nav .nav-menu ul li {
+.my-sidebar-menu ul li {
   list-style: none;
 }
 
-nav .nav-menu ul li a.selected-link {
-    background-color: #00296b;
-}
-nav .nav-menu ul li a i.selected-link,
-nav .nav-menu ul li a span.selected-link {
-    color: #fff;
+.my-sidebar-menu ul li a span {
+  font-weight: 300 !important;
 }
 
-nav .nav-menu ul li a {
+.my-sidebar-menu ul li a.my-selected-link {
+    background-color: var(--primaryColor);
+}
+.my-sidebar-menu ul li a i.my-selected-link {
+  color: #fff;
+}
+
+.my-sidebar-menu ul li a span.my-selected-link {
+    color: #fff;
+    font-weight: 600 !important;
+}
+
+.my-sidebar-menu ul li a {
   text-decoration: none;
   display: flex;
   align-items: center;
   height: 55px;
   padding-left: 5px;
-  transition: var(--transition-4);
-  -webkit-transition: var(--transition-4);
-  -moz-transition: var(--transition-4);
-  -ms-transition: var(--transition-4);
-  -o-transition: var(--transition-4);
+  transition: var(--transition-3);
+  -webkit-transition: var(--transition-3);
+  -moz-transition: var(--transition-3);
+  -ms-transition: var(--transition-3);
+  -o-transition: var(--transition-3);
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -128,8 +116,8 @@ nav .nav-menu ul li a {
   margin-bottom: 10px;
 }
 
-nav .nav-menu ul li a i {
-  color: var(--blackLight);
+.my-sidebar-menu ul li a i {
+  color: var(--textColor);
   height: 100%;
   width: 45px;
   font-size: 26px;
@@ -138,30 +126,30 @@ nav .nav-menu ul li a i {
   justify-content: center;
 }
 
-nav .nav-menu ul li a .link-name {
+.my-sidebar-menu ul li a .my-link-name {
   font-size: 16px;
   font-weight: 400;
   margin-left: 3px;
-  color: var(--blackLight);
+  color: var(--textColor);
 }
 
-nav .nav-menu ul li a:hover,
-nav .nav-menu ul li a:hover {
-  background-color: #00296b;
+.my-sidebar-menu ul li a:hover,
+.my-sidebar-menu ul li a:hover {
+  background-color: var(--primaryColor);
 }
 
-nav .nav-menu ul li a:hover i,
-nav .nav-menu ul li a:hover .link-name {
+.my-sidebar-menu ul li a:hover i,
+.my-sidebar-menu ul li a:hover .link-name {
   color: #fff;
 }
 
 /* === Content === */
 .content-view {
-  background-color: var(--panelColor);
+  background-color: var(--content-background-color);
   padding: 30px;
   width: 1030px;
   height: 89vh;
-  border: 2px solid var(--borderColor);
+  /* border: 2px solid var(--borderColor); */
   border-radius: 30px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
@@ -207,7 +195,7 @@ nav .nav-menu ul li a:hover .link-name {
     width: 12px;
     left: 31px;
     bottom: 8px;
-    border: 1px solid #fff;
+    /* border: 1px solid #fff; */
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -253,7 +241,7 @@ nav .nav-menu ul li a:hover .link-name {
   /*background: linear-gradient(310deg, #5e72e4, #825ee4);
   */
   /* background-color: #5041bc; */
-  background-color: #00296b;
+  background-color: var(--primaryColor);
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
