@@ -194,7 +194,11 @@
                         </div>
                         <div class="input-form">
                             <i class="uil uil-lock"></i>
-                            <input type="text" placeholder="Alamat">
+                            <input type="text" placeholder="Lokasi Masuk">
+                        </div>
+                        <div class="input-form">
+                            <i class="uil uil-lock"></i>
+                            <input type="text" placeholder="Lokasi Keluar">
                         </div>
                         <div class="input-form">
                             <i class="uil uil-lock"></i>
@@ -207,18 +211,6 @@
                         <div class="input-form">
                             <i class="uil uil-lock"></i>
                             <input type="text" placeholder="Status">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-map-pin"></i>
-                            <input type="text" placeholder="Latitude">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-map-pin"></i>
-                            <input type="text" placeholder="Longitude">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-map-pin"></i>
-                            <input type="text" placeholder="Altitude">
                         </div>
                         <div class="input-form">
                             <i class="uil uil-map-pin"></i>
