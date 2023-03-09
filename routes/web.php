@@ -27,6 +27,6 @@ Route::get('/absensi', [PageController::class, 'dataAbsensi'])->name('absensi');
 Route::get('/absensi/filter',[PageController::class, 'filter'])->name('search');
 Route::get('/karyawan/cari', [PageController::class, 'cari'])->name('cari');
 Route::post('/karyawan/tambah', [PageController::class, 'createkar'])->name('tambah');
-Route::get('/edit/{id_karyawan}', [PageController::class,'update'])->name('edit');
-Route::get('/delete/{id_karyawan}', [PageController::class, 'destroy'])->name('deleteRoute');
+Route::post('/edit/{id_karyawan}', [PageController::class,'update'])->name('edit');
+Route::post('/delete/{id_karyawan}', [PageController::class, 'destroy'])->name('deleteRoute');
 Route::get('/logout', [LoginController::class, 'logoutaksi'])->name('logout');

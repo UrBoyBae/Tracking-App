@@ -12,8 +12,8 @@ class KaryawanModel extends Model
     protected $primaryKey   = "id_karyawan";
     protected $fillable     = ['id_karyawan', 'nama', 'nama', 'alamat', 'jk', 'hp', 'password'];
 
-    public function getData($perPage)
-    {
-        return $this->paginate($perPage);
-    }
+    // public function getData($perPage)
+    // {
+    //     return $this->paginate($perPage);
+    // }
 }

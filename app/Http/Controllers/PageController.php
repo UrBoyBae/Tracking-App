@@ -31,11 +31,10 @@
             $new_id = sprintf("%03d", $id);
 
             $karyawan = DB::table('karyawan')
-                ->orderBy('id_karyawan', 'asc')
-                ->paginate(5);
+                ->orderBy('id_karyawan', 'asc')->get();
             
             // mengirim data karyawan ke view karyawan
-            return view('pages/karyawan', ['karyawan' => $karyawan, 'new_id' => $new_id, 'title' => 'Data Karyawan', 'page' => KaryawanModel::paginate(5)]);
+            return view('pages/karyawan', ['karyawan' => $karyawan, 'new_id' => $new_id, 'title' => 'Data Karyawan']);
         }
 
         public function createkar(Request $request)
