@@ -19,12 +19,14 @@ body {
     --submit-modal: #3772ff;
     --update-modal: #4caf50;
     --close-modal: #e53535;
-    --ontime-bg-badge: #dcfdd4;
-    --ontime-color-badge: #4fac16;
-    --late-bg-badge: #fdd4d4;
-    --late-color-badge: #ac1616;
-    --view-bg: #fafdd4;
-    --view-color: #ac9d16;
+    --ontime-bg-badge: rgba(2, 177, 90, 15%);
+    --ontime-color-badge: #02B15A;
+    --late-bg-badge: rgb(235, 0, 27, 15%);
+    --late-color-badge: #E41414;
+    --view-bg: rgb(191, 113, 15, 15%);
+    --view-color: #BF710F;
+    --submit-bg: #C5DCFA;
+    --submit-color: #0F56B3;
 
     --bg-row: #fcfcfc;
     --blackLight: #707070;

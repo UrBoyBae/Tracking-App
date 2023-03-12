@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{asset('assets/images/v-tax-logo.png')}}" rel="shortcut icon">
+    <link href="{{asset('assets/images/icon-app.png')}}" rel="shortcut icon">
     <title>V-Attendance | {{ $title }}</title>
     <!-- DataTable CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -147,7 +147,7 @@
                                         <div class="my-inner-modal-delete">
                                             <span>Anda yakin ingin menghapus data {{ $kyw -> nama }}?</span>
                                             <div class="my-validation-modal-delete">
-                                                <img src="{{asset('assets/images/account.png')}}" width="50px">
+                                                <img src="{{ ($kyw->jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png')) }}" width="50px">
                                                 <div class="my-detail-validation">
                                                     <span>{{ $kyw -> nama }}</span>
                                                     <span>{{ $kyw -> alamat }}</span>
