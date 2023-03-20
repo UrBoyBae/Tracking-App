@@ -21,7 +21,7 @@
             $kar = DB::table('karyawan')->count();
             $abs = DB::table('absen')->where('jam_masuk', 'like', '%'. $date .'%')->count();
             $cuti = DB::table('cuti')->count();
-            return view('pages/dashboard', ['kar' => $kar, 'abs' => $abs, 'cuti' => $cuti]);
+            return view('pages/dashboard', ['kar' => $kar, 'abs' => $abs, 'cuti' => $cuti, 'title' => 'Dashboard']);
         }
 
         public function indexKaryawan() {
@@ -31,11 +31,10 @@
             $new_id = sprintf("%03d", $id);
 
             $karyawan = DB::table('karyawan')
-                ->orderBy('id_karyawan', 'asc')
-                ->paginate(5);
+                ->orderBy('id_karyawan', 'asc')->get();
             
             // mengirim data karyawan ke view karyawan
-            return view('pages/karyawan', ['karyawan' => $karyawan, 'new_id' => $new_id, 'pag' => KaryawanModel::paginate(5)]);
+            return view('pages/karyawan', ['karyawan' => $karyawan, 'new_id' => $new_id, 'title' => 'Data Karyawan']);
         }
 
         public function createkar(Request $request)
@@ -76,11 +75,9 @@
             // $absen = AbsenModel::where('jam_masuk', '=', '2023-02-16');
             // $absen->paginate(5);
             $absen = DB::table('absen')
-                ->where('jam_masuk', 'like', '%'.$date.'%')
-                ->orderBy('id_karyawan', 'asc')
-                ->paginate(5);
+                ->where('jam_masuk', 'like', '%'.$date.'%')->get();
 
-            return view('pages/absensi', ['absen' => $absen, 'day' => $day, 'tanggal' => $tanggal]);
+            return view('pages/absensi', ['absen' => $absen, 'day' => $day, 'tanggal' => $tanggal, 'title' => 'Data Absensi']);
         }
 
         public function filter(Request $request)
@@ -136,3 +133,4 @@
             return redirect()->route('karyawan')->with('success', 'Data berhasil diubah.');
         }
 }
+?>

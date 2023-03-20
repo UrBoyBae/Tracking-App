@@ -5,231 +5,230 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{asset('assets/images/v-tax-logo.png')}}" rel="shortcut icon">
-    <title>Testing</title>
+    <link href="{{ asset('assets/images/icon-app.png') }}" rel="shortcut icon">
+    <title>V-Attendance | {{ $title }}</title>
+    <!-- DataTable CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bulma.min.css">
     <!-- My CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/absensiStyle.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/absensiStyle.css') }}">
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Google Icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- IconScout -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 
 <body>
-    <div class="bg-color">
-    </div>
-
-    <div class="main-content">
+    <div class="my-container">
         <!-- SideBar -->
-        <nav>
-            <!-- Title -->
-            <div class="logo">
-                <div class="logo-image">
-                    <img src="{{asset('assets/images/v-tax.png')}}" alt="">
-                </div>
-            </div>
+        @include('components/sidebar')
+        <!-- Akhir SideBar -->
 
-            <!-- Nav Links -->
-            <div class="nav-menu">
-                <ul class="nav-link">
-                    <li>
-                        <a href="{{route('dashboard')}}">
-                            <i class="uil uil-estate"></i>
-                            <span class="link-name">Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('karyawan')}}">
-                            <i class="uil uil-users-alt"></i>
-                            <span class="link-name">Data Karyawan</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('absensi')}}" class="selected-link">
-                            <i class="uil uil-file-info-alt selected-link"></i>
-                            <span class="link-name selected-link">Data Absensi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="uil uil-schedule"></i>
-                            <span class="link-name">Permohonan Cuti</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('logout')}}">
-                            <i class="uil uil-signout"></i>
-                            <span class="link-name">Log Out</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <!-- SideBar -->
+        <!-- Main Content -->
+        <div class="my-main-content">
+            <!-- Navbar -->
+            @include('components/navbar')
+            <!-- Akhir Navbar -->
 
-        <!-- Content -->
-        <div class="content-view">
-            <!-- Dashboard Top -->
-            <div class="content-top">
-                <div class="left-content">
-                    <a href="{{route('dashboard')}}">
-                        <i class="uil uil-estate"></i>
-                    </a>
-                    <h2>></h2>
-                    <span class="link-name">Data Absensi</span>
-                </div>
-                <div class="right-content">
-                    <div class="notification"></div>
-                    <i class="uil uil-bell"></i>
-                    <img src="{{asset('assets/images/account.png')}}" alt="">
-                </div>
-            </div>
-            <!-- Main Content -->
-            <div class="content-center">
-                <div class="addData">
-                    <!-- Date Time -->
-                    <div class="date-time">
-                        <i class="uil uil-calendar-alt"></i>
-                        <span>{{ $day }}, {{ $tanggal }}</span>
-                    </div>
-                    <!-- Button Filter -->
-                    <div class="sort-by">
-                        <div class="btn" id="toggle-filter">
-                            <span>Sort By</span>
-                            <i class="uil uil-sliders-v-alt"></i>
+            <!-- Inner Content -->
+            <div class="my-inner-content">
+                <div class="my-wrapper-inner">
+                    <!-- Top inner -->
+                    <div class="my-wrap-addBtn">
+                        <!-- Date Time -->
+                        <div class="my-date-time">
+                            <i class="uil uil-calendar-alt"></i>
+                            <span>{{ $day }}, {{ $tanggal }}</span>
                         </div>
-                        <!-- Dropdown Sort By -->
-                        <div class="dropdown-sortby">
-                            <span class="title-sortby">Cari Data Berdasarkan :</span>
-                            <!-- Form Sort By -->
+                        <!-- Button Filter -->
+                        <div class="my-sortby">
+                            <div class="my-sortBtn" id="my-trigger-sortBtn" data-sortby="my-dropdown-sortby">
+                                <span>Sort By</span>
+                                <i class="uil uil-angle-down"></i>
+                            </div>
+                            <!-- Dropdown Sort By -->
+                            <div class="my-dropdown-sortby" id="my-dropdown-sortby">
+                                <span class="my-title-sortby">Cari Data Berdasarkan :</span>
+                                <!-- Form Sort By -->
                                 <form action="/pages/absensi/filter" method="get">
-                                <div class="form-sortby">
-                                    <div class="sort-input">
-                                        <div class="input-group">
-                                            <label for="">Dari Tanggal</label>
-                                            <input type="date" name="firstDate" id="firstDate" value="">
+                                    <div class="my-form-sortby">
+                                        <div class="my-input-group-sortby">
+                                            <div class="my-input-sortby">
+                                                <label for="">Dari Tanggal</label>
+                                                <input type="date" name="firstDate" id="firstDate" value="">
+                                            </div>
+                                            <span>-</span>
+                                            <div class="my-input-sortby">
+                                                <label for="">Sampai Tanggal</label>
+                                                <input type="date" name="secondDate" id="secondDate" value="">
+                                            </div>
                                         </div>
-                                        <span>-</span>
-                                        <div class="input-group">
-                                            <label for="">Sampai Tanggal</label>
-                                            <input type="date" name="secondDate" id="secondDate" value="">
+                                        <div class="my-input-sortby">
+                                            <label for="">UID Karyawan</label>
+                                            <input type="text" name="uidkaryawan" id="uidkaryawan"
+                                                placeholder="Masukkan UID" autocomplete="off">
                                         </div>
                                     </div>
-                                    <div class="input-group">
-                                        <label for="">UID Karyawan</label>
-                                        <input type="text" name="uidkaryawan" id="uidkaryawan" placeholder="Masukkan UID">
-                                    </div>
-                                </div>
-                                <button type="submit" name="search" class="sortby-search">
-                                    <i class="uil uil-search-alt"></i>
-                                    Search
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="data-view">
-                    <!-- Table -->
-                    <div class="table">
-                        <div class="table-head">
-                            <span class="th-column">UID</span>
-                            <span class="th-column">Nama</span>
-                            <!-- <span class="th-column">Alamat</span> -->
-                            <span class="th-column">Tanggal Absen</span>
-                            <span class="th-column">Status</span>
-                            <span class="th-column">Action</span>
-                        </div>
-                        @foreach ($absen as $index=>$abs)
-                        <div class="table-body">
-                            <div class="tbody-row">
-                                <span class="td-column">{{ $abs->id_karyawan}}</span>
-                                <span class="td-column">{{ $abs->nama}}</span>
-                                <!-- <span class="td-column">Jl. Sukasenang II No.3</span> -->
-                                <span class="td-column">{{ $abs->jam_masuk}}</span>
-                                <span class="td-column">
-                                    <div id="status-badge">
-                                        <span id="title-badge" class="title-badge">{{ $abs->status }}</span>
-                                    </div>
-                                </span>
-                                <div class="td-column">
-                                    <a id="modal-view-trigger" onclick="modalViewUp()"><i class="uil uil-eye"></i></a>
-                                </div>
+                                    <button type="submit" name="search" class="my-search-sortby">
+                                        <i class="uil uil-search-alt"></i>
+                                        Search
+                                    </button>
+                                </form>
                             </div>
                         </div>
-                        @endforeach
                     </div>
-                    <div class="pagination">
-                        {{ $absen->links()}}
-                    </div>
-                </div>
-                <!-- <span class="footer">Made With <i class="uil uil-heart" style="color: red;"></i> &copy; 2023</span> -->
-            </div>
 
-        </div>
-        <!-- Content -->
+                    <!-- Table -->
+                    <table id="tableAbsensi" class="table is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>UID</th>
+                                <th>Nama</th>
+                                <th>Tanggal Absen</th>
+                                <th>Jam Masuk</th>
+                                <th>Jam Keluar</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($absen as $index => $abs)
+                                <tr>
+                                    <td>{{ $abs->id_karyawan }}</td>
+                                    <td>{{ $abs->nama }}</td>
+                                    <td>{{ $abs->jam_masuk }}</td>
+                                    <td>09:00</td>
+                                    <td>17:00</td>
+                                    <td>
+                                        <div id="my-status-badge" class="my-status-badge">
+                                            <span id="my-title-badge">{{ $abs->status }}</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="my-trigger-viewBtn" id="my-trigger-viewBtn"
+                                            data-modal-view="my-bg-modal-view-{{ $abs->id }}">
+                                            <i class="uil uil-eye"></i>
+                                        </div>
+                                    </td>
+                                </tr>
 
-        <!-- Modal View -->
-        <div class="modal-bg" id="modal-view">
-            <div class="modal-view">
-                <div class="modal-title">
-                    <span>Detail Karyawan</span>
-                    <div class="modal-close" id="modal-add-close" onclick="closeModalView()">X</div>
-                </div>
-                <!-- Modal Form -->
-                <div class="modal-form">
-                    <form action="">
-                        <img src="" alt="" srcset="">
-                        <div class="input-form input-disable">
-                            <input type="text" placeholder="ID Karyawan" value="20981BA009" disabled>
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-user"></i>
-                            <input type="text" placeholder="Nama Karyawan">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-lock"></i>
-                            <input type="text" placeholder="Alamat">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-lock"></i>
-                            <input type="text" placeholder="Tanggal Masuk">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-lock"></i>
-                            <input type="text" placeholder="Jam Masuk">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-lock"></i>
-                            <input type="text" placeholder="Status">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-map-pin"></i>
-                            <input type="text" placeholder="Latitude">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-map-pin"></i>
-                            <input type="text" placeholder="Longitude">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-map-pin"></i>
-                            <input type="text" placeholder="Altitude">
-                        </div>
-                        <div class="input-form">
-                            <i class="uil uil-map-pin"></i>
-                            <input type="text" placeholder="Gambar">
-                        </div>
-                        <img src="https://trackingimage.000webhostapp.com/images/16-02-2023-002-Gifari.jpeg" width="120px">
-                        <button type="submit" class="btn-add">Submit</button>
-                    </form>
+                                <!-- Modal View -->
+                                <div class="my-bg-modal" id="my-bg-modal-view-{{ $abs->id }}">
+                                    <div class="my-content-modal">
+                                        <div class="my-title-modal">
+                                            <span>Data Absen {{ $abs->nama }}</span>
+                                            <div class="my-close-modal" id="my-close-modal">X</div>
+                                        </div>
+                                        <!-- Modal Form -->
+                                        <form action="{{ route('edit', $abs->id_karyawan) }}" method="POST">
+                                            <div class="my-form-modal">
+                                                @csrf
+                                                <div class="my-left-content-modal">
+                                                    <label class="my-label-input">ID Karyawan</label>
+                                                    <div class="my-input-modal my-input-disable">
+                                                        <input type="text" name="UID" id="UID"
+                                                            placeholder="ID Karyawan" value="{{ $abs->id_karyawan }}"
+                                                            autocomplete="off" readonly>
+                                                    </div>
+                                                    <label class="my-label-input">Nama Karyawan</label>
+                                                    <div class="my-input-modal my-input-disable">
+                                                        <input type="text" name="nama" autocomplete="off"
+                                                            value="{{ $abs->nama }}" readonly>
+                                                    </div>
+                                                    <label class="my-label-input">Tanggal Absen</label>
+                                                    <div class="my-input-modal my-input-disable">
+                                                        <i class="uil uil-map-pin"></i>
+                                                        <input type="date" name="alamat" autocomplete="off"
+                                                            value="{{ $abs->jam_masuk }}" readonly>
+                                                    </div>
+                                                    <label class="my-label-input">Jam Masuk</label>
+                                                    <div class="my-input-modal my-input-disable">
+                                                        <i class="uil uil-clock-eight"></i>
+                                                        <input type="text" name="alamat" autocomplete="off"
+                                                            value="{{ $abs->jam }}" readonly>
+                                                    </div>
+                                                    <label class="my-label-input">Jam Keluar</label>
+                                                    <div class="my-input-modal my-input-disable">
+                                                        <i class="uil uil-clock-five"></i>
+                                                        <input type="text" name="jk" autocomplete="off"
+                                                            value="{{ $abs->jam_keluar }}" readonly>
+                                                    </div>
+                                                    <label class="my-label-input">Status</label>
+                                                    <div class="my-status-modal my-input-disable">
+                                                        <i class="uil uil-stopwatch"></i>
+                                                        <div id="my-status-badge" class="my-status-badge">
+                                                            <span id="my-title-badge">{{ $abs->status }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="my-right-content-modal">
+                                                    <label class="my-label-input">Lokasi Masuk <i class="uil uil-map-marker"></i></label>
+                                                    <div class="my-textarea-modal my-input-disable">
+                                                        <textarea name="lokasimasuk" id="lokasimasuk" autocomplete="off" readonly>{{ $abs->alamat }}</textarea>
+                                                    </div>
+                                                    <label class="my-label-input">Lokasi Keluar <i class="uil uil-map-marker"></i></label>
+                                                    <div class="my-textarea-modal my-input-disable">
+                                                        <textarea name="lokasikeluar" id="lokasikeluar" autocomplete="off" readonly>{{ $abs->lokasi_keluar }}</textarea>
+                                                    </div>
+                                                    <div class="my-photo-modal">
+                                                        <div>
+                                                            <label class="my-label-input">Absen Masuk</label>
+                                                            <div class="my-images-modal">
+                                                                <img src="https://trackingimage.000webhostapp.com/images/21-02-2023-002-Gifari.jpeg"
+                                                                    width="140px">
+                                                            </div>
+                                                        </div>
+                                                        <div>
+                                                            <label class="my-label-input">Absen Keluar</label>
+                                                            <div class="my-images-modal">
+                                                                <img src="https://trackingimage.000webhostapp.com/images/16-02-2023-001-Riandi.jpeg"
+                                                                    width="140px">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="my-maps-content-modal">
+                                                    <label class="my-label-input">Detail Lokasi <i
+                                                            class="uil uil-map"></i></label>
+                                                    <div class="my-maps-modal">
+                                                        <div class="gmap_canvas">
+                                                            <iframe width="282" height="282" id="gmap_canvas"
+                                                                src="https://maps.google.com/maps?q=-6.900744,107.636944&output=embed"
+                                                                frameborder="0" scrolling="no" marginheight="0"
+                                                                marginwidth="0"></iframe>
+                                                            <a href="https://123movies-i.net">reddit 123movies</a><br>
+                                                            <a href="https://www.embedgooglemap.net"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- Akhir Modal Edit -->
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            <!-- Akhir Inner Content -->
         </div>
+        <!-- Akhir Main Content -->
     </div>
 </body>
-<script src="{{asset('assets/js/modals.js')}}"></script>
-<script src="{{asset('assets/js/dropdown.js')}}"></script>
-<script src="{{asset('assets/js/statusBadge.js')}}"></script>
+
+<!-- DataTable JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.3/js/dataTables.bulma.min.js"></script>
+<!-- Main JS -->
+<script src="{{ asset('assets/js/mainAbsensi.js') }}"></script>
+<script src="{{ asset('assets/js/modals.js') }}"></script>
 
 </html>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
 *,
 html,
 body {
@@ -9,25 +11,27 @@ body {
 
 :root {
     /* ==== Colors ==== */
-    --primaryColor: #00296b;
-    --defaultColor: #fff;
-    --bgColor: #e9ecef;
-    --bg-row: #fcfcfc;
-    --textColor: #000;
-    --blackLight: #707070;
-    --borderColor: #e6e5e5;
-    --TableBorderColor: #7d8398;
-    --form-color: #87898e;
+    --main-background-color: #141332;
+    --content-background-color: #1D1D41;
+    --primaryColor: #6359E9;
+    --textColor: #DBDFEA;
     --submit-modal: #3772ff;
     --update-modal: #4caf50;
     --close-modal: #e53535;
-    --search-form: #eff2ff;
     --ontime-bg-badge: #dcfdd4;
     --ontime-color-badge: #4fac16;
     --late-bg-badge: #fdd4d4;
     --late-color-badge: #ac1616;
     --view-bg: #fafdd4;
     --view-color: #ac9d16;
+
+    --bg-row: #fcfcfc;
+    --blackLight: #707070;
+    --borderColor: #e6e5e5;
+    --TableBorderColor: #7d8398;
+    --form-color: #87898e;
+    --search-form: #eff2ff;
+    
 
     /* ==== Transition ==== */
     --transition-5: all 0.5s ease;
@@ -42,93 +46,185 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--primaryColor);
+    background-color: var(--main-background-color);
 }
 
 .card-login {
-    background-color: var(--defaultColor);
     height: 550px;
-    width: 400px;
+    width: 840px;
+    background-color: var(--content-background-color);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 50px;
-    text-align: center;
-    gap: 20px;
+    padding: 25px;
     border-radius: 12px;
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     -ms-border-radius: 12px;
     -o-border-radius: 12px;
+    gap: 25px;
+}
+
+/* Left Content */
+.image-content {
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.image-content img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.blur-effect {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    backdrop-filter: blur(10px);
+    background-color: rgb(29, 29, 65, 0.1);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+/* Right Content */
+.login-form {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top */
+.app-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--textColor);
+    text-align: end;
+    margin-bottom: 20px;
+}
+
+/* Main Form */
+.main-form {
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
 .top {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    text-align: center;
+    gap: 6px;
 }
 
-.title {
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: 30px;
+span.title {
+    color: var(--textColor);
+    font-size: 32px;
+    font-weight: 700;
 }
 
-p {
-    font-weight: lighter;
-    font-size: small;
-    line-height: 20px;
-    letter-spacing: 0.5px;
-    color: var(--blackLight);
+p.text {
+    width: 80%;
+    color: var(--textColor);
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+form {
+    text-align: center;
 }
 
 .form-input {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
 .input-group {
-    border-bottom: solid 1px var(--primaryColor);
-    width: 250px;
+    width: 320px;
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 0 15px;
+    gap: 10px;
+    padding: 0 0 0 15px;
+    border: 1px solid var(--textColor);
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
 }
 
 .input-group i {
-    color: var(--blackLight);
+    color: var(--textColor);
 }
 
 .input-group input {
+    width: 100%;
     border: none;
     outline: none;
-    width: 100%;
     padding: 12px 0;
-    color: var(--blackLight);
+    background-color: var(--content-background-color);
+    color: var(--textColor);
+    border-radius: 0 6px 6px 0;
+    -webkit-border-radius: 0 6px 6px 0;
+    -moz-border-radius: 0 6px 6px 0;
+    -ms-border-radius: 0 6px 6px 0;
+    -o-border-radius: 0 6px 6px 0;
+}
+
+::placeholder {
+    color: var(--textColor);
+}
+
+:-ms-input-placeholder {
+    color: var(--textColor);
+}
+
+::-ms-input-placeholder {
+    color: var(--textColor);
+}
+
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover,
+.input-group input:-webkit-autofill:focus {
+    box-shadow: 0 0 0 30px white inset;
+}
+
+.error-message {
+    color: red;
+    font-weight: 500;
 }
 
 .btn-login {
-    border: 2px solid var(--primaryColor);
-    background-color: var(--defaultColor);
-    color: var(--primaryColor);
+    width: 100%;
+    margin: 10px 0 0;
+    padding: 12px 45px;
+    background-color: var(--primaryColor);
+    color: var(--content-background-color);
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
-    padding: 12px 45px;
-    margin: 20px 0 40px;
-    width: 250px;
     cursor: pointer;
-    transition: var(--transition-3);
-    -webkit-transition: var(--transition-3);
-    -moz-transition: var(--transition-3);
-    -ms-transition: var(--transition-3);
-    -o-transition: var(--transition-3);
+    border: 2px solid var(--primaryColor);
+    transition: var(--transition-4);
+    -webkit-transition: var(--transition-4);
+    -moz-transition: var(--transition-4);
+    -ms-transition: var(--transition-4);
+    -o-transition: var(--transition-4);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -137,6 +233,16 @@ p {
 }
 
 .btn-login:hover {
-    background-color: var(--primaryColor);
-    color: var(--defaultColor);
+    background-color: var(--content-background-color);
+    color: var(--primaryColor);
+}
+
+/* Footer */
+span.footer {
+    width: 100%;
+    margin-top: 60px;
+    color: var(--textColor);
+    font-weight: 200;
+    font-size: 12px;
+    text-align: center;
 }

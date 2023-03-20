@@ -5,110 +5,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{asset('assets/images/v-tax-logo.png')}}" rel="shortcut icon">
-
-    <title>Attendance Tracking | Admin</title>
+    <link href="{{asset('assets/images/icon-app.png')}}" rel="shortcut icon">
+    <title>V-Attendance | {{ $title }}</title>
     <!-- My CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/dashboardStyle.css')}}">
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Google Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- IconScout -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
 
 <body>
-    <div class="bg-color"></div>
-    <div class="main-content">
+    <div class="my-container">
         <!-- SideBar -->
-        <nav>
-            <!-- Title -->
-            <div class="logo">
-                <div class="logo-image">
-                    <img src="{{asset('assets/images/v-tax.png')}}" alt="">
-                </div>
-                <!-- <div class="logo-name">
-                <span class="title">Attendance</span>
-                <span class="title mt">Apps</span>
-            </div> -->
-            </div>
+        @include('components/sidebar')
+        <!-- Akhir SideBar -->
 
-            <!-- Nav Links -->
-            <div class="nav-menu">
-                <ul class="nav-link">
-                    <li>
-                        <a href="{{route('dashboard')}}" class="selected-link">
-                            <i class="uil uil-estate selected-link"></i>
-                            <span class="link-name selected-link">Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('karyawan')}}">
+        <!-- Main Content -->
+        <div class="my-main-content">
+            <!-- Navbar -->
+            @include('components/navbar')
+            <!-- Akhir Navbar -->
+            
+            <!-- Inner Content -->
+            <div class="my-inner-content">
+                <div class="my-card-view">
+                    <div class="my-card-content">
+                        <div class="my-icon-card">
                             <i class="uil uil-users-alt"></i>
-                            <span class="link-name">Data Karyawan</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('absensi')}}">
+                        </div>
+                        <div class="my-card-data">
+                            <span class="my-title-card">Jumlah Karyawan</span>
+                            <span class="my-count">{{$kar}}</span>
+                        </div>
+                    </div>
+                    <div class="my-card-content">
+                        <div class="my-icon-card">
                             <i class="uil uil-file-info-alt"></i>
-                            <span class="link-name">Data Absensi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
+                        </div>
+                        <div class="my-card-data">
+                            <span class="my-title-card">Absensi Hari Ini</span>
+                            <span class="my-count">{{$abs}}</span>
+                        </div>
+                    </div>
+                    <div class="my-card-content">
+                        <div class="my-icon-card">
                             <i class="uil uil-schedule"></i>
-                            <span class="link-name">Permohonan Cuti</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('logout')}}">
-                            <i class="uil uil-signout"></i>
-                            <span class="link-name">Log Out</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <!-- SideBar -->
-
-        <!-- Content -->
-        <div class="content-view">
-            <div class="content-top">
-                <div class="left-content">
-                    <a href="{{route('dashboard')}}">
-                        <i class="uil uil-estate"></i>
-                    </a>
-                    <span class="link-name">Dashboard</span>
-                </div>
-                <div class="right-content">
-                    <div class="notification"></div>
-                    <i class="uil uil-bell"></i>
-                    <img src="{{asset('assets/images/account.png')}}" alt="">
-                </div>
-            </div>
-            <div class="content-center">
-                <div class="card-view">
-                    <div class="card-content">
-                        <i class="uil uil-users-alt"></i>
-                        <span class="count">{{$kar}}</span>
-                        <span class="title-card">Jumlah Karyawan</span>
-                    </div>
-                    <div class="card-content">
-                        <i class="uil uil-file-info-alt"></i>
-                        <span class="count">{{$abs}}</span>
-                        <span class="title-card">Absensi</span>
-                    </div>
-                    <div class="card-content">
-                        <i class="uil uil-schedule"></i>
-                        <span class="count">{{$cuti}}</span>
-                        <span class="title-card">Permohonan Cuti</span>
+                        </div>
+                        <div class="my-card-data">
+                            <span class="my-title-card">Permohonan Cuti</span>
+                            <span class="my-count">{{$cuti}}</span>
+                        </div>
                     </div>
                 </div>
-                <span class="footer">Made With <i class="uil uil-heart" style="color: red;"></i> &copy; 2023</span>
+                <div class="my-footer">&copy; 2023 V-Attendance. All Rights Reserved</div>
             </div>
+            <!-- Akhir Inner Content -->
         </div>
-        <!-- Content -->
+        <!-- Akhir Main Content -->
     </div>
 </body>
 
