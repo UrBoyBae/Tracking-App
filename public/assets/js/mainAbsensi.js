@@ -30,3 +30,20 @@ for(var i = 0; i < titleBadge.length; i++){
     }
 }
 
+// Modal View
+var triggerModalView = document.querySelectorAll("div#my-trigger-viewBtn");
+triggerModalView.forEach(function(buttonView) {
+    buttonView.onclick = function() {
+        var dataModalView = buttonView.getAttribute("data-modal-view");
+        document.getElementById(dataModalView).classList.add("my-modal-active");
+    }
+});
+
+// All Modal Close
+var closeModal = document.querySelectorAll("div#my-close-modal");
+closeModal.forEach(function(buttonClose) {
+    buttonClose.onclick = function () {
+        buttonClose.closest(".my-bg-modal").classList.remove("my-modal-active");
+    };
+});
+

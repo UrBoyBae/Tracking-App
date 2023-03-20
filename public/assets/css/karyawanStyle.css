@@ -12,6 +12,7 @@ body {
     --main-background-color: #141332;
     --content-background-color: #1d1d41;
     --primaryColor: #6359e9;
+    --primaryBackground: rgb(99, 89, 233, 15%);
     --textColor: #dbdfea;
     --card-icon-color: #64cff6;
     --card-text-color: #8c89b4;
@@ -44,7 +45,7 @@ body {
 
 .my-container {
     background-color: var(--main-background-color);
-    height: 140vh;
+    height: 150vh;
     width: 100%;
 }
 
