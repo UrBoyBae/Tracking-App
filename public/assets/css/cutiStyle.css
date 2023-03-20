@@ -21,13 +21,13 @@ body {
     --update-modal: #4caf50;
     --close-modal: #e53535;
     --ontime-bg-badge: rgba(2, 177, 90, 15%);
-    --ontime-color-badge: #02B15A;
+    --ontime-color-badge: #02b15a;
     --late-bg-badge: rgb(235, 0, 27, 15%);
-    --late-color-badge: #E41414;
+    --late-color-badge: #e41414;
     --view-bg: rgb(191, 113, 15, 15%);
-    --view-color: #BF710F;
-    --submit-bg: #C5DCFA;
-    --submit-color: #0F56B3;
+    --view-color: #bf710f;
+    --submit-bg: #c5dcfa;
+    --submit-color: #0f56b3;
 
     --bg-row: #fcfcfc;
     --blackLight: #707070;
@@ -304,27 +304,27 @@ div.my-main-content {
     font-weight: 500;
 }
 
-div#tableKaryawan_length label {
+div#tableCuti_length label {
     color: var(--textColor);
 }
 
-div#tableKaryawan_length label div.select select {
+div#tableCuti_length label div.select select {
     background-color: var(--bg-form-datatable);
     border: 1px solid var(--primaryColor);
     color: var(--textColor);
 }
 
-div#tableKaryawan_filter label {
+div#tableCuti_filter label {
     color: var(--textColor);
 }
 
-div#tableKaryawan_filter label input {
+div#tableCuti_filter label input {
     background-color: var(--bg-form-datatable);
     border: 1px solid var(--primaryColor);
     color: var(--textColor);
 }
 
-#tableKaryawan.dataTable {
+#tableCuti.dataTable {
     background-color: var(--content-background-color);
     color: var(--textColor);
     border: 1px solid var(--primaryColor);
@@ -335,28 +335,71 @@ div#tableKaryawan_filter label input {
     -o-border-radius: 10px 10px 0 0;
 }
 
-#tableKaryawan.dataTable thead tr th.sorting,
-#tableKaryawan.dataTable thead tr th {
+#tableCuti.dataTable thead tr th.sorting,
+#tableCuti.dataTable thead tr th {
     color: var(--card-text-color);
     font-weight: 400;
     padding: 10px 10px;
     border-bottom: 1px solid var(--primaryColor);
 }
 
-#tableKaryawan.dataTable tbody tr td {
+#tableCuti.dataTable tbody tr td {
     font-weight: 300;
     border: none;
     padding: 15px;
 }
 
-#tableKaryawan.dataTable tbody tr:hover {
+#tableCuti.dataTable tbody tr:hover {
     background-color: #252157;
+}
+
+.my-status-badge {
+    width: 130px;
+    text-align: center;
+    padding: 3px 0;
+    font-weight: 400;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.my-status-badge.my-accept-badge {
+    background-color: var(--ontime-bg-badge);
+    color: var(--ontime-color-badge);
+}
+
+.my-status-badge.my-decline-badge {
+    background-color: var(--late-bg-badge);
+    color: var(--late-color-badge);
+}
+
+.my-status-badge.my-send-badge {
+    background-color: var(--primaryBackground);
+    color: var(--primaryColor);
 }
 
 .my-wrap-toggle {
     display: flex;
     align-items: center;
     gap: 7px;
+}
+
+.my-trigger-viewBtn {
+    width: fit-content;
+    padding: 3px 8px;
+    background-color: var(--view-bg);
+    cursor: pointer;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.my-trigger-viewBtn i {
+    color: var(--view-color);
 }
 
 .my-trigger-editBtn {
@@ -389,7 +432,7 @@ div#tableKaryawan_filter label input {
     color: var(--late-color-badge);
 }
 
-div#tableKaryawan_info {
+div#tableCuti_info {
     color: var(--textColor);
 }
 
@@ -506,6 +549,21 @@ ul.pagination-list li a.pagination-link.is-current {
     -o-border-radius: 6px;
 }
 
+.my-form-modal .my-textarea-modal {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    height: 120px;
+    border: 1px solid var(--primaryColor);
+    color: var(--textColor);
+    padding: 0 0 0 14px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
 .my-input-disable {
     background-color: var(--bg-form-datatable);
 }
@@ -525,6 +583,38 @@ ul.pagination-list li a.pagination-link.is-current {
     color: var(--textColor);
     font-size: 16px;
 }
+.my-form-modal .my-input-modal select,
+.my-form-modal .my-input-modal select:focus {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 1px solid var(--content-background-color);
+    background-color: transparent;
+    color: var(--textColor);
+    font-size: 16px;
+}
+
+.my-form-modal .my-input-modal select option {
+    background-color: var(--bg-form-datatable);
+}
+
+.my-form-modal .my-textarea-modal textarea,
+.my-form-modal .my-textarea-modal textarea:focus {
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--textColor);
+    font-size: 16px;
+}
+
+.my-form-modal .my-input-modal input,
+.my-form-modal .my-textarea-modal textarea,
+.my-form-modal .my-status-modal {
+    cursor: not-allowed;
+}x
 
 .my-form-modal .my-input-modal input#UID {
     cursor: not-allowed;
