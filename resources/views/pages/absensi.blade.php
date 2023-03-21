@@ -56,7 +56,7 @@
                             <div class="my-dropdown-sortby" id="my-dropdown-sortby">
                                 <span class="my-title-sortby">Cari Data Berdasarkan :</span>
                                 <!-- Form Sort By -->
-                                <form action="/pages/absensi/filter" method="get">
+                                <form action="{{route('search')}}" method="get">
                                     <div class="my-form-sortby">
                                         <div class="my-input-group-sortby">
                                             <div class="my-input-sortby">
@@ -103,8 +103,8 @@
                                     <td>{{ $abs->id_karyawan }}</td>
                                     <td>{{ $abs->nama }}</td>
                                     <td>{{ $abs->jam_masuk }}</td>
-                                    <td>09:00</td>
-                                    <td>17:00</td>
+                                    <td>{{ $abs->jam }}</td>
+                                    <td>{{ $abs->jam_keluar }}</td>
                                     <td>
                                         <div id="my-status-badge" class="my-status-badge">
                                             <span id="my-title-badge">{{ $abs->status }}</span>
@@ -180,14 +180,14 @@
                                                         <div>
                                                             <label class="my-label-input">Absen Masuk</label>
                                                             <div class="my-images-modal">
-                                                                <img src="https://trackingimage.000webhostapp.com/images/21-02-2023-002-Gifari.jpeg"
+                                                                <img src="https://trackingimage.000webhostapp.com/images/{{ $abs->gambar }}"
                                                                     width="140px">
                                                             </div>
                                                         </div>
                                                         <div>
                                                             <label class="my-label-input">Absen Keluar</label>
                                                             <div class="my-images-modal">
-                                                                <img src="https://trackingimage.000webhostapp.com/images/16-02-2023-001-Riandi.jpeg"
+                                                                <img src="https://trackingimage.000webhostapp.com/images_out/{{ $abs->keluar }}"
                                                                     width="140px">
                                                             </div>
                                                         </div>
@@ -199,7 +199,7 @@
                                                     <div class="my-maps-modal">
                                                         <div class="gmap_canvas">
                                                             <iframe width="282" height="282" id="gmap_canvas"
-                                                                src="https://maps.google.com/maps?q=-6.900744,107.636944&output=embed"
+                                                                src="https://maps.google.com/maps?q={{$abs->latitude}},{{$abs->longitude}}&output=embed"
                                                                 frameborder="0" scrolling="no" marginheight="0"
                                                                 marginwidth="0"></iframe>
                                                             <a href="https://123movies-i.net">reddit 123movies</a><br>

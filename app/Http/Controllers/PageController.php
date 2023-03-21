@@ -7,6 +7,7 @@
     use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Carbon;
     use Illuminate\Http\Request;
+    use App\Models\LoginModel;
 
     class PageController extends BaseController {
         public function login() {
@@ -80,7 +81,7 @@
             return view('pages/absensi', ['absen' => $absen, 'day' => $day, 'tanggal' => $tanggal, 'title' => 'Data Absensi']);
         }
 
-        public function filter(Request $request)
+         public function filter(Request $request)
         {
             $firstDate = $request->query('firstDate');
             $secondDate = $request->query('secondDate');
@@ -89,16 +90,23 @@
             $hariDua =  $secondDate ? Carbon::parse($secondDate)->format('Y-m-d') : null;
             $query = $request->query('uidkaryawan');
 
-            $absen = AbsenModel::where('uid', 'like', '%' . $query . '%')
-            ->whereBetween('jam_masuk', [$hariSatu, $hariDua])
-            ->get();
+            if($hariSatu == null && $hariDua == null){
+                $absen = AbsenModel::where('id_karyawan', 'like', '%' . $query . '%')->get();
+            }
+            else{
+                $absen = AbsenModel::where('id_karyawan', 'like', '%' . $query . '%')
+                ->whereBetween('jam_masuk', [$hariSatu, $hariDua])
+                ->get();
+
+            }
+            
 
             setlocale(LC_TIME, 'id_ID');
             Carbon::setLocale('id');
             $tgl = Carbon::now();
             $day = $tgl->isoFormat('dddd');
             $tanggal = $tgl->format('d M Y');
-            return view('pages/absensi', ['absen' => $absen, 'day' => $day, 'tanggal' => $tanggal]);
+            return view('pages/absensi', ['absen' => $absen, 'day' => $day, 'tanggal' => $tanggal, 'title' => 'Data Absensi']);
 
             
         }
@@ -132,5 +140,23 @@
 
             return redirect()->route('karyawan')->with('success', 'Data berhasil diubah.');
         }
+
+        public function loginaksi(Request $request){
+            $username = $request->input('username');
+            $password = $request->input('password');
+        
+            $user = LoginModel::where('user', $username)->first();
+    
+            if ($user){
+                if ($password == $user->pass) {
+                    session(['id' => $user->id_petugas, 'username' => $username]);
+                    $request->session()->regenerate();
+                    return redirect('/dashboard');
+                }
+                else{
+                    return back()->with('loginError', 'Username or password doesnt match' );
+                }
+            }
+         }
 }
 ?>

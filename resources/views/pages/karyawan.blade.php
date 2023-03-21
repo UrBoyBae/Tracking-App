@@ -63,7 +63,7 @@
                             <tr>
                                 <td>{{ $kyw->id_karyawan }}</td>
                                 <td>{{ $kyw->nama}}</td>
-                                <td>{{ $kyw->nama}}</td>
+                                <td>{{ $kyw->username}}</td>
                                 <td>{{ $kyw->password}}</td>
                                 <td>{{ Str::limit($kyw->alamat, 30) }}</td>
                                 <td>{{ $kyw->jk}}</td>
@@ -103,7 +103,7 @@
                                                 <label class="my-label-input">Username</label>
                                                 <div class="my-input-modal">
                                                     <i class="uil uil-user"></i>
-                                                    <input type="text" name="username" autocomplete="off" value="{{ $kyw->nama }}">
+                                                    <input type="text" name="username" autocomplete="off" value="{{ $kyw->username }}">
                                                 </div>
                                                 <label class="my-label-input">Password</label>
                                                 <div class="my-input-modal">
