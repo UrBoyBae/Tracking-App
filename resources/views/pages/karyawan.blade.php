@@ -52,9 +52,9 @@
                                 <th>Nama</th>
                                 <th>Username</th>
                                 <th>Password</th>
-                                <th>Alamat</th>
-                                <th>Gender</th>
+                                <th>Sisa Cuti</th>
                                 <th>No.Hp</th>
+                                <th>Alamat</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -65,9 +65,9 @@
                                 <td>{{ $kyw->nama}}</td>
                                 <td>{{ $kyw->username}}</td>
                                 <td>{{ $kyw->password}}</td>
-                                <td>{{ Str::limit($kyw->alamat, 30) }}</td>
-                                <td>{{ $kyw->jk}}</td>
+                                <td>{{ $kyw->sisa_cuti}} Hari</td>
                                 <td>{{ $kyw->hp}}</td>
+                                <td>{{ Str::limit($kyw->alamat, 30) }}</td>
                                 <td>
                                     <div class="my-wrap-toggle">
                                         <div class="my-trigger-editBtn" id="my-trigger-editBtn" data-modal-edit="my-bg-modal-edit-{{ $kyw->id_karyawan }}">
@@ -110,22 +110,25 @@
                                                     <i class="uil uil-lock"></i>
                                                     <input type="text" name="password" autocomplete="off" value="{{ $kyw->password }}">
                                                 </div>
-                                            </div>
-                                            <div class="my-right-content-modal">
-                                                <label class="my-label-input">Alamat</label>
-                                                <div class="my-input-modal">
-                                                    <i class="uil uil-map-pin"></i>
-                                                    <input type="text" name="alamat" autocomplete="off" value="{{ $kyw->alamat }}">
-                                                </div>
                                                 <label class="my-label-input">Jenis Kelamin</label>
                                                 <div class="my-input-modal">
                                                     <i class="uil uil-mars"></i>
                                                     <input type="text" name="jk" autocomplete="off" value="{{ $kyw->jk }}">
                                                 </div>
+                                            </div>
+                                            <div class="my-right-content-modal">
                                                 <label class="my-label-input">No.HP</label>
                                                 <div class="my-input-modal">
                                                     <i class="uil uil-phone"></i>
                                                     <input type="text" name="hp" autocomplete="off" value="{{ $kyw->hp }}">
+                                                </div>
+                                                <label class="my-label-input">Sisa Cuti</label>
+                                                <div class="my-input-modal">
+                                                    <input type="text" name="hp" autocomplete="off" value="{{ $kyw->sisa_cuti }} Hari">
+                                                </div>
+                                                <label class="my-label-input">Alamat <i class="uil uil-map-pin"></i></label>
+                                                <div class="my-textarea-modal">
+                                                    <textarea type="text" name="alamat" autocomplete="off">{{ $kyw->alamat }}</textarea>
                                                 </div>
                                                 <button type="submit" class="my-editBtn-modal-edit">Update Data</button>
                                             </div>
