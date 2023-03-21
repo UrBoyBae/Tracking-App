@@ -4,7 +4,8 @@
     use PHPUnit\TextUI\XmlConfiguration\CodeCoverage\Report\Php;
     use App\Models\KaryawanModel;
     use App\Models\AbsenModel;
-    use Illuminate\Support\Facades\DB;
+use App\Models\CutiModel;
+use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Carbon;
     use Illuminate\Http\Request;
     use App\Models\LoginModel;
@@ -82,7 +83,24 @@
         }
 
         public function dataCuti() {
-            return view('pages/cuti', ['title' => 'Permohonan Cuti']);
+            $cuti = CutiModel::all();
+            return view('pages/cuti', ['cuti'=>$cuti, 'title' => 'Permohonan Cuti']);
+        }
+
+        public function editCuti(Request $request, $id){
+            DB::table('cuti')
+            ->where('id_cuti', $id)
+            ->update([
+                'status' => $request->status
+            ]);
+
+            return redirect('cuti');
+        }
+
+        public function deleteCuti($id){
+            DB::table('cuti')->where('id_cuti', $id)->delete();
+            return redirect('cuti');
+            
         }
 
          public function filter(Request $request) {

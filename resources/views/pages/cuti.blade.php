@@ -54,26 +54,27 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($cuti as $index => $ct)
                             <tr>
-                                <td>001</td>
-                                <td>Shanaz</td>
-                                <td>2023/03/20</td>
-                                <td>2023/03/22</td>
-                                <td>2023-03-23</td>
-                                <td>2 hari</td>
+                                <td>{{ $ct->id_karyawan }}</td>
+                                <td>{{ $ct->nama }}</td>
+                                <td>{{ $ct->mulai }}</td>
+                                <td>{{ $ct->akhir }}</td>
+                                <td>{{ $ct->masuk_kerja }}</td>
+                                <td>{{ $ct->jml_cuti}} hari</td>
                                 <td>
                                     <div id="my-status-badge" class="my-status-badge">
-                                        <span id="my-title-badge">Terkirim</span>
+                                        <span id="my-title-badge">{{ $ct->status }}</span>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="my-wrap-toggle">
                                         <div class="my-trigger-viewBtn" id="my-trigger-viewBtn"
-                                            data-modal-view="my-bg-modal-view-001">
+                                            data-modal-view="my-bg-modal-view-{{$ct->id_cuti}}">
                                             <i class="uil uil-eye"></i>
                                         </div>
                                         <div class="my-trigger-deleteBtn" id="my-trigger-deleteBtn"
-                                            data-modal-delete="my-bg-modal-delete-001">
+                                            data-modal-delete="my-bg-modal-delete-{{$ct->id_cuti}}">
                                             <i class="uil uil-trash-alt"></i>
                                         </div>
                                     </div>
@@ -81,64 +82,72 @@
                             </tr>
 
                             <!-- Modal View -->
-                            <div class="my-bg-modal" id="my-bg-modal-view-001">
+                            <div class="my-bg-modal" id="my-bg-modal-view-{{$ct->id_cuti}}">
                                 <div class="my-content-modal">
                                     <div class="my-title-modal">
-                                        <span>View Data Shanaz</span>
+                                        <span>View Data {{ $ct->nama }}</span>
                                         <div class="my-close-modal" id="my-close-modal">X</div>
                                     </div>
                                     <!-- Modal Form -->
-                                    <form action="" method="">
+                                    <form action="/edit/cuti/{{$ct->id_cuti}}" method="post">
                                         <div class="my-form-modal">
                                             @csrf
                                             <div class="my-left-content-modal">
                                                 <label class="my-label-input">ID Karyawan</label>
                                                 <div class="my-input-modal my-input-disable">
                                                     <input type="text" name="UID" id="UID"
-                                                        placeholder="ID Karyawan" value="001" autocomplete="off"
+                                                        placeholder="ID Karyawan" value="{{ $ct->id_karyawan }}" autocomplete="off"
                                                         readonly>
                                                 </div>
                                                 <label class="my-label-input">Nama Karyawan</label>
                                                 <div class="my-input-modal">
                                                     <i class="uil uil-user"></i>
                                                     <input type="text" name="nama" autocomplete="off"
-                                                        value="Shanaz" readonly>
+                                                        value="{{ $ct->nama }}" readonly>
                                                 </div>
                                                 <label class="my-label-input">Mulai Cuti</label>
                                                 <div class="my-input-modal">
                                                     <i class="uil uil-calendar-alt"></i>
                                                     <input type="text" name="mulaicuti" autocomplete="off"
-                                                    value="2023/03/20" readonly>
+                                                    value="{{ $ct->mulai }}" readonly>
                                                 </div>
                                                 <label class="my-label-input">Selesai Cuti</label>
                                                 <div class="my-input-modal">
                                                     <i class="uil uil-calendar-alt"></i>
                                                     <input type="text" name="selesaicuti" autocomplete="off"
-                                                    value="2023/03/27" readonly>
+                                                    value="{{ $ct->akhir }}" readonly>
                                                 </div>
                                                 <label class="my-label-input">Masuk Kerja</label>
                                                 <div class="my-input-modal">
                                                     <i class="uil uil-calendar-alt"></i>
                                                     <input type="text" name="masukkerja" autocomplete="off"
-                                                        value="2023-03-28" readonly>
+                                                        value="{{ $ct->masuk_kerja }}" readonly>
                                                 </div>
                                             </div>
                                             <div class="my-right-content-modal">
                                                 <label class="my-label-input">Cuti</label>
                                                 <div class="my-input-modal">
                                                     <input type="text" name="cuti" autocomplete="off"
-                                                        value="7 Hari" readonly>
+                                                        value="{{ $ct->jml_cuti }} Hari" readonly>
                                                 </div>
                                                 <label class="my-label-input">Keterangan</label>
                                                 <div class="my-textarea-modal">
-                                                    <textarea type="text" name="keterangan" autocomplete="off" readonly>Naik Haji</textarea>
+                                                    <textarea type="text" name="keterangan" autocomplete="off" readonly>{{ $ct->ket }}</textarea>
                                                 </div>
                                                 <label class="my-label-input">Status</label>
                                                 <div class="my-input-modal">
                                                     <select id="status" name="status">
-                                                        <option value="" selected>Terkirim</option>
-                                                        <option value="">Diterima</option>
-                                                        <option value="">Ditolak</option>
+                                                        <option value="{{$ct->status}}" selected disabled>{{$ct->status}}</option>
+                                                        @if ($ct->status == 'Terkirim')
+                                                        <option value="Diterima">Diterima</option>
+                                                        <option value="Ditolak">Ditolak</option>
+                                                        @endif
+                                                        @if ($ct->status == 'Ditolak')
+                                                        <option value="Diterima">Diterima</option>
+                                                        @endif
+                                                        @if ($ct->status == 'Diterima')
+                                                        <option value="Ditolak">Ditolak</option>
+                                                        @endif                                                  
                                                     </select>
                                                 </div>
                                                 <button type="submit" class="my-editBtn-modal-edit">Update
@@ -151,23 +160,23 @@
                             <!-- Akhir Modal Edit -->
 
                             <!-- Modal Delete -->
-                            <div class="my-bg-modal" id="my-bg-modal-delete-001">
+                            <div class="my-bg-modal" id="my-bg-modal-delete-{{$ct->id_cuti}}">
                                 <div class="my-content-modal my-content-modal-delete">
                                     <div class="my-title-modal">
                                         <span>Delete Permohonan Cuti</span>
                                         <div class="my-close-modal" id="my-close-modal">X</div>
                                     </div>
                                     <!-- Modal Form -->
-                                    <form action="" method="POST">
+                                    <form action="/delete/cuti/{{$ct->id_cuti}}" method="POST">
                                         <div class="my-inner-modal-delete">
-                                            <span>Anda yakin ingin menghapus permohonan cuti Shanaz dari tanggal 2023/03/20 - 2023/03/27?</span>
+                                            <span>Anda yakin ingin menghapus permohonan cuti {{ $ct->nama }} dari tanggal {{ $ct->mulai }} - {{ $ct->akhir }}?</span>
                                             <div class="my-validation-modal-delete">
                                                 {{-- <img src="{{ ($kyw->jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png')) }}" width="50px"> --}}
                                                 <img src="{{ asset('assets/images/genderProfile-L.png') }}"
                                                     width="50px">
                                                 <div class="my-detail-validation">
-                                                    <span>Shanaz</span>
-                                                    <span>Naik Haji - Terkirim</span>
+                                                    <span>{{ $ct->nama }}</span>
+                                                    <span>{{ $ct->ket }} - {{ $ct->status }}</span>
                                                 </div>
                                             </div>
                                             @csrf
@@ -177,6 +186,7 @@
                                 </div>
                             </div>
                             <!-- Akhir Modal Delete -->
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
