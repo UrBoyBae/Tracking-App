@@ -124,7 +124,7 @@
                                                 </div>
                                                 <label class="my-label-input">Sisa Cuti</label>
                                                 <div class="my-input-modal">
-                                                    <input type="text" name="hp" autocomplete="off" value="{{ $kyw->sisa_cuti }} Hari">
+                                                    <input type="text" name="sisa_cuti" autocomplete="off" value="{{ $kyw->sisa_cuti }} Hari">
                                                 </div>
                                                 <label class="my-label-input">Alamat <i class="uil uil-map-pin"></i></label>
                                                 <div class="my-textarea-modal">
@@ -200,11 +200,10 @@
                                     </div>
                                 </div>
                                 <div class="my-right-content-modal">
-                                    <label class="my-label-input">Alamat</label>
-                                    <div class="my-input-modal">
-                                        <i class="uil uil-map-pin"></i>
-                                        <input type="text" name="alamat" autocomplete="off" required>
-                                    </div>
+                                    <label class="my-label-input">Alamat <i class="uil uil-map-pin"></i></label>
+                                                <div class="my-textarea-modal">
+                                                    <textarea type="text" name="alamat" autocomplete="off"></textarea>
+                                                </div>
                                     <label class="my-label-input">Jenis Kelamin</label>
                                     <div class="my-input-modal">
                                         <i class="uil uil-mars"></i>
