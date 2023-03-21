@@ -614,7 +614,7 @@ ul.pagination-list li a.pagination-link.is-current {
 .my-form-modal .my-textarea-modal textarea,
 .my-form-modal .my-status-modal {
     cursor: not-allowed;
-}x
+}
 
 .my-form-modal .my-input-modal input#UID {
     cursor: not-allowed;
