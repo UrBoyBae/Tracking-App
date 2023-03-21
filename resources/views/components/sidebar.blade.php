@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="{{ ($title == 'Permohonan Cuti' ? 'my-selected-link' : '') }}">
+                <a href="{{route('cuti')}}" class="{{ ($title == 'Permohonan Cuti' ? 'my-selected-link' : '') }}">
                     <i class="uil uil-schedule"></i>
                     <span class="my-link-name">Permohonan Cuti</span>
                 </a>

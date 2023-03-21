@@ -24,6 +24,7 @@ Route::post('/login', [LoginController::class, 'loginaksi'])->name('login');
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 Route::get('/karyawan', [PageController::class, 'indexKaryawan'])->name('karyawan');
 Route::get('/absensi', [PageController::class, 'dataAbsensi'])->name('absensi');
+Route::get('/cuti', [PageController::class, 'dataCuti'])->name('cuti');
 Route::get('/absensi/filter',[PageController::class, 'filter'])->name('search');
 Route::get('/karyawan/cari', [PageController::class, 'cari'])->name('cari');
 Route::post('/karyawan/tambah', [PageController::class, 'createkar'])->name('tambah');

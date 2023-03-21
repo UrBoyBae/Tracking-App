@@ -81,8 +81,11 @@
             return view('pages/absensi', ['absen' => $absen, 'day' => $day, 'tanggal' => $tanggal, 'title' => 'Data Absensi']);
         }
 
-         public function filter(Request $request)
-        {
+        public function dataCuti() {
+            return view('pages/cuti', ['title' => 'Permohonan Cuti']);
+        }
+
+         public function filter(Request $request) {
             $firstDate = $request->query('firstDate');
             $secondDate = $request->query('secondDate');
 
