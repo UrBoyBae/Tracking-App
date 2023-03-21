@@ -417,6 +417,20 @@ div.my-main-content {
     -o-border-radius: 4px;
 }
 
+.my-input-sortby input[type="date"]:focus {
+    outline: 1px solid var(--primaryColor);
+}
+
+.my-input-sortby input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: var(--textColor);
+    padding: 3px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
 .my-input-sortby input[type="text"] {
     width: 100%;
     margin-top: 3px;
@@ -432,13 +446,17 @@ div.my-main-content {
     -o-border-radius: 4px;
 }
 
+.my-input-sortby input[type="text"]:focus {
+    outline: 1px solid var(--primaryColor);
+}
+
 .my-input-sortby input[type="text"]::placeholder {
     color: var(--textColor);
 }
 
 .my-search-sortby {
     margin-top: 30px;
-    padding: 6px 16px;
+    padding: 6px 20px;
     color: var(--textColor);
     background: var(--submit-modal);
     border: 1px solid var(--submit-modal);
