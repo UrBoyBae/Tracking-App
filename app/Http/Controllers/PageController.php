@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
             return view('login');
         }
 
+        //dashboard
         public function dashboard() {
             setlocale(LC_TIME, 'id_ID');
             Carbon::setLocale('id');
@@ -26,6 +27,7 @@ use Illuminate\Support\Facades\DB;
             return view('pages/dashboard', ['kar' => $kar, 'abs' => $abs, 'cuti' => $cuti, 'title' => 'Dashboard']);
         }
 
+        //Karyawan
         public function indexKaryawan() {
             
             $last_id = DB::table('karyawan')->max('id_karyawan');
@@ -44,29 +46,49 @@ use Illuminate\Support\Facades\DB;
             DB::table('karyawan')->insert([
                 'id_karyawan' => $request->UID,
                 'nama' => $request->nama,
-                'alamat' => $request->alamat,
+                'username' => $request->username,
                 'password' => $request->password,
+                'alamat' => $request->alamat,
                 'jk' => $request->jk,
-                'hp' => $request->hp
-                
+                'hp' => $request->hp,
+                'sisa_cuti' => '12'
             ]);
 
             return redirect()->route('karyawan')->with('success', 'Data berhasil ditambahkan.');
         }
 
-        public function cari(Request $request)
-        {
-            $filter = $request->input('filter');
-            $query = $request->input('value');
-            $karyawan = DB::table('karyawan')
-            ->where($filter, 'like', '%' . $query . '%')
-            ->paginate(5);
-            $last_id = DB::table('karyawan')->max('id_karyawan');
-            $new_id = $last_id + 1;
+        
 
-            return redirect()->route('karyawan', compact('karyawan'));
+        public function destroy($id)
+        {
+            // menghapus data karyawan berdasarkan id yang dipilih
+            DB::table('karyawan')->where('id_karyawan',$id)->delete();
+                
+            // alihkan halaman ke halaman karyawan
+            return redirect('karyawan');
         }
 
+        public function update(Request $request, $id){
+
+            $cuti = filter_var($request->sisa_cuti, FILTER_SANITIZE_NUMBER_INT);
+            DB::table('karyawan')
+            ->where('id_karyawan', $id)
+            ->update([
+                'id_karyawan' => $request->UID,
+                'nama' => $request->nama,
+                'username' => $request->username,
+                'password' => $request->password,
+                'alamat' => $request->alamat,
+                'jk' => $request->jk,
+                'hp' => $request->hp,
+                'sisa_cuti' => $cuti
+            ]);
+
+            return redirect()->route('karyawan')->with('success', 'Data berhasil diubah.');
+        }
+
+
+        //absensi
         public function dataAbsensi() {
             setlocale(LC_TIME, 'id_ID');
             Carbon::setLocale('id');
@@ -82,28 +104,7 @@ use Illuminate\Support\Facades\DB;
             return view('pages/absensi', ['absen' => $absen, 'day' => $day, 'tanggal' => $tanggal, 'title' => 'Data Absensi']);
         }
 
-        public function dataCuti() {
-            $cuti = CutiModel::all();
-            return view('pages/cuti', ['cuti'=>$cuti, 'title' => 'Permohonan Cuti']);
-        }
-
-        public function editCuti(Request $request, $id){
-            DB::table('cuti')
-            ->where('id_cuti', $id)
-            ->update([
-                'status' => $request->status
-            ]);
-
-            return redirect('cuti');
-        }
-
-        public function deleteCuti($id){
-            DB::table('cuti')->where('id_cuti', $id)->delete();
-            return redirect('cuti');
-            
-        }
-
-         public function filter(Request $request) {
+        public function filter(Request $request) {
             $firstDate = $request->query('firstDate');
             $secondDate = $request->query('secondDate');
 
@@ -132,52 +133,29 @@ use Illuminate\Support\Facades\DB;
             
         }
 
-        public function destroy($id_karyawan )
-        {
-            // menghapus data karyawan berdasarkan id yang dipilih
-            DB::table('karyawan')->where('id_karyawan',$id_karyawan)->delete();
-                
-            // alihkan halaman ke halaman karyawan
-            return redirect('karyawan');
+
+        //cuti
+
+        public function dataCuti() {
+            $cuti = CutiModel::all();
+            return view('pages/cuti', ['cuti'=>$cuti, 'title' => 'Permohonan Cuti']);
         }
 
-        public function edit($id_karyawan)
-        {
-            $kyw = KaryawanModel::findOrFail($id_karyawan);
-            return view('update', compact('kyw'));
-        }
-
-        public function update(Request $request){
-            DB::table('karyawan')
-            ->where('id_karyawan', '=', $request->UID)
+        public function editCuti(Request $request, $id){
+            DB::table('cuti')
+            ->where('id_cuti', $id)
             ->update([
-                'id_karyawan' => $request->UID,
-                'nama' => $request->nama,
-                'alamat' => $request->alamat,
-                'password' => $request->password,
-                'jk' => $request->jk,
-                'hp' => $request->hp
+                'status' => $request->status
             ]);
 
-            return redirect()->route('karyawan')->with('success', 'Data berhasil diubah.');
+            return redirect('cuti');
         }
 
-        public function loginaksi(Request $request){
-            $username = $request->input('username');
-            $password = $request->input('password');
-        
-            $user = LoginModel::where('user', $username)->first();
-    
-            if ($user){
-                if ($password == $user->pass) {
-                    session(['id' => $user->id_petugas, 'username' => $username]);
-                    $request->session()->regenerate();
-                    return redirect('/dashboard');
-                }
-                else{
-                    return back()->with('loginError', 'Username or password doesnt match' );
-                }
-            }
-         }
+        public function deleteCuti($id){
+            DB::table('cuti')->where('id_cuti', $id)->delete();
+            return redirect('cuti');
+            
+        }
+
 }
 ?>
