@@ -9,7 +9,7 @@
     <div class="my-right-navbar">
         <!-- <div class="my-notif"></div>
                     <i class="uil uil-bell"></i> -->
-        <span class="my-account">Admin</span>
+        <span class="my-account">Username</span>
         <img src="{{asset('assets/images/account.png')}}" alt="">
     </div>
 </div>
