@@ -12,6 +12,9 @@ body {
     --main-background-color: #141332;
     --content-background-color: #1d1d41;
     --primaryColor: #6359e9;
+    --primaryBg: rgb(99, 89, 233, 15%);
+    --secondColor: #64cff6;
+    --secondBg: rgb(100, 207, 246, 15%);;
     --textColor: #DBDFEA;
     --card-icon-color: #64cff6;
     --card-text-color: #8c89b4;
@@ -149,9 +152,7 @@ ul.my-sidebar-link {
 
 /* === Content === */
 div.my-main-content {
-    height: 100%;
     width: calc(100% - 330px);
-    padding: 0 0 30px;
     margin-left: 330px;
   }
 
@@ -242,14 +243,12 @@ div.my-main-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 140px 40px 30px 10px;
+    padding: 125px 40px 0 10px;
 }
 
 .my-card-view {
     display: flex;
     justify-content: space-around;
-    border-bottom: 2px solid var(--content-background-color);
-    padding-bottom: 70px;
 }
 
 .my-card-view .my-card-content {
@@ -273,7 +272,7 @@ div.my-main-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--primaryColor);
+    background-color: var(--primaryBg);
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -283,7 +282,7 @@ div.my-main-content {
 
 .my-icon-card i {
     font-size: 35px;
-    color: var(--textColor);
+    color: var(--primaryColor);
 }
 
 .my-card-data {
@@ -304,8 +303,136 @@ div.my-main-content {
     font-size: 26px;
 }
 
+.my-mid-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px 0 25px;
+    margin-top: 45px;
+}
+
+.my-chart {
+    background-color: var(--content-background-color);
+    padding: 30px 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    color: var(--textColor);
+    width: 695px;
+}
+
+.my-profile-account {
+    background-color: var(--content-background-color);
+    width: 320px;
+    height: 400px;
+    padding: 20px 40px 0;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.my-profile-account span {
+    color: var(--textColor);
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.my-profile-account .my-data-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.my-profile-account .my-data-profile img {
+    outline: 4px solid var(--secondBg);
+    margin-bottom: 15px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.my-data-profile div.my-profile-name span {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.my-data-profile div.my-profile-role span {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--card-text-color);
+}
+
+.my-data-profile div.my-profile-address {
+    width: 250px;
+    margin-top: 15px;
+    padding: 10px 17px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    border: 2px solid var(--secondBg);
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.my-icon-profile{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primaryBg);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+.my-icon-profile i {
+    font-size: 20px;
+    color: var(--secondColor);
+}
+
+
+.my-data-profile div.my-profile-address span {
+    font-size: 15px;
+    margin-top: 0px;
+    font-weight: 400;
+}
+
+.my-data-profile div.my-profile-no {
+    width: 250px;
+    margin-top: 13px;
+    padding: 10px 17px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    border: 2px solid var(--secondBg);
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.my-data-profile div.my-profile-no span {
+    font-size: 15px;
+    margin-top: 0px;
+    font-weight: 400;
+}
+
 .my-footer {
     width: 100%;
+    margin-top: 30px;
     font-weight: 200;
     font-size: 15px;
     text-align: center;

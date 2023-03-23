@@ -12,6 +12,7 @@ body {
     --main-background-color: #141332;
     --content-background-color: #1d1d41;
     --primaryColor: #6359e9;
+    --secondColor: #64CFF6;
     --primaryBackground: rgb(99, 89, 233, 15%);
     --textColor: #dbdfea;
     --card-icon-color: #64cff6;
@@ -519,6 +520,20 @@ ul.pagination-list li a.pagination-link.is-current {
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
+}
+
+.my-form-modal .my-radio-modal {
+    height: 40px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--textColor);
+}
+.my-form-modal .my-radio-modal label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .my-input-disable {
