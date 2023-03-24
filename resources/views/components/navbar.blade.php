@@ -9,7 +9,8 @@
     <div class="my-right-navbar">
         <!-- <div class="my-notif"></div>
                     <i class="uil uil-bell"></i> -->
-        <span class="my-account">Username</span>
-        <img src="{{asset('assets/images/account.png')}}" alt="">
+        <span class="my-account">{{ $username }} </span>
+        
+        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}">   
     </div>
 </div>
