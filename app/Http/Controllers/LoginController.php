@@ -31,8 +31,12 @@ class LoginController extends Controller
 
         if ($user){
             if ($password == $user->pass) {
-                session(['id' => $user->id_petugas, 'username' => $username]);
+                // session(['id' => $user->id, 'username' => $username, 'jk'=>$user->jk]);
+                session()->put('id', $user->id);
+                session()->put('username', $username);
+                session()->put('jk', $user->jk);
                 $request->session()->regenerate();
+                $username = $request->session()->get('username');
                 return redirect('/dashboard');
             }
             else{

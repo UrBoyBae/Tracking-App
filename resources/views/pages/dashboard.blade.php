@@ -68,30 +68,32 @@
                     <div class="my-chart">
                         <canvas id="myChart"></canvas>
                     </div>
+                    @foreach($profile as $index => $prf)
                     <div class="my-profile-account">
                         {{-- <span>Profile Account</span> --}}
                         <div class="my-data-profile">
-                            <img src="{{ asset('assets/images/account.png') }}" width="100px">
+                            <img src="{{ $prf->jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}" width="100px">                            
                             <div class="my-profile-name">
-                                <span>Ali Akbar Abdillah</span>
+                                <span>{{$prf->nama_lengkap}}</span>
                             </div>
                             <div class="my-profile-role">
-                                <span>Admin</span>
+                                <span>{{$prf->user}}</span>
                             </div>
                             <div class="my-profile-address">
                                 <div class="my-icon-profile">
                                     <i class="uil uil-map-marker"></i>
                                 </div>
-                                <span>Graha Bukit Raya 3</span>
+                                <span>{{Str::limit($prf->alamat, 40)}}</span>
                             </div>
                             <div class="my-profile-no">
                                 <div class="my-icon-profile">
                                     <i class="uil uil-phone-alt"></i>
                                 </div>
-                                <span>089976544563</span>
+                                <span>{{$prf->no_hp}}</span>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 {{-- <div class="my-footer">&copy; 2023 V-Attendance. All Rights Reserved</div> --}}
             </div>
@@ -99,6 +101,10 @@
         </div>
         <!-- Akhir Main Content -->
     </div>
+    @php
+        $data = [$januari];
+        $data = [$february];
+    @endphp
 </body>
 <!-- Chart JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -126,7 +132,7 @@
             datasets: [{
                     type: "bar",
                     label: "Rekap Absensi Tepat Waktu",
-                    data: [15, 18, 17, 14, 13, 15, 17, 18, 15, 13, 14, 15],
+                    data: [<?=$januari?>, <?=$february?>, <?=$maret?>, <?=$april?>, <?=$mei?>, <?=$juni?>, <?=$juli?>, <?=$agustus?>, <?=$september?>, <?=$oktober?>, <?=$november?>, <?=$desember?>],
                     borderRadius: 25,
                     barThickness: 9,
                     backgroundColor: "rgb(100, 207, 246)",
@@ -137,7 +143,7 @@
                 {
                     type: "bar",
                     label: "Rekap Absensi Terlambat",
-                    data: [10, 12, 13, 12, 10, 11, 11, 12, 10, 11, 10, 9],
+                    data: [<?=$jan_telat?>, <?=$feb_telat?>, <?=$mar_telat?>, <?=$apr_telat?>, <?=$mei_telat?>, <?=$jun_telat?>, <?=$jul_telat?>, <?=$aug_telat?>, <?=$sept_telat?>, <?=$oct_telat?>, <?=$nov_telat?>, <?=$des_telat?>],
                     borderRadius: 25,
                     barThickness: 9,
                     padding: 0.8,
@@ -148,7 +154,7 @@
                 },
             ],
         },
-        option: {
+        options: {
             scales: {
                 y: {
                     beginAtZero: true,
