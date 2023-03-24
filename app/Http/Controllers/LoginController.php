@@ -43,6 +43,10 @@ class LoginController extends Controller
                 return back()->with('loginError', 'Username or password doesnt match' );
             }
         }
+        else{
+            return back()->with('loginError', 'Username or password doesnt match' );
+        }
+        
      }
 
     public function logoutaksi(Request $request)
