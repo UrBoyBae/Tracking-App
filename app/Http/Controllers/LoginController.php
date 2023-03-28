@@ -10,18 +10,18 @@ use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
-    public function login()
-    {
-        if (Auth::check()) 
-        {
-            return redirect('home');
-        }
+    // public function login()
+    // {
+    //     if (Auth::check()) 
+    //     {
+    //         return redirect('home');
+    //     }
         
-        else
-        {
-            return view('login');
-        }
-    }
+    //     else
+    //     {
+    //         return view('login');
+    //     }
+    // }
 
     public function loginaksi(Request $request){
         $username = $request->input('username');

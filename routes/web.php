@@ -36,3 +36,5 @@ Route::post('/edit/cuti/{id}', [PageController::class,'editCuti'])->name('editCu
 Route::post('/delete/cuti/{id}', [PageController::class, 'deleteCuti'])->name('deleteCuti');
 
 Route::get('/logout', [LoginController::class, 'logoutaksi'])->name('logout');
+
+Route::post('/karyawan/reset-cuti', [PageController::class, 'reset'])->name('reset');

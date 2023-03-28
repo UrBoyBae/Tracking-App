@@ -274,7 +274,7 @@
                             <div class="my-close-modal" id="my-close-modal">X</div>
                         </div>
                         <!-- Modal Form -->
-                        <form action="" method="POST">
+                        <form action="{{route('reset')}}" method="POST">
                             <div class="my-inner-modal-delete" style="padding: 0 20px ">
                                 <span style="text-align: center">Apakah Anda Yakin Ingin Me-reset semua Sisa Cuti karyawan?</span>
                                 
