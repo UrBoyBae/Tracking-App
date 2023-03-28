@@ -586,11 +586,11 @@ ul.pagination-list li a.pagination-link.is-current {
     top: 0;
     left: 0;
     z-index: 6;
-    padding: 35px 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    padding: 50px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
     display: none;
 }
-
 .my-bg-modal.my-modal-active {
     display: flex;
 }

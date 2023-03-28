@@ -25,6 +25,12 @@ triggerModalAdd.onclick = function () {
     document.getElementById("my-bg-modal-add").classList.add("my-modal-active");
 };
 
+// Modal Add
+var triggerModalReset = document.querySelector("div#my-trigger-resetBtn");
+triggerModalReset.onclick = function () {
+    document.getElementById("my-bg-modal-reset").classList.add("my-modal-active");
+};
+
 // Modal Edit
 var triggerModalEdit = document.querySelectorAll("div#my-trigger-editBtn");
 triggerModalEdit.forEach(function(buttonEdit) {

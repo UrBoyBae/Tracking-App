@@ -13,6 +13,7 @@ body {
     --content-background-color: #1d1d41;
     --primaryColor: #6359e9;
     --secondColor: #64CFF6;
+    --secondBackground: rgb(100, 207, 246, 15%);
     --primaryBackground: rgb(99, 89, 233, 15%);
     --textColor: #dbdfea;
     --card-icon-color: #64cff6;
@@ -265,7 +266,7 @@ div.my-main-content {
     margin-bottom: 25px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
 }
 
 .my-addBtn {
@@ -275,8 +276,8 @@ div.my-main-content {
     align-items: center;
     justify-content: center;
     gap: 3px;
-    background-color: var(--primaryColor);
-    color: var(--textColor);
+    background-color: var(--primaryBackground);
+    color: var(--primaryColor);
     cursor: pointer;
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -291,7 +292,7 @@ div.my-main-content {
 }
 
 .my-addBtn:hover {
-    border: 2px solid var(--primaryColor);
+    border: 1px solid var(--primaryColor);
     background-color: var(--content-background-color);
     color: var(--primaryColor);
 }
@@ -301,6 +302,43 @@ div.my-main-content {
 }
 
 .my-addBtn span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.my-resetBtn {
+    width: 160px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background-color: var(--secondBackground);
+    color: var(--secondColor);
+    cursor: pointer;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transition: var(--transition-3);
+    -webkit-transition: var(--transition-3);
+    -moz-transition: var(--transition-3);
+    -ms-transition: var(--transition-3);
+    -o-transition: var(--transition-3);
+}
+
+.my-resetBtn:hover {
+    border: 1px solid var(--secondColor);
+    background-color: var(--content-background-color);
+    color: var(--secondColor);
+}
+
+.my-resetBtn i {
+    font-size: 20px;
+}
+
+.my-resetBtn span {
     font-size: 14px;
     font-weight: 500;
 }
@@ -415,7 +453,8 @@ ul.pagination-list li a.pagination-link.is-current {
     left: 0;
     z-index: 6;
     padding: 50px 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
     display: none;
 }
 
@@ -670,4 +709,26 @@ ul.pagination-list li a.pagination-link.is-current {
     background-color: var(--content-background-color);
     border: 1px solid var(--close-modal);
     color: var(--close-modal);
+}
+
+.my-inner-modal-delete .my-resetBtn-modal-reset {
+    height: 40px;
+    width: 100%;
+    font-weight: 500;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: var(--submit-modal);
+    color: var(--textColor);
+    border: 1px solid var(--submit-modal);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.my-inner-modal-delete .my-resetBtn-modal-reset:hover {
+    background-color: var(--content-background-color);
+    border: 1px solid var(--submit-modal);
+    color: var(--submit-modal);
 }

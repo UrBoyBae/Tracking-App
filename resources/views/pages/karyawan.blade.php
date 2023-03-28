@@ -45,6 +45,10 @@
                             <i class="uil uil-user-plus"></i>
                             <span>Tambah Karyawan</span>
                         </div>
+                        <div class="my-resetBtn" id="my-trigger-resetBtn">
+                            <i class="uil uil-redo"></i>
+                            <span>Reset Sisa Cuti</span>
+                        </div>
                     </div>
                     <!-- Table -->
                     <table id="tableKaryawan" class="table is-fullwidth">
@@ -261,6 +265,28 @@
                         </form>
                     </div>
                 </div>
+
+                <!-- Modal Reset -->
+                <div class="my-bg-modal" id="my-bg-modal-reset">
+                    <div class="my-content-modal my-content-modal-delete">
+                        <div class="my-title-modal">
+                            <span>Reset Sisa Cuti</span>
+                            <div class="my-close-modal" id="my-close-modal">X</div>
+                        </div>
+                        <!-- Modal Form -->
+                        <form action="" method="POST">
+                            <div class="my-inner-modal-delete" style="padding: 0 20px ">
+                                <span style="text-align: center">Apakah Anda Yakin Ingin Me-reset semua Sisa Cuti karyawan?</span>
+                                
+                                @csrf
+                                <button type="submit"
+                                    class="my-resetBtn-modal-reset">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Akhir Modal Reset -->
+
             </div>
             <!-- Akhir Inner Content -->
         </div>
