@@ -49,6 +49,7 @@
                                 <th>Selesai Cuti</th>
                                 <th>Masuk Kerja</th>
                                 <th>Cuti</th>
+                                <th>Kategori</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -62,6 +63,7 @@
                                 <td>{{ $ct->akhir }}</td>
                                 <td>{{ $ct->masuk_kerja }}</td>
                                 <td>{{ $ct->jml_cuti}} hari</td>
+                                <td>{{ $ct->kategori }}</td>
                                 <td>
                                     <div id="my-status-badge" class="my-status-badge">
                                         <span id="my-title-badge">{{ $ct->status }}</span>
@@ -132,7 +134,7 @@
                                                 </div>
                                                 <label class="my-label-input">Keterangan</label>
                                                 <div class="my-textarea-modal">
-                                                    <textarea type="text" name="keterangan" autocomplete="off" readonly>{{ $ct->ket }}</textarea>
+                                                    <textarea type="text" name="keterangan" autocomplete="off" readonly>{{ $ct -> kategori }} - {{ $ct->ket }}</textarea>
                                                 </div>
                                                 <label class="my-label-input">Status</label>
                                                 <div class="my-input-modal">
