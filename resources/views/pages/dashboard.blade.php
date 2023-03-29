@@ -77,7 +77,7 @@
                                 <span>{{$prf->nama_lengkap}}</span>
                             </div>
                             <div class="my-profile-role">
-                                <span>{{$prf->user}}</span>
+                                <span>{{$prf->level}}</span>
                             </div>
                             <div class="my-profile-address">
                                 <div class="my-icon-profile">
