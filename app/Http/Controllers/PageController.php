@@ -214,5 +214,13 @@
             
         }
 
+
+        //reset
+        public function reset(){
+            DB::table('karyawan')->update(['sisa_cuti'=>12]);
+            return back();
+
+        }
+
 }
 ?>
