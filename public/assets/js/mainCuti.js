@@ -5,7 +5,7 @@ $(document).ready(function () {
         columnDefs: [
             {
                 orderable: false,
-                target: [1, 2, 3, 4, 5, 6, 7],
+                target: [1, 5, 6, 7, 8],
             },
         ],
     });
@@ -15,11 +15,11 @@ $(document).ready(function () {
 const titleBadge = document.querySelectorAll("span#my-title-badge");
 const statusBadge = document.querySelectorAll("div#my-status-badge");
 for(var i = 0; i < titleBadge.length; i++){
-    if(titleBadge[i].innerHTML === "Diterima"){
+    if(titleBadge[i].innerHTML === "Disetujui"){
         statusBadge[i].classList.add("my-accept-badge");
     } else if(titleBadge[i].innerHTML === "Ditolak") {
         statusBadge[i].classList.add("my-decline-badge");
-    } else if(titleBadge[i].innerHTML === "Terkirim") {
+    } else if(titleBadge[i].innerHTML === "Diterima") {
         statusBadge[i].classList.add("my-send-badge");
     }
 }
@@ -49,3 +49,4 @@ triggerModalDelete.forEach(function(buttonDelete) {
         document.getElementById(dataModalDelete).classList.add("my-modal-active");
     }
 })
+

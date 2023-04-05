@@ -74,6 +74,11 @@
                                             <input type="text" name="uidkaryawan" id="uidkaryawan"
                                                 placeholder="Masukkan UID" autocomplete="off">
                                         </div>
+                                        <div class="my-input-sortby">
+                                            <label for="">Nama Karyawan</label>
+                                            <input type="text" name="namakaryawan" id="namakaryawan"
+                                                placeholder="Masukkan Nama" autocomplete="off">
+                                        </div>
                                     </div>
                                     <button type="submit" name="search" class="my-search-sortby">
                                         <i class="uil uil-search-alt"></i>

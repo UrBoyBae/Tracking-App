@@ -21,20 +21,22 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, 'login']);
 Route::post('/login', [LoginController::class, 'loginaksi'])->name('login');
+Route::get('/logout', [LoginController::class, 'logoutaksi'])->name('logout');
+
 Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+
 Route::get('/karyawan', [PageController::class, 'indexKaryawan'])->name('karyawan');
-Route::get('/absensi', [PageController::class, 'dataAbsensi'])->name('absensi');
-Route::get('/cuti', [PageController::class, 'dataCuti'])->name('cuti');
-Route::get('/absensi/filter',[PageController::class, 'filter'])->name('search');
 Route::get('/karyawan/cari', [PageController::class, 'cari'])->name('cari');
 Route::post('/karyawan/tambah', [PageController::class, 'createkar'])->name('tambah');
 Route::post('/edit/{id_karyawan}', [PageController::class,'update'])->name('edit');
 Route::post('/delete/{id_karyawan}', [PageController::class, 'destroy'])->name('deleteRoute');
+Route::post('/karyawan/reset-cuti', [PageController::class, 'reset'])->name('reset');
 
+Route::get('/absensi', [PageController::class, 'dataAbsensi'])->name('absensi');
+Route::get('/absensi/filter',[PageController::class, 'filter'])->name('search');
 
+Route::get('/cuti', [PageController::class, 'dataCuti'])->name('cuti');
 Route::post('/edit/cuti/{id}', [PageController::class,'editCuti'])->name('editCuti');
 Route::post('/delete/cuti/{id}', [PageController::class, 'deleteCuti'])->name('deleteCuti');
 
-Route::get('/logout', [LoginController::class, 'logoutaksi'])->name('logout');
 
-Route::post('/karyawan/reset-cuti', [PageController::class, 'reset'])->name('reset');

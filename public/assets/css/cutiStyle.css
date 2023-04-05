@@ -557,7 +557,7 @@ ul.pagination-list li a.pagination-link.is-current {
     height: 120px;
     border: 1px solid var(--primaryColor);
     color: var(--textColor);
-    padding: 0 0 0 14px;
+    padding: 0 14px 0 14px;
     border-radius: 6px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
