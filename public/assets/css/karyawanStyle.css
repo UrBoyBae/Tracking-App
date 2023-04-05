@@ -615,6 +615,11 @@ ul.pagination-list li a.pagination-link.is-current {
     color: var(--textColor);
 }
 
+.error-message {
+    color: red;
+    font-weight: 300;
+}
+
 .my-form-modal .my-addBtn-modal-add {
     height: 40px;
     width: 100%;

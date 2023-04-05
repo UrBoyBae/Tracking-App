@@ -28,6 +28,26 @@ body {
     --view-bg: #fafdd4;
     --view-color: #ac9d16;
 
+    /* ==== Colors ==== */
+    /* --main-background-color: #F0F7FD;
+    --content-background-color: #FFFFFF;
+    --primaryColor: #6359e9;
+    --primaryBg: rgb(99, 89, 233, 15%);
+    --secondColor: #64cff6;
+    --secondBg: rgb(100, 207, 246, 15%);;
+    --textColor: #303030;
+    --card-icon-color: #64cff6;
+    --card-text-color: #8c89b4;
+    --submit-modal: #3772ff;
+    --update-modal: #4caf50;
+    --close-modal: #e53535;
+    --ontime-bg-badge: #dcfdd4;
+    --ontime-color-badge: #4fac16;
+    --late-bg-badge: #fdd4d4;
+    --late-color-badge: #ac1616;
+    --view-bg: #fafdd4;
+    --view-color: #ac9d16; */
+
     --bg-row: #fcfcfc;
     --blackLight: #707070;
     --borderColor: #e6e5e5;
@@ -294,7 +314,7 @@ div.my-main-content {
 .my-card-data span.my-title-card {
     font-size: 18px;
     color: var(--card-text-color);
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .my-card-data span.my-count {

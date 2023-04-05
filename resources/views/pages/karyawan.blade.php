@@ -111,11 +111,16 @@
                                                         <input type="text" name="nama" autocomplete="off"
                                                             value="{{ $kyw->nama }}">
                                                     </div>
-                                                    <label class="my-label-input">Username</label>
-                                                    <div class="my-input-modal">
-                                                        <i class="uil uil-user"></i>
-                                                        <input type="text" name="username" autocomplete="off"
-                                                            value="{{ $kyw->username }}">
+                                                    <div style="margin-bottom: 15px">
+                                                        <label class="my-label-input">Username</label>
+                                                        <div class="my-input-modal" style="margin-bottom: 4px;">
+                                                            <i class="uil uil-user"></i>
+                                                            <input type="text" name="username" autocomplete="off"
+                                                                value="{{ $kyw->username }}">
+                                                        </div>
+                                                        {{-- <small class="error-message">
+                                                            *Username Sudah Terpakai
+                                                        </small> --}}
                                                     </div>
                                                     <label class="my-label-input">Password</label>
                                                     <div class="my-input-modal">
@@ -141,27 +146,30 @@
                                                     <div class="my-textarea-modal">
                                                         <textarea type="text" name="alamat" autocomplete="off">{{ $kyw->alamat }}</textarea>
                                                     </div>
-                                                    <label class="my-label-input">Jenis Kelamin <i class="uil uil-mars"></i></label>
+                                                    <label class="my-label-input">Jenis Kelamin <i
+                                                            class="uil uil-mars"></i></label>
                                                     <div class="my-radio-modal">
                                                         @if ($kyw->jk == 'L')
-                                                        <label>
-                                                            <input type="radio" name="jk" value="L" checked>
-                                                            <span>Laki - Laki</span>
-                                                        </label>
-                                                        <label>
-                                                            <input type="radio" name="jk" value="P">
-                                                            <span>Perempuan</span>
-                                                        </label>
+                                                            <label>
+                                                                <input type="radio" name="jk" value="L"
+                                                                    checked>
+                                                                <span>Laki - Laki</span>
+                                                            </label>
+                                                            <label>
+                                                                <input type="radio" name="jk" value="P">
+                                                                <span>Perempuan</span>
+                                                            </label>
                                                         @endif
                                                         @if ($kyw->jk == 'P')
-                                                        <label>
-                                                            <input type="radio" name="jk" value="L">
-                                                            <span>Laki - Laki</span>
-                                                        </label>
-                                                        <label>
-                                                            <input type="radio" name="jk" value="P" checked>
-                                                            <span>Perempuan</span>
-                                                        </label>
+                                                            <label>
+                                                                <input type="radio" name="jk" value="L">
+                                                                <span>Laki - Laki</span>
+                                                            </label>
+                                                            <label>
+                                                                <input type="radio" name="jk" value="P"
+                                                                    checked>
+                                                                <span>Perempuan</span>
+                                                            </label>
                                                         @endif
                                                     </div>
                                                     <button type="submit" class="my-editBtn-modal-edit">Update
@@ -227,10 +235,15 @@
                                     <div class="my-input-modal">
                                         <input type="text" name="nama" autocomplete="off" required>
                                     </div>
-                                    <label class="my-label-input">Username</label>
-                                    <div class="my-input-modal">
-                                        <i class="uil uil-user"></i>
-                                        <input type="text" name="username" autocomplete="off" required>
+                                    <div style="margin-bottom: 15px">
+                                        <label class="my-label-input">Username</label>
+                                        <div class="my-input-modal" style="margin-bottom: 4px;">
+                                            <i class="uil uil-user"></i>
+                                            <input type="text" name="username" autocomplete="off" required>
+                                        </div>
+                                        {{-- <small class="error-message">
+                                            *Username Sudah Terpakai
+                                        </small> --}}
                                     </div>
                                     <label class="my-label-input">Password</label>
                                     <div class="my-input-modal">
@@ -274,13 +287,13 @@
                             <div class="my-close-modal" id="my-close-modal">X</div>
                         </div>
                         <!-- Modal Form -->
-                        <form action="{{route('reset')}}" method="POST">
+                        <form action="{{ route('reset') }}" method="POST">
                             <div class="my-inner-modal-delete" style="padding: 0 20px ">
-                                <span style="text-align: center">Apakah Anda Yakin Ingin Me-reset semua Sisa Cuti karyawan?</span>
-                                
+                                <span style="text-align: center">Apakah Anda Yakin Ingin Me-reset semua Sisa Cuti
+                                    karyawan?</span>
+
                                 @csrf
-                                <button type="submit"
-                                    class="my-resetBtn-modal-reset">Reset</button>
+                                <button type="submit" class="my-resetBtn-modal-reset">Reset</button>
                             </div>
                         </form>
                     </div>
