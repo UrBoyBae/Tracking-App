@@ -66,8 +66,17 @@
                                 <td>{{ $ct->kategori }}</td>
                                 <td>
                                     <div id="my-status-badge" class="my-status-badge">
-                                        {{-- <span id="my-title-badge">{{ $ct->status }}</span> --}}
+                                        
+                                        @if($ct->status == 'Terkirim')
                                         <span id="my-title-badge">Diterima</span>
+                                        @endif
+                                        @if($ct->status == 'Diterima')
+                                        <span id="my-title-badge">Disetujui</span>
+                                        @endif
+                                        @if($ct->status == 'Ditolak')
+                                        <span id="my-title-badge">Ditolak</span>
+                                        @endif
+
                                     </div>
                                 </td>
                                 <td>
@@ -136,22 +145,24 @@
                                                 <label class="my-label-input">Status</label>
                                                 <div class="my-input-modal">
                                                     <select id="status" name="status">
-                                                        <option value="{{$ct->status}}" selected disabled>{{$ct->status}}</option>
                                                         @if ($ct->status == 'Terkirim')
-                                                        <option value="Diterima">Diterima</option>
+                                                        <option value="{{$ct->status}}" selected disabled>Diterima</option>
+                                                        <option value="Diterima">Disetujui</option>
                                                         <option value="Ditolak">Ditolak</option>
                                                         @endif
                                                         @if ($ct->status == 'Ditolak')
-                                                        <option value="Diterima">Diterima</option>
+                                                        <option value="{{$ct->status}}" selected disabled>{{$ct->status}}</option>
+                                                        <option value="Diterima">Disetujui</option>
                                                         @endif
                                                         @if ($ct->status == 'Diterima')
+                                                        <option value="{{$ct->status}}" selected disabled>Disetujui</option>
                                                         <option value="Ditolak">Ditolak</option>
                                                         @endif                                                  
                                                     </select>
                                                 </div>
                                                 <label class="my-label-input">Alasan</label>
                                                 <div class="my-textarea-modal">
-                                                    <textarea type="text" style="cursor: auto" name="alasan" autocomplete="off"></textarea>
+                                                    <textarea type="text" id="alasan" style="cursor: auto" name="alasan" autocomplete="off" placeholder="Jika Diperlukan">{{{$ct->alasan}}}</textarea>
                                                 </div>
                                                 <button type="submit" class="my-editBtn-modal-edit">Update
                                                     Data</button>

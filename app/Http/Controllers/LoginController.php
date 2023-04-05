@@ -22,6 +22,7 @@ class LoginController extends Controller
     //         return view('login');
     //     }
     // }
+    
 
     public function loginaksi(Request $request){
         $username = $request->input('username');

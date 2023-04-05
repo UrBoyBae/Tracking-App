@@ -49,3 +49,4 @@ triggerModalDelete.forEach(function(buttonDelete) {
         document.getElementById(dataModalDelete).classList.add("my-modal-active");
     }
 })
+

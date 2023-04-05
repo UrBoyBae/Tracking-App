@@ -49,6 +49,16 @@
                             <i class="uil uil-redo"></i>
                             <span>Reset Sisa Cuti</span>
                         </div>
+                        <!-- @if(session()->has('errorAdd'))
+                        <small class="error-message">
+                            *{{ session('errorAdd')}}
+                        </small>
+                        @endif -->
+                        <!-- @if(session()->has('success'))
+                        <small class="success-message">
+                            *{{ session('success')}}
+                        </small>
+                        @endif -->
                     </div>
                     <!-- Table -->
                     <table id="tableKaryawan" class="table is-fullwidth">
@@ -241,9 +251,14 @@
                                             <i class="uil uil-user"></i>
                                             <input type="text" name="username" autocomplete="off" required>
                                         </div>
-                                        {{-- <small class="error-message">
+                                        <!-- @if(session()->has('errorAdd'))
+                                        <small class="error-message">
+                                            *{{ session('errorAdd')}}
+                                        </small>
+                                        @endif -->
+                                        <!-- <small class="error-message">
                                             *Username Sudah Terpakai
-                                        </small> --}}
+                                        </small> -->
                                     </div>
                                     <label class="my-label-input">Password</label>
                                     <div class="my-input-modal">
@@ -279,6 +294,76 @@
                     </div>
                 </div>
 
+                @if(session()->has('errorAdd'))
+                <div class="my-bg-modal my-modal-active" id="my-bg-modal-add">
+                    <div class="my-content-modal">
+                        <div class="my-title-modal">
+                            <span>Tambah Karyawan</span>
+                            <div class="my-close-modal" id="my-close-modal">X</div>
+                        </div>
+                        <!-- Modal Form -->
+                        <form action="{{ route('tambah') }}" method="POST">
+                            <div class="my-form-modal">
+                                @csrf
+                                <div class="my-left-content-modal">
+                                    <label class="my-label-input">ID Karyawan</label>
+                                    <div class="my-input-modal my-input-disable">
+                                        <input type="text" name="UID" id="UID"
+                                            placeholder="ID Karyawan" value="{{ $new_id }}" autocomplete="off"
+                                            readonly>
+                                    </div>
+                                    <label class="my-label-input">Nama Karyawan</label>
+                                    <div class="my-input-modal">
+                                        <input type="text" name="nama" autocomplete="off" required>
+                                    </div>
+                                    <div style="margin-bottom: 15px">
+                                        <label class="my-label-input">Username</label>
+                                        <div class="my-input-modal" style="margin-bottom: 4px;">
+                                            <i class="uil uil-user"></i>
+                                            <input type="text" name="username" autocomplete="off" required>
+                                        </div>
+                                        <small class="error-message">
+                                            *{{ session('errorAdd')}}
+                                        </small>
+                                        <!-- <small class="error-message">
+                                            *Username Sudah Terpakai
+                                        </small> -->
+                                    </div>
+                                    <label class="my-label-input">Password</label>
+                                    <div class="my-input-modal">
+                                        <i class="uil uil-lock"></i>
+                                        <input type="text" name="password" autocomplete="off" required>
+                                    </div>
+                                </div>
+                                <div class="my-right-content-modal">
+                                    <label class="my-label-input">Alamat <i class="uil uil-map-pin"></i></label>
+                                    <div class="my-textarea-modal">
+                                        <textarea type="text" name="alamat" autocomplete="off"></textarea>
+                                    </div>
+                                    <label class="my-label-input">Jenis Kelamin <i class="uil uil-mars"></i></label>
+                                    <div class="my-radio-modal">
+                                        <label>
+                                            <input type="radio" name="jk" value="L">
+                                            <span>Laki - Laki</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="jk" value="P">
+                                            <span>Perempuan</span>
+                                        </label>
+                                    </div>
+                                    <label class="my-label-input">No.HP</label>
+                                    <div class="my-input-modal">
+                                        <i class="uil uil-phone"></i>
+                                        <input type="text" name="hp" autocomplete="off" required>
+                                    </div>
+                                    <button type="submit" class="my-addBtn-modal-add">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @endif
+
                 <!-- Modal Reset -->
                 <div class="my-bg-modal" id="my-bg-modal-reset">
                     <div class="my-content-modal my-content-modal-delete">
@@ -288,11 +373,10 @@
                         </div>
                         <!-- Modal Form -->
                         <form action="{{ route('reset') }}" method="POST">
+                        @csrf
                             <div class="my-inner-modal-delete" style="padding: 0 20px ">
                                 <span style="text-align: center">Apakah Anda Yakin Ingin Me-reset semua Sisa Cuti
                                     karyawan?</span>
-
-                                @csrf
                                 <button type="submit" class="my-resetBtn-modal-reset">Reset</button>
                             </div>
                         </form>
