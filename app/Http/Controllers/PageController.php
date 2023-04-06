@@ -11,6 +11,7 @@
     use App\Models\LoginModel;
 
     class PageController extends BaseController {
+    
         public function login() {
             return view('login');
         }
