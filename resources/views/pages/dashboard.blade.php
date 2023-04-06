@@ -163,5 +163,5 @@
         },
     });
 </script>
-
+<script src="{{asset('assets/js/mainDashboard.js')}}"></script>
 </html>

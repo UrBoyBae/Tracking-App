@@ -45,6 +45,48 @@ body {
     --transition-2: all 0.2s ease;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--main-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: var(--primaryColor);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+::-moz-scrollbar {
+    width: 10px;
+    background-color: var(--main-background-color);
+}
+
+::-moz-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: var(--primaryColor);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+::-ms-scrollbar {
+    width: 10px;
+    background-color: var(--main-background-color);
+}
+
+::-ms-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: var(--primaryColor);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
 .my-container {
     background-color: var(--main-background-color);
     height: 150vh;
@@ -212,17 +254,26 @@ div.my-main-content {
     background-color: rgb(255, 62, 62);
     height: 12px;
     width: 12px;
-    left: 31px;
-    bottom: 8px;
+    left: 44px;
+    bottom: 10px;
+    z-index: 2;
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
 }
-.my-right-navbar i {
+
+.my-right-navbar .my-wrap-notif .my-trigger-notif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-right-navbar .my-wrap-notif .my-trigger-notif i {
     font-size: 35px;
     cursor: pointer;
+    color: var(--textColor);
 }
 
 .my-right-navbar span.my-account {
@@ -238,6 +289,117 @@ div.my-main-content {
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
+}
+
+.my-wrap-notif {
+    position: relative;
+}
+
+.my-modal-notif {
+    position: absolute;
+    width: 350px;
+    margin-top: 8px;
+    padding-bottom: 8px;
+    right: 4px;
+    color: var(--textColor);
+    background-color: var(--content-background-color);
+    box-shadow: 0px 0px 5px var(--primaryColor);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    z-index: 1;
+    display: none;
+}
+
+.my-modal-notif.my-notif-active {
+    display: block;
+}
+
+.my-title-notif {
+    font-size: 18px;
+    padding: 12px 20px;
+}
+
+.my-inner-notif {
+    width: 100%;
+    height: 205px;
+    border-top: 2px solid var(--primaryColor);
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.my-inner-notif::-webkit-scrollbar {
+    background-color: var(--content-background-color);
+    width: 7px;
+}
+
+.my-inner-notif::-webkit-scrollbar-thumb {
+    background-color: var(--primaryColor);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.my-inner-notif::-moz-scrollbar {
+    background-color: var(--content-background-color);
+    width: 7px;
+}
+
+.my-inner-notif::-moz-scrollbar-thumb {
+    background-color: var(--primaryColor);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.my-inner-notif::-ms-scrollbar {
+    background-color: var(--content-background-color);
+    width: 7px;
+}
+
+.my-inner-notif::-ms-scrollbar-thumb {
+    background-color: var(--primaryColor);
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.my-inner-notif.my-none-notif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--card-text-color);
+    font-weight: 300;
+}
+
+.my-data-notif {
+    display: flex;
+    gap: 10px;
+    padding: 13px 20px;
+    cursor: default;
+}
+
+.my-data-notif:hover {
+    background-color: #252157;
+}
+
+.my-detail-data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.my-detail-data span {
+    font-size: 14px;
 }
 
 /* Inner Content */

@@ -11,6 +11,13 @@ $(document).ready(function () {
     });
 });
 
+// Notification
+var triggerNotif = document.querySelector('div#my-trigger-notif');
+triggerNotif.onclick = () => {
+    var dataModal = triggerNotif.getAttribute('data-modal');
+    document.getElementById(dataModal).classList.toggle('my-notif-active');
+}
+
 // Status Badge
 const titleBadge = document.querySelectorAll("span#my-title-badge");
 const statusBadge = document.querySelectorAll("div#my-status-badge");
