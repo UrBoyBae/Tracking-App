@@ -84,7 +84,7 @@
                                     <div class="my-icon-profile">
                                         <i class="uil uil-map-marker"></i>
                                     </div>
-                                    <span>{{ Str::limit($prf->alamat, 40) }}</span>
+                                    <span>{{ Str::limit($prf->alamat, 20) }}</span>
                                 </div>
                                 <div class="my-profile-no">
                                     <div class="my-icon-profile">
