@@ -1,3 +1,15 @@
+// Theme
+var getTheme = localStorage.getItem('theme');
+var backdrop = document.getElementById('backdrop');
+var wrapBackdrop = document.getElementById('wrapBackdrop');
+
+if (getTheme && getTheme == 'dark') {
+    backdrop.setAttribute("src", "assets/images/backdrop.jpg");
+    document.body.classList.toggle('my-dark-theme');
+} else {
+    backdrop.setAttribute("src", "assets/images/backdrop-light.jpg");
+}
+
 // Merubah Border
 const wrapName = document.getElementById("wrap-username");
 const wrapPassword = document.getElementById("wrap-password");

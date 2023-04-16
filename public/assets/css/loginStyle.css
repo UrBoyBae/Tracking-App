@@ -10,12 +10,17 @@ body {
 }
 
 :root {
-    /* ==== Colors ==== */
-    --main-background-color: #141332;
-    --content-background-color: #1D1D41;
-    --primaryColor: #6359E9;
-    --secondColor: #64CFF6;
-    --textColor: #DBDFEA;
+    /* ==== Light Colors ==== */
+    --main-background-color: #F2F3F4;
+    --content-background-color: #ffffff;
+    --primaryColor: #6359e9;
+    --primaryBackground: rgb(99, 89, 233, 15%);
+    --secondColor: #64cff6;
+    --secondaryBackground: rgb(100, 207, 246, 40%);
+    --hoverColor: rgb(99, 89, 233, 7%);
+    --textColor: #202020;
+    --card-icon-color: #64cff6;
+    --card-text-color: #697A8D;
     --submit-modal: #3772ff;
     --update-modal: #4caf50;
     --close-modal: #e53535;
@@ -41,6 +46,24 @@ body {
     --transition-2: all 0.2s ease;
 }
 
+body.my-dark-theme {
+    /* ==== Dark Colors ==== */
+    --main-background-color: #141332;
+    --content-background-color: #1D1D41;
+    --primaryColor: #6359E9;
+    --secondColor: #64CFF6;
+    --textColor: #DBDFEA;
+    --submit-modal: #3772ff;
+    --update-modal: #4caf50;
+    --close-modal: #e53535;
+    --ontime-bg-badge: #dcfdd4;
+    --ontime-color-badge: #4fac16;
+    --late-bg-badge: #fdd4d4;
+    --late-color-badge: #ac1616;
+    --view-bg: #fafdd4;
+    --view-color: #ac9d16;
+}
+
 .container {
     width: 100%;
     height: 100vh;
@@ -62,6 +85,7 @@ body {
     -ms-border-radius: 12px;
     -o-border-radius: 12px;
     gap: 25px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
 }
 
 /* Left Content */

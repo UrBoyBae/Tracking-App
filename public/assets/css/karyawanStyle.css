@@ -8,28 +8,30 @@ body {
 }
 
 :root {
-    /* ==== Colors ==== */
-    --main-background-color: #141332;
-    --content-background-color: #1d1d41;
+    /* ==== Light Colors ==== */
+    --main-background-color: #F2F3F4;
+    --content-background-color: #ffffff;
     --primaryColor: #6359e9;
-    --secondColor: #64CFF6;
-    --secondBackground: rgb(100, 207, 246, 15%);
     --primaryBackground: rgb(99, 89, 233, 15%);
-    --textColor: #dbdfea;
+    --secondColor: #64cff6;
+    --secondBackground: rgb(100, 207, 246, 20%);
+    --hoverColor: rgb(99, 89, 233, 7%);
+    --dropdownBackground: #fff;
+    --textColor: #202020;
+    --borderModal: #202020;
     --card-icon-color: #64cff6;
-    --card-text-color: #8c89b4;
-    --bg-form-datatable: #27264e;
+    --card-text-color: #697A8D;
+    --bg-form-datatable: #fff;
     --submit-modal: #3772ff;
-    --update-modal: #4caf50;
+    --update-modal: #02B15A;
     --close-modal: #e53535;
-    --ontime-bg-badge: rgba(2, 177, 90, 15%);
+    --ontime-bg-badge: rgb(2, 177, 90, 18%);
     --ontime-color-badge: #02B15A;
-    --late-bg-badge: rgb(235, 0, 27, 15%);
-    --late-color-badge: #E41414;
-    --view-bg: rgb(191, 113, 15, 15%);
-    --view-color: #BF710F;
-    --submit-bg: #C5DCFA;
-    --submit-color: #0F56B3;
+    --late-bg-badge: rgb(229, 53, 53, 20%);
+    --late-color-badge: #e53535;
+    --view-bg: rgb(215, 136, 41, 20%);
+    --view-color: #d78829;
+    --modalColor: #fff;
 
     --bg-row: #fcfcfc;
     --blackLight: #707070;
@@ -45,6 +47,34 @@ body {
     --transition-2: all 0.2s ease;
 }
 
+body.my-dark-theme {
+    /* ==== Dark Colors ==== */
+    --main-background-color: #141332;
+    --content-background-color: #1d1d41;
+    --primaryColor: #6359e9;
+    --secondColor: #64CFF6;
+    --secondBackground: rgb(100, 207, 246, 15%);
+    --primaryBackground: rgb(99, 89, 233, 15%);
+    --textColor: #dbdfea;
+    --borderModal: #6359e9;
+    --dropdownBackground: #22224c;
+    --card-icon-color: #64cff6;
+    --card-text-color: #8c89b4; 
+    --bg-form-datatable: #27264e;
+    --hoverColor: #252157;
+    --submit-modal: #3772ff;
+    --update-modal: #4caf50;
+    --close-modal: #e53535;
+    --ontime-bg-badge: rgba(2, 177, 90, 15%);
+    --ontime-color-badge: #02B15A;
+    --late-bg-badge: rgb(235, 0, 27, 15%);
+    --late-color-badge: #E41414;
+    --view-bg: rgb(191, 113, 15, 15%);
+    --view-color: #BF710F;
+    --submit-bg: #C5DCFA;
+    --submit-color: #0F56B3;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     background-color: var(--main-background-color);
@@ -52,7 +82,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 15px;
-    background-color: var(--primaryColor);
+    background-color: var(--borderModal);
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
@@ -91,6 +121,11 @@ body {
     background-color: var(--main-background-color);
     height: 150vh;
     width: 100%;
+    transition: var(--transition-3);
+    -webkit-transition: var(--transition-3);
+    -moz-transition: var(--transition-3);
+    -ms-transition: var(--transition-3);
+    -o-transition: var(--transition-3);
 }
 
 /* === SideBar === */
@@ -101,6 +136,12 @@ div.my-sidebar {
     background-color: var(--content-background-color);
     position: fixed;
     z-index: 5;
+    transition: var(--transition-3);
+    -webkit-transition: var(--transition-3);
+    -moz-transition: var(--transition-3);
+    -ms-transition: var(--transition-3);
+    -o-transition: var(--transition-3);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
 }
 
 .my-sidebar .my-brand {
@@ -195,6 +236,103 @@ ul.my-sidebar-link {
     font-weight: 600 !important;
 }
 
+.my-sidebar-menu ul li .my-theme {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 55px;
+    padding-left: 7px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.my-theme .my-link-theme {
+    display: flex;
+}
+
+.my-theme .my-link-theme i {
+    color: var(--textColor);
+    height: 100%;
+    width: 45px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-theme .my-link-theme span {
+    font-weight: 400 !important;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 3px;
+    color: var(--textColor);
+}
+
+.my-toggle-theme {
+    height: 50px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.my-toggle-theme input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+}
+
+.my-toggle-theme label {
+    width: 100%;
+    height: 30px;
+    padding: 0 5px;
+    background-color: var(--main-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+
+.my-toggle-theme label i {
+    font-size: 18px;
+    color: #f1c40f;
+}
+
+.my-toggle-theme label .my-ball {
+    height: 22px;
+    width: 22px;
+    background-color: #6359e9;
+    position: absolute;
+    border: none;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: var(--transition-2);
+    -webkit-transition: var(--transition-2);
+    -moz-transition: var(--transition-2);
+    -ms-transition: var(--transition-2);
+    -o-transition: var(--transition-2);
+}
+
+.my-toggle-theme input[type="checkbox"]:checked + label .my-ball {
+    transform: translateX(29px);
+    -webkit-transform: translateX(29px);
+    -moz-transform: translateX(29px);
+    -ms-transform: translateX(29px);
+    -o-transform: translateX(29px);
+}
+
 /* === Content === */
 div.my-main-content {
     width: calc(100% - 330px);
@@ -218,6 +356,12 @@ div.my-main-content {
     -moz-border-radius: 0 0 0 20px;
     -ms-border-radius: 0 0 0 20px;
     -o-border-radius: 0 0 0 20px;
+    transition: var(--transition-3);
+    -webkit-transition: var(--transition-3);
+    -moz-transition: var(--transition-3);
+    -ms-transition: var(--transition-3);
+    -o-transition: var(--transition-3);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
 }
 
 .my-left-navbar {
@@ -257,6 +401,7 @@ div.my-main-content {
     left: 44px;
     bottom: 10px;
     z-index: 2;
+    border: 2px solid var(--content-background-color);
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -302,8 +447,7 @@ div.my-main-content {
     padding-bottom: 8px;
     right: 4px;
     color: var(--textColor);
-    background-color: var(--content-background-color);
-    box-shadow: 0px 0px 5px var(--primaryColor);
+    background-color: var(--dropdownBackground);
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -311,6 +455,7 @@ div.my-main-content {
     -o-border-radius: 10px;
     z-index: 1;
     display: none;
+    box-shadow: 0 -1px 15px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
 }
 
 .my-modal-notif.my-notif-active {
@@ -325,7 +470,7 @@ div.my-main-content {
 .my-inner-notif {
     width: 100%;
     height: 205px;
-    border-top: 2px solid var(--primaryColor);
+    border-top: 2px solid var(--borderModal);
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -337,7 +482,7 @@ div.my-main-content {
 }
 
 .my-inner-notif::-webkit-scrollbar-thumb {
-    background-color: var(--primaryColor);
+    background-color: var(--borderModal);
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -351,7 +496,7 @@ div.my-main-content {
 }
 
 .my-inner-notif::-moz-scrollbar-thumb {
-    background-color: var(--primaryColor);
+    background-color: var(--borderModal);
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -365,7 +510,7 @@ div.my-main-content {
 }
 
 .my-inner-notif::-ms-scrollbar-thumb {
-    background-color: var(--primaryColor);
+    background-color: var(--borderModal);
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -389,7 +534,7 @@ div.my-main-content {
 }
 
 .my-data-notif:hover {
-    background-color: #252157;
+    background-color: var(--hoverColor);
 }
 
 .my-detail-data {
@@ -415,12 +560,18 @@ div.my-main-content {
     width: 100%;
     padding: 30px 30px 40px;
     background-color: var(--content-background-color);
-    border-bottom: 20px solid var(--primaryColor);
+    /* border-bottom: 20px solid var(--primaryColor); */
     border-radius: 20px 0 0 20px;
     -webkit-border-radius: 20px 0 0 20px;
     -moz-border-radius: 20px 0 0 20px;
     -ms-border-radius: 20px 0 0 20px;
     -o-border-radius: 20px 0 0 20px;
+    transition: var(--transition-3);
+    -webkit-transition: var(--transition-3);
+    -moz-transition: var(--transition-3);
+    -ms-transition: var(--transition-3);
+    -o-transition: var(--transition-3);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
 }
 
 .my-inner-content .my-wrap-addBtn {
@@ -511,8 +662,13 @@ div#tableKaryawan_length label {
 
 div#tableKaryawan_length label div.select select {
     background-color: var(--bg-form-datatable);
-    border: 1px solid var(--primaryColor);
+    border: 1px solid var(--borderModal);
     color: var(--textColor);
+    transition: var(--transition-3);
+    -webkit-transition: var(--transition-3);
+    -moz-transition: var(--transition-3);
+    -ms-transition: var(--transition-3);
+    -o-transition: var(--transition-3);
 }
 
 div#tableKaryawan_filter label {
@@ -521,27 +677,37 @@ div#tableKaryawan_filter label {
 
 div#tableKaryawan_filter label input {
     background-color: var(--bg-form-datatable);
-    border: 1px solid var(--primaryColor);
+    border: 1px solid var(--borderModal);
     color: var(--textColor);
+    transition: var(--transition-3);
+    -webkit-transition: var(--transition-3);
+    -moz-transition: var(--transition-3);
+    -ms-transition: var(--transition-3);
+    -o-transition: var(--transition-3);
 }
 
 #tableKaryawan.dataTable {
     background-color: var(--content-background-color);
     color: var(--textColor);
-    border: 1px solid var(--primaryColor);
+    border: 1px solid var(--borderModal);
     border-radius: 10px 10px 0 0;
     -webkit-border-radius: 10px 10px 0 0;
     -moz-border-radius: 10px 10px 0 0;
     -ms-border-radius: 10px 10px 0 0;
     -o-border-radius: 10px 10px 0 0;
+    transition: var(--transition-3);
+    -webkit-transition: var(--transition-3);
+    -moz-transition: var(--transition-3);
+    -ms-transition: var(--transition-3);
+    -o-transition: var(--transition-3);
 }
 
 #tableKaryawan.dataTable thead tr th.sorting,
 #tableKaryawan.dataTable thead tr th {
-    color: var(--card-text-color);
+    color: var(--textColor);
     font-weight: 400;
     padding: 10px 10px;
-    border-bottom: 1px solid var(--primaryColor);
+    border-bottom: 1px solid var(--borderModal);
 }
 
 #tableKaryawan.dataTable tbody tr td {
@@ -551,7 +717,7 @@ div#tableKaryawan_filter label input {
 }
 
 #tableKaryawan.dataTable tbody tr:hover {
-    background-color: #252157;
+    background-color: var(--hoverColor);
 }
 
 .my-wrap-toggle {
@@ -597,11 +763,12 @@ div#tableKaryawan_info {
 ul.pagination-list li a.pagination-link {
     background-color: var(--content-background-color);
     color: var(--textColor);
-    border: 1px solid var(--primaryColor);
+    border: 1px solid var(--borderModal);
 }
 
 ul.pagination-list li a.pagination-link.is-current {
     background-color: var(--primaryColor);
+    border: 1px solid var(--primaryColor);
 }
 
 /* === Modal === */
@@ -630,7 +797,7 @@ ul.pagination-list li a.pagination-link.is-current {
     height: fit-content;
     background-color: var(--content-background-color);
     padding: 20px 25px 40px;
-    border-right: 20px solid var(--primaryColor);
+    /* border-right: 20px solid var(--primaryColor); */
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -643,7 +810,7 @@ ul.pagination-list li a.pagination-link.is-current {
     align-items: center;
     justify-content: space-between;
     padding-bottom: 12px;
-    border-bottom: 1px solid var(--primaryColor);
+    border-bottom: 1px solid var(--borderModal);
 }
 
 .my-content-modal .my-title-modal span {
@@ -658,7 +825,7 @@ ul.pagination-list li a.pagination-link.is-current {
     justify-content: center;
     padding: 3px 8px;
     background-color: var(--close-modal);
-    color: var(--textColor);
+    color: var(--modalColor);
     font-size: 12px;
     font-weight: 600;
     cursor: pointer;
@@ -689,7 +856,7 @@ ul.pagination-list li a.pagination-link.is-current {
 
 .my-form-modal label.my-label-input {
     color: var(--textColor);
-    font-weight: 300;
+    font-weight: 400;
     font-size: 15px;
 }
 
@@ -698,7 +865,7 @@ ul.pagination-list li a.pagination-link.is-current {
     display: flex;
     align-items: center;
     height: 40px;
-    border: 1px solid var(--primaryColor);
+    border: 1px solid var(--borderModal);
     color: var(--textColor);
     padding: 0 14px 0 14px;
     border-radius: 6px;
@@ -713,7 +880,7 @@ ul.pagination-list li a.pagination-link.is-current {
     display: flex;
     align-items: center;
     height: 120px;
-    border: 1px solid var(--primaryColor);
+    border: 1px solid var(--borderModal);
     color: var(--textColor);
     padding: 0 0 0 14px;
     border-radius: 6px;
@@ -789,7 +956,7 @@ ul.pagination-list li a.pagination-link.is-current {
     margin-top: 25px;
     cursor: pointer;
     background-color: var(--submit-modal);
-    color: var(--textColor);
+    color: var(--modalColor);
     border: 1px solid var(--submit-modal);
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -811,7 +978,7 @@ ul.pagination-list li a.pagination-link.is-current {
     margin-top: 25px;
     cursor: pointer;
     background-color: var(--update-modal);
-    color: var(--textColor);
+    color: var(--modalColor);
     border: 1px solid var(--update-modal);
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -863,7 +1030,7 @@ ul.pagination-list li a.pagination-link.is-current {
     margin-top: 10px;
     cursor: pointer;
     background-color: var(--close-modal);
-    color: var(--textColor);
+    color: var(--modalColor);
     border: 1px solid var(--close-modal);
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -885,7 +1052,7 @@ ul.pagination-list li a.pagination-link.is-current {
     margin-top: 10px;
     cursor: pointer;
     background-color: var(--submit-modal);
-    color: var(--textColor);
+    color: var(--modalColor);
     border: 1px solid var(--submit-modal);
     border-radius: 8px;
     -webkit-border-radius: 8px;

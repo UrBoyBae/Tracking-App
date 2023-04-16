@@ -7,11 +7,12 @@
         <span class="my-link-name">{{ $title }}</span>
     </div>
     <div class="my-right-navbar">
-
         {{-- Permohonan Cuti Tidak Ada --}}
         {{-- <div class="my-wrap-notif">
             <div class="my-trigger-notif" id="my-trigger-notif" data-modal="my-notif-modal">
-                <i class="uil uil-bell"></i>
+                <i class="material-symbols-rounded">
+                    notifications
+                </i>
             </div>
             <div class="my-modal-notif" id="my-notif-modal">
                 <div class="my-title-notif">Notifikasi</div>
@@ -206,6 +207,6 @@
 
         <img
             src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}">
-        <span class="my-account">{{ $username }} </span>
+        <span class="my-account">Hai, <b>{{ $username }}</b> </span>
     </div>
 </div>

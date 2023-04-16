@@ -162,7 +162,7 @@
                                                 </div>
                                                 <label class="my-label-input">Alasan</label>
                                                 <div class="my-textarea-modal">
-                                                    <textarea type="text" id="alasan" style="cursor: auto" name="alasan" autocomplete="off" placeholder="Jika Diperlukan">{{{$ct->alasan}}}</textarea>
+                                                    <textarea type="text" id="alasan" style="cursor: auto" name="alasan" autocomplete="off" placeholder="Jika Diperlukan*">{{{$ct->alasan}}}</textarea>
                                                 </div>
                                                 <button type="submit" class="my-editBtn-modal-edit">Update
                                                     Data</button>
