@@ -63,14 +63,14 @@ body.my-dark-theme {
     --bg-form-datatable: #27264e;
     --hoverColor: #252157;
     --submit-modal: #3772ff;
-    --update-modal: #4caf50;
+    --update-modal: #02B15A;
     --close-modal: #e53535;
-    --ontime-bg-badge: rgba(2, 177, 90, 15%);
+    --ontime-bg-badge: rgb(2, 177, 90, 18%);
     --ontime-color-badge: #02B15A;
-    --late-bg-badge: rgb(235, 0, 27, 15%);
-    --late-color-badge: #E41414;
-    --view-bg: rgb(191, 113, 15, 15%);
-    --view-color: #BF710F;
+    --late-bg-badge: rgb(229, 53, 53, 20%);
+    --late-color-badge: #e53535;
+    --view-bg: rgb(215, 136, 41, 20%);
+    --view-color: #d78829;
     --submit-bg: #C5DCFA;
     --submit-color: #0F56B3;
 }
@@ -338,6 +338,8 @@ div.my-main-content {
     width: calc(100% - 330px);
     padding: 0 0 30px;
     margin-left: 330px;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Navbar */
@@ -860,7 +862,7 @@ ul.pagination-list li a.pagination-link.is-current {
 
 .my-form-modal label.my-label-input {
     color: var(--textColor);
-    font-weight: 300;
+    font-weight: 400;
     font-size: 15px;
 }
 
@@ -1048,4 +1050,50 @@ ul.pagination-list li a.pagination-link.is-current {
     background-color: var(--content-background-color);
     border: 1px solid var(--close-modal);
     color: var(--close-modal);
+}
+
+/* Toast */
+.my-toast {
+    height: 58px;
+    position: absolute;
+    top: 85px;
+    right: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--ontime-bg-badge);
+    color: var(--textColor);
+    padding: 0 15px;
+    border-right: none;
+    border: 1px solid var(--ontime-color-badge);
+    border-radius: 6px;
+    -webkit-border-radius: 6px 0 0 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+    transition: var(--transition-5);
+    -webkit-transition: var(--transition-5);
+    -moz-transition: var(--transition-5);
+    -ms-transition: var(--transition-5);
+    -o-transition: var(--transition-5);
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+}
+
+.my-toast.my-toast-active {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+}
+
+.my-toast i {
+    font-size: 34px;
+    color: var(--ontime-color-badge);
 }

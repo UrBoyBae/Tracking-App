@@ -325,9 +325,6 @@
                                         <small class="error-message">
                                             *{{ session('errorAdd')}}
                                         </small>
-                                        <!-- <small class="error-message">
-                                            *Username Sudah Terpakai
-                                        </small> -->
                                     </div>
                                     <label class="my-label-input">Password</label>
                                     <div class="my-input-modal">
@@ -383,9 +380,13 @@
                     </div>
                 </div>
                 <!-- Akhir Modal Reset -->
-
             </div>
             <!-- Akhir Inner Content -->
+            
+            <!-- Toast -->
+            @include('components/toast')
+            <!-- Akhir Toast -->
+            
         </div>
         <!-- Akhir Main Content -->
     </div>
@@ -396,5 +397,18 @@
 <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bulma.min.js"></script>
 <!-- Main JS -->
 <script src="{{ asset('assets/js/mainKaryawan.js') }}"></script>
+<!-- Toast -->
+<script>
+    // if () {
+        var toast = document.getElementById("my-toast");
+        var toastMessage = document.getElementById("toast-message");
+
+        toastMessage.innerHTML = "Berhasil Menambahkan <b>Data Karyawan</b>";
+        toast.classList.add("my-toast-active");
+        setTimeout(() => {
+            toast.classList.remove("my-toast-active");
+        }, 3000);
+    // }
+</script>
 
 </html>

@@ -22,14 +22,14 @@ body {
     --card-icon-color: #64cff6;
     --card-text-color: #5d6b7c;
     --submit-modal: #3772ff;
-    --update-modal: #4caf50;
+    --update-modal: #02B15A;
     --close-modal: #e53535;
-    --ontime-bg-badge: #dcfdd4;
-    --ontime-color-badge: #4fac16;
-    --late-bg-badge: #fdd4d4;
-    --late-color-badge: #ac1616;
-    --view-bg: #fafdd4;
-    --view-color: #ac9d16;
+    --ontime-bg-badge: rgb(2, 177, 90, 18%);
+    --ontime-color-badge: #02B15A;
+    --late-bg-badge: rgb(229, 53, 53, 20%);
+    --late-color-badge: #e53535;
+    --view-bg: rgb(215, 136, 41, 20%);
+    --view-color: #d78829;
 
     --bg-row: #fcfcfc;
     --blackLight: #707070;
@@ -61,14 +61,14 @@ body.my-dark-theme {
     --card-text-color: #8c89b4;
     --bg-form-datatable: #27264e;
     --submit-modal: #3772ff;
-    --update-modal: #4caf50;
+    --update-modal: #02B15A;
     --close-modal: #e53535;
-    --ontime-bg-badge: rgba(2, 177, 90, 15%);
-    --ontime-color-badge: #02b15a;
-    --late-bg-badge: rgb(235, 0, 27, 15%);
-    --late-color-badge: #e41414;
-    --view-bg: rgb(191, 113, 15, 15%);
-    --view-color: #bf710f;
+    --ontime-bg-badge: rgb(2, 177, 90, 18%);
+    --ontime-color-badge: #02B15A;
+    --late-bg-badge: rgb(229, 53, 53, 20%);
+    --late-color-badge: #e53535;
+    --view-bg: rgb(215, 136, 41, 20%);
+    --view-color: #d78829;
     --submit-bg: #c5dcfa;
     --submit-color: #0f56b3;
 }
@@ -293,6 +293,8 @@ ul.my-sidebar-link {
 div.my-main-content {
     width: calc(100% - 330px);
     margin-left: 330px;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Navbar */
@@ -509,7 +511,7 @@ div.my-main-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 125px 40px 0 10px;
+    padding: 125px 40px 10px 10px;
 }
 
 .my-card-view {
