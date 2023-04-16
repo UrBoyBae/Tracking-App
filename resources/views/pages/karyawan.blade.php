@@ -399,16 +399,50 @@
 <script src="{{ asset('assets/js/mainKaryawan.js') }}"></script>
 <!-- Toast -->
 <script>
-    // if () {
+    if () {
+        // Berhasil Menambah Karyawan
         var toast = document.getElementById("my-toast");
         var toastMessage = document.getElementById("toast-message");
-
+        
         toastMessage.innerHTML = "Berhasil Menambahkan <b>Data Karyawan</b>";
         toast.classList.add("my-toast-active");
         setTimeout(() => {
             toast.classList.remove("my-toast-active");
         }, 3000);
-    // }
+
+    } else if () {
+        // Berhasil Merubah Karyawan
+        var toast = document.getElementById("my-toast");
+        var toastMessage = document.getElementById("toast-message");
+
+        toastMessage.innerHTML = "Berhasil Merubah <b>Data Karyawan</b>";
+        toast.classList.add("my-toast-active");
+        setTimeout(() => {
+            toast.classList.remove("my-toast-active");
+        }, 3000);
+
+    } else if () {
+        // Berhasil Menghapus Karyawan
+        var toast = document.getElementById("my-toast");
+        var toastMessage = document.getElementById("toast-message");
+
+        toastMessage.innerHTML = "Berhasil Menghapus <b>Data Karyawan</b>";
+        toast.classList.add("my-toast-active");
+        setTimeout(() => {
+            toast.classList.remove("my-toast-active");
+        }, 3000);
+        
+    } else if () {
+        // Berhasil Me-Reset Cuti Karyawan
+        var toast = document.getElementById("my-toast");
+        var toastMessage = document.getElementById("toast-message");
+
+        toastMessage.innerHTML = "Berhasil Me-Reset Sisa Cuti Karyawan";
+        toast.classList.add("my-toast-active");
+        setTimeout(() => {
+            toast.classList.remove("my-toast-active");
+        }, 3000);
+    }
 </script>
 
 </html>

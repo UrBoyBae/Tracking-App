@@ -195,7 +195,8 @@
 <script src="{{ asset('assets/js/mainCuti.js') }}"></script>
 <!-- Toast -->
 <script>
-    // if () {
+    if () {
+        // Berhasil Konfirmasi Ajuan Cuti
         var toast = document.getElementById("my-toast");
         var toastMessage = document.getElementById("toast-message");
 
@@ -204,7 +205,7 @@
         setTimeout(() => {
             toast.classList.remove("my-toast-active");
         }, 3000);
-    // }
+    }
 </script>
 
 </html>
