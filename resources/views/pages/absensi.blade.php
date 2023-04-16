@@ -234,6 +234,5 @@
 <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bulma.min.js"></script>
 <!-- Main JS -->
 <script src="{{ asset('assets/js/mainAbsensi.js') }}"></script>
-<script src="{{ asset('assets/js/modals.js') }}"></script>
 
 </html>

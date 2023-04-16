@@ -21,9 +21,11 @@
     <div class="container" id="container">
         <!-- Card Login -->
         <div class="card-login">
-            <div class="image-content">
-                <img src="{{asset('assets/images/backdrop.jpg')}}">
-                <!-- images from https://unsplash.com/photos/u8Jn2rzYIps -->
+            <div class="image-content" id="wrapBackdrop">
+                <img id="backdrop">
+                <!-- images light mode from https://unsplash.com/photos/PGdW_bHDbpI -->
+                <!-- images dark from https://unsplash.com/photos/u8Jn2rzYIps -->
+
                 <div class="blur-effect"></div>
             </div>
             <div class="login-form">
