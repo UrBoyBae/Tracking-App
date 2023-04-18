@@ -351,7 +351,7 @@
                                     <label class="my-label-input">No.HP</label>
                                     <div class="my-input-modal">
                                         <i class="uil uil-phone"></i>
-                                        <input type="text" name="hp" autocomplete="off" required>
+                                        <input type="number" min="1" max="13" name="hp" autocomplete="off" required>
                                     </div>
                                     <button type="submit" class="my-addBtn-modal-add">Submit</button>
                                 </div>
@@ -389,6 +389,7 @@
             
         </div>
         <!-- Akhir Main Content -->
+                                              
     </div>
 </body>
 <!-- DataTable JS -->
@@ -399,7 +400,12 @@
 <script src="{{ asset('assets/js/mainKaryawan.js') }}"></script>
 <!-- Toast -->
 <script>
-    if () {
+    var successAdd = "{{ session('successAdd') }}";
+    var successDel = "{{ session('successDel') }}";
+    var successUp = "{{ session('successUp') }}";
+    var successRes = "{{ session('successRes') }}";
+
+    if (successAdd) {
         // Berhasil Menambah Karyawan
         var toast = document.getElementById("my-toast");
         var toastMessage = document.getElementById("toast-message");
@@ -410,7 +416,7 @@
             toast.classList.remove("my-toast-active");
         }, 3000);
 
-    } else if () {
+    }else if (successUp) {
         // Berhasil Merubah Karyawan
         var toast = document.getElementById("my-toast");
         var toastMessage = document.getElementById("toast-message");
@@ -421,7 +427,7 @@
             toast.classList.remove("my-toast-active");
         }, 3000);
 
-    } else if () {
+    } else if (successDel) {
         // Berhasil Menghapus Karyawan
         var toast = document.getElementById("my-toast");
         var toastMessage = document.getElementById("toast-message");
@@ -432,7 +438,7 @@
             toast.classList.remove("my-toast-active");
         }, 3000);
         
-    } else if () {
+    } else if (successRes) {
         // Berhasil Me-Reset Cuti Karyawan
         var toast = document.getElementById("my-toast");
         var toastMessage = document.getElementById("toast-message");
