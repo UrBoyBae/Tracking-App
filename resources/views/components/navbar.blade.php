@@ -8,203 +8,47 @@
     </div>
     <div class="my-right-navbar">
         {{-- Permohonan Cuti Tidak Ada --}}
-        {{-- <div class="my-wrap-notif">
-            <div class="my-trigger-notif" id="my-trigger-notif" data-modal="my-notif-modal">
-                <i class="material-symbols-rounded">
-                    notifications
-                </i>
-            </div>
-            <div class="my-modal-notif" id="my-notif-modal">
-                <div class="my-title-notif">Notifikasi</div>
-                <div class="my-inner-notif my-none-notif">
-                    <span>Tidak Ada Permohonan Cuti</span>
+        @if(count($datacuti) < 1)
+            <div class="my-wrap-notif">
+                <div class="my-trigger-notif" id="my-trigger-notif" data-modal="my-notif-modal">
+                    <i class="material-symbols-rounded">
+                        notifications
+                    </i>
+                </div>
+                <div class="my-modal-notif" id="my-notif-modal">
+                    <div class="my-title-notif">Notifikasi</div>
+                    <div class="my-inner-notif my-none-notif">
+                        <span>Tidak Ada Permohonan Cuti</span>
+                    </div>
                 </div>
             </div>
-        </div> --}}
-
+        @else
         {{-- Permohonan Cuti Ada --}}
-        <div class="my-notif"></div>
-        <div class="my-wrap-notif">
-            <div class="my-trigger-notif" id="my-trigger-notif" data-modal="my-notif-modal">
-                <i class="material-symbols-rounded">
-                    notifications
-                </i>
-            </div>
-            <div class="my-modal-notif" id="my-notif-modal">
-                <div class="my-title-notif">Notifikasi</div>
-                <div class="my-inner-notif">
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Cuti</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Izin</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Sakit</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Cuti</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Izin</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Sakit</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Cuti</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Izin</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Sakit</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Cuti</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Izin</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Sakit</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Cuti</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Izin</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Sakit</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Cuti</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Izin</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Sakit</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Cuti</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Izin</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
-                    </div>
-                    <div class="my-data-notif">
-                        <img src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
-                            height="40px">
-                        <div class="my-detail-data">
-                            <span>Ali Akbar Abdillah - Sakit</span>
-                            <span>01 Maret 2023 - 04 Maret 2023</span>
-                        </div>
+            <div class="my-notif"></div>
+            <div class="my-wrap-notif">
+                <div class="my-trigger-notif" id="my-trigger-notif" data-modal="my-notif-modal">
+                    <i class="material-symbols-rounded">
+                        notifications
+                    </i>
+                </div>
+                <div class="my-modal-notif" id="my-notif-modal">
+                    <div class="my-title-notif">Notifikasi</div>
+                    <div class="my-inner-notif"> 
+                        @foreach($datacuti as $index => $ct)
+                            <div class="my-data-notif">
+                                <img src="{{ $ct->jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}"
+                                    height="40px">
+                                <div class="my-detail-data">
+                                    <span>{{$ct->nama}} - {{$ct->kategori}}</span>
+                                    <span>{{$ct->mulai}} - {{$ct->akhir}}</span>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-
+        @endif
+        
         <img
             src="{{ $jk == 'L' ? asset('assets/images/genderProfile-L.png') : asset('assets/images/genderProfile-P.png') }}">
         <span class="my-account">Hai, <b>{{ $username }}</b> </span>
