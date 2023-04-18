@@ -361,6 +361,101 @@
                 </div>
                 @endif
 
+                @if(session()->has('updateFail'))
+                @foreach($data as $index => $d)
+                    <div class="my-bg-modal my-modal-active" id="my-bg-modal-edit-{{ session('updateFail')}}">
+                        <div class="my-content-modal">
+                            <div class="my-title-modal">
+                                <span>Edit Data {{ $d->nama }}</span>
+                                <div class="my-close-modal" id="my-close-modal">X</div>
+                            </div>
+                            <!-- Modal Form -->
+                            <form action="{{ route('edit', $d->id_karyawan) }}" method="POST">
+                                <div class="my-form-modal">
+                                    @csrf
+                                    <div class="my-left-content-modal">
+                                        <label class="my-label-input">ID Karyawan</label>
+                                        <div class="my-input-modal my-input-disable">
+                                            <input type="text" name="UID" id="UID"
+                                                placeholder="ID Karyawan" value="{{ $d->id_karyawan }}"
+                                                autocomplete="off" readonly>
+                                        </div>
+                                        <label class="my-label-input">Nama Karyawan</label>
+                                        <div class="my-input-modal">
+                                            <input type="text" name="nama" autocomplete="off"
+                                                value="{{ $d->nama }}">
+                                        </div>
+                                        <div style="margin-bottom: 15px">
+                                            <label class="my-label-input">Username</label>
+                                            <div class="my-input-modal" style="margin-bottom: 4px;">
+                                                <i class="uil uil-user"></i>
+                                                <input type="text" name="username" autocomplete="off"
+                                                    value="{{ $d->username }}">
+                                            </div>
+                                            <small class="error-message">
+                                                *Username Sudah Terpakai
+                                            </small>
+                                        </div>
+                                        <label class="my-label-input">Password</label>
+                                        <div class="my-input-modal">
+                                            <i class="uil uil-lock"></i>
+                                            <input type="text" name="password" autocomplete="off"
+                                                value="{{ $d->password }}">
+                                        </div>
+                                        <label class="my-label-input">No.HP</label>
+                                        <div class="my-input-modal">
+                                            <i class="uil uil-phone"></i>
+                                            <input type="text" name="hp" autocomplete="off"
+                                                value="{{ $d->hp }}">
+                                        </div>
+                                    </div>
+                                    <div class="my-right-content-modal">
+                                        <label class="my-label-input">Sisa Cuti</label>
+                                        <div class="my-input-modal">
+                                            <input type="text" name="sisa_cuti" autocomplete="off"
+                                                value="{{ $d->sisa_cuti }} Hari">
+                                        </div>
+                                        <label class="my-label-input">Alamat <i
+                                                class="uil uil-map-pin"></i></label>
+                                        <div class="my-textarea-modal">
+                                            <textarea type="text" name="alamat" autocomplete="off">{{ $d->alamat }}</textarea>
+                                        </div>
+                                        <label class="my-label-input">Jenis Kelamin <i
+                                                class="uil uil-mars"></i></label>
+                                        <div class="my-radio-modal">
+                                            @if ($d->jk == 'L')
+                                                <label>
+                                                    <input type="radio" name="jk" value="L"
+                                                        checked>
+                                                    <span>Laki - Laki</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="jk" value="P">
+                                                    <span>Perempuan</span>
+                                                </label>
+                                            @endif
+                                            @if ($d->jk == 'P')
+                                                <label>
+                                                    <input type="radio" name="jk" value="L">
+                                                    <span>Laki - Laki</span>
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="jk" value="P"
+                                                        checked>
+                                                    <span>Perempuan</span>
+                                                </label>
+                                            @endif
+                                        </div>
+                                        <button type="submit" class="my-editBtn-modal-edit">Update
+                                            Data</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                @endforeach
+                @endif
+
                 <!-- Modal Reset -->
                 <div class="my-bg-modal" id="my-bg-modal-reset">
                     <div class="my-content-modal my-content-modal-delete">
