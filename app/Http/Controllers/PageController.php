@@ -219,10 +219,10 @@
             $namakar = $request->query('namakaryawan');
             $query = $request->query('uidkaryawan');
 
-            if($hariSatu == null && $hariDua == null && $namakar == null ){
+            if($hariSatu == null && $hariDua == null && $namakar == null && $query != null ){
                 $absen = AbsenModel::where('id_karyawan', $query)->get();
             }
-            elseif($hariSatu == null && $hariDua == null && $query == null){
+            elseif($hariSatu == null && $hariDua == null && $query == null && $namakar != null){
                 $absen = AbsenModel::where('nama', $namakar )->get();
             }
             elseif($hariSatu != null && $hariDua == null && $query == null && $namakar ==  null){
@@ -237,11 +237,29 @@
                 ->where('nama', $namakar)->get();
             }
             elseif($hariSatu == null && $hariDua == null && $query == null && $namakar ==  null){
-                return route('absensi');
+                return redirect()->route('absensi');
             }
             elseif($hariSatu == null && $hariDua == null && $query != null && $namakar !=  null){
                 $absen = AbsenModel::where('id_karyawan', $query)
                 ->where('nama', $namakar)->get();
+            }
+            elseif($hariSatu != null && $hariDua != null && $query != null && $namakar ==  null){
+                $absen = AbsenModel::where('id_karyawan', $query)
+                ->whereBetween('jam_masuk', [$hariSatu, $hariDua])
+                ->get();
+            }
+            elseif($hariSatu != null && $hariDua != null && $query == null && $namakar !=  null){
+                $absen = AbsenModel::where('nama', $namakar)
+                ->whereBetween('jam_masuk', [$hariSatu, $hariDua])
+                ->get();
+            }
+            elseif($hariSatu != null && $hariDua != null && $query == null && $namakar ==  null){
+                $absen = AbsenModel::whereBetween('jam_masuk', [$hariSatu, $hariDua])
+                ->get();
+            }
+            elseif($hariSatu == null && $hariDua != null && $query == null && $namakar ==  null){
+                $absen = AbsenModel::where('jam_masuk', $hariDua)
+                ->get();
             }
             else{
                 $absen = AbsenModel::where('id_karyawan', $query)
