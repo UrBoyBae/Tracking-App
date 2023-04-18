@@ -236,9 +236,6 @@
                 $absen = AbsenModel::where('jam_masuk', $hariSatu )
                 ->where('nama', $namakar)->get();
             }
-            elseif($hariSatu == null && $hariDua == null && $query == null && $namakar ==  null){
-                return redirect()->route('absensi');
-            }
             elseif($hariSatu == null && $hariDua == null && $query != null && $namakar !=  null){
                 $absen = AbsenModel::where('id_karyawan', $query)
                 ->where('nama', $namakar)->get();
@@ -261,11 +258,14 @@
                 $absen = AbsenModel::where('jam_masuk', $hariDua)
                 ->get();
             }
-            else{
+            elseif($hariSatu != null && $hariDua != null && $query != null && $namakar !=  null){
                 $absen = AbsenModel::where('id_karyawan', $query)
                 ->where('nama', $namakar)
                 ->whereBetween('jam_masuk', [$hariSatu, $hariDua])
                 ->get();
+            }
+            else{
+                return redirect('absensi');
             }
     
             setlocale(LC_TIME, 'id_ID');
