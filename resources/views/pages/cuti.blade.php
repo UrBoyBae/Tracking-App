@@ -195,7 +195,8 @@
 <script src="{{ asset('assets/js/mainCuti.js') }}"></script>
 <!-- Toast -->
 <script>
-    if () {
+    var successConf = "{{ session('successConf') }}";
+    if (successConf) {
         // Berhasil Konfirmasi Ajuan Cuti
         var toast = document.getElementById("my-toast");
         var toastMessage = document.getElementById("toast-message");
