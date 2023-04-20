@@ -225,6 +225,7 @@ ul.my-sidebar-link {
 
 .my-sidebar-menu ul li a.my-selected-link {
     background-color: var(--primaryColor);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
 }
 
 .my-sidebar-menu ul li a.my-selected-link i {
@@ -1055,10 +1056,10 @@ ul.pagination-list li a.pagination-link.is-current {
 /* Toast */
 .my-toast {
     height: 58px;
-    position: absolute;
+    position: fixed;
     top: 85px;
-    right: 0;
-    z-index: 4;
+    left: 45%;
+    z-index: 5;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1068,7 +1069,7 @@ ul.pagination-list li a.pagination-link.is-current {
     border-right: none;
     border: 1px solid var(--ontime-color-badge);
     border-radius: 6px;
-    -webkit-border-radius: 6px 0 0 6px;
+    -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
@@ -1078,19 +1079,19 @@ ul.pagination-list li a.pagination-link.is-current {
     -moz-transition: var(--transition-5);
     -ms-transition: var(--transition-5);
     -o-transition: var(--transition-5);
-    transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    -moz-transform: translateX(100%);
-    -ms-transform: translateX(100%);
-    -o-transform: translateX(100%);
+    transform: translateY(-300%);
+    -webkit-transform: translateY(-300%);
+    -moz-transform: translateY(-300%);
+    -ms-transform: translateY(-300%);
+    -o-transform: translateY(-300%);
 }
 
 .my-toast.my-toast-active {
-    transform: translateX(0%);
-    -webkit-transform: translateX(0%);
-    -moz-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    -o-transform: translateX(0%);
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
 }
 
 .my-toast i {

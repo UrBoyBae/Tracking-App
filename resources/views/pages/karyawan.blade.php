@@ -125,7 +125,7 @@
                                                         <label class="my-label-input">Username</label>
                                                         <div class="my-input-modal" style="margin-bottom: 4px;">
                                                             <i class="uil uil-user"></i>
-                                                            <input type="text" name="username" autocomplete="off"
+                                                            <input type="text" maxlength="13" minlength="1" name="username" autocomplete="off"
                                                                 value="{{ $kyw->username }}">
                                                         </div>
                                                         {{-- <small class="error-message">
@@ -141,7 +141,7 @@
                                                     <label class="my-label-input">No.HP</label>
                                                     <div class="my-input-modal">
                                                         <i class="uil uil-phone"></i>
-                                                        <input type="text" name="hp" autocomplete="off"
+                                                        <input type="text" maxlength="13" minlength="1" pattern="[0-9]+" oninput="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" name="hp" autocomplete="off"
                                                             value="{{ $kyw->hp }}">
                                                     </div>
                                                 </div>
@@ -249,7 +249,7 @@
                                         <label class="my-label-input">Username</label>
                                         <div class="my-input-modal" style="margin-bottom: 4px;">
                                             <i class="uil uil-user"></i>
-                                            <input type="text" name="username" autocomplete="off" required>
+                                            <input type="text" maxlength="13" minlength="1" name="username" autocomplete="off" required>
                                         </div>
                                         <!-- @if(session()->has('errorAdd'))
                                         <small class="error-message">
@@ -285,7 +285,7 @@
                                     <label class="my-label-input">No.HP</label>
                                     <div class="my-input-modal">
                                         <i class="uil uil-phone"></i>
-                                        <input type="text" name="hp" autocomplete="off" required>
+                                        <input type="text" maxlength="13" minlength="1" pattern="[0-9]+" oninput="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" name="hp" autocomplete="off" required>
                                     </div>
                                     <button type="submit" class="my-addBtn-modal-add">Submit</button>
                                 </div>
@@ -320,7 +320,7 @@
                                         <label class="my-label-input">Username</label>
                                         <div class="my-input-modal" style="margin-bottom: 4px;">
                                             <i class="uil uil-user"></i>
-                                            <input type="text" name="username" autocomplete="off" required>
+                                            <input type="text" maxlength="13" minlength="1" name="username" autocomplete="off" required>
                                         </div>
                                         <small class="error-message">
                                             *{{ session('errorAdd')}}
@@ -351,7 +351,7 @@
                                     <label class="my-label-input">No.HP</label>
                                     <div class="my-input-modal">
                                         <i class="uil uil-phone"></i>
-                                        <input type="number" min="1" max="13" name="hp" autocomplete="off" required>
+                                        <input type="text" maxlength="13" minlength="1" pattern="[0-9]+" oninput="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" name="hp" autocomplete="off" required>
                                     </div>
                                     <button type="submit" class="my-addBtn-modal-add">Submit</button>
                                 </div>
@@ -484,8 +484,8 @@
             
         </div>
         <!-- Akhir Main Content -->
-                                              
-    </div>
+</div>
+
 </body>
 <!-- DataTable JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
