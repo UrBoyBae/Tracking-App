@@ -120,6 +120,15 @@
 
             $title = 'Data Karyawan';
 
+            if(session()->has('updateFail')){
+                $idk = session('updateFail');
+                $data = DB::table('karyawan')->where('id_karyawan', $idk )->get();
+                // dd($data);
+                return view('pages/karyawan', compact('karyawan',
+                'new_id', 'title',
+                'username', 'jk', 'datacuti', 'data'));
+            }
+
             // mengirim data karyawan ke view karyawan
             return view('pages/karyawan', compact('karyawan',
             'new_id', 'title',
@@ -166,22 +175,49 @@
 
         public function update(Request $request, $id){
 
-            $cuti = filter_var($request->sisa_cuti, FILTER_SANITIZE_NUMBER_INT);
-            DB::table('karyawan')
-            ->where('id_karyawan', $id)
-            ->update([
-                'id_karyawan' => $request->UID,
-                'nama' => $request->nama,
-                'username' => $request->username,
-                'password' => $request->password,
-                'alamat' => $request->alamat,
-                'jk' => $request->jk,
-                'hp' => $request->hp,
-                'sisa_cuti' => $cuti
-            ]);
+            $username = $request->username;
+            $id_karyawan = $request->UID;
 
-            session()->flash('successUp', true);
-            return back();
+            if(DB::table('karyawan')->where('username', $username)->where('id_karyawan', '!=', $id_karyawan)->exists()){
+                session()->flash('updateFail', $id_karyawan);
+                return redirect('karyawan');
+            }
+            elseif(DB::table('karyawan')->where('username', $username)->where('id_karyawan', $id_karyawan)->exists()){
+                $cuti = filter_var($request->sisa_cuti, FILTER_SANITIZE_NUMBER_INT);
+                DB::table('karyawan')
+                ->where('id_karyawan', $id)
+                ->update([
+                    'id_karyawan' => $request->UID,
+                    'nama' => $request->nama,
+                    'username' => $request->username,
+                    'password' => $request->password,
+                    'alamat' => $request->alamat,
+                    'jk' => $request->jk,
+                    'hp' => $request->hp,
+                    'sisa_cuti' => $cuti
+                ]);
+
+                session()->flash('successUp', true);
+                return back();
+            }
+            else{
+                $cuti = filter_var($request->sisa_cuti, FILTER_SANITIZE_NUMBER_INT);
+                DB::table('karyawan')
+                ->where('id_karyawan', $id)
+                ->update([
+                    'id_karyawan' => $request->UID,
+                    'nama' => $request->nama,
+                    'username' => $request->username,
+                    'password' => $request->password,
+                    'alamat' => $request->alamat,
+                    'jk' => $request->jk,
+                    'hp' => $request->hp,
+                    'sisa_cuti' => $cuti
+                ]);
+
+                session()->flash('successUp', true);
+                return back();
+            }
         }
 
 
@@ -219,10 +255,10 @@
             $namakar = $request->query('namakaryawan');
             $query = $request->query('uidkaryawan');
 
-            if($hariSatu == null && $hariDua == null && $namakar == null ){
+            if($hariSatu == null && $hariDua == null && $namakar == null && $query != null ){
                 $absen = AbsenModel::where('id_karyawan', $query)->get();
             }
-            elseif($hariSatu == null && $hariDua == null && $query == null){
+            elseif($hariSatu == null && $hariDua == null && $query == null && $namakar != null){
                 $absen = AbsenModel::where('nama', $namakar )->get();
             }
             elseif($hariSatu != null && $hariDua == null && $query == null && $namakar ==  null){
@@ -236,18 +272,36 @@
                 $absen = AbsenModel::where('jam_masuk', $hariSatu )
                 ->where('nama', $namakar)->get();
             }
-            elseif($hariSatu == null && $hariDua == null && $query == null && $namakar ==  null){
-                return route('absensi');
-            }
             elseif($hariSatu == null && $hariDua == null && $query != null && $namakar !=  null){
                 $absen = AbsenModel::where('id_karyawan', $query)
                 ->where('nama', $namakar)->get();
             }
-            else{
+            elseif($hariSatu != null && $hariDua != null && $query != null && $namakar ==  null){
+                $absen = AbsenModel::where('id_karyawan', $query)
+                ->whereBetween('jam_masuk', [$hariSatu, $hariDua])
+                ->get();
+            }
+            elseif($hariSatu != null && $hariDua != null && $query == null && $namakar !=  null){
+                $absen = AbsenModel::where('nama', $namakar)
+                ->whereBetween('jam_masuk', [$hariSatu, $hariDua])
+                ->get();
+            }
+            elseif($hariSatu != null && $hariDua != null && $query == null && $namakar ==  null){
+                $absen = AbsenModel::whereBetween('jam_masuk', [$hariSatu, $hariDua])
+                ->get();
+            }
+            elseif($hariSatu == null && $hariDua != null && $query == null && $namakar ==  null){
+                $absen = AbsenModel::where('jam_masuk', $hariDua)
+                ->get();
+            }
+            elseif($hariSatu != null && $hariDua != null && $query != null && $namakar !=  null){
                 $absen = AbsenModel::where('id_karyawan', $query)
                 ->where('nama', $namakar)
                 ->whereBetween('jam_masuk', [$hariSatu, $hariDua])
                 ->get();
+            }
+            else{
+                return redirect('absensi');
             }
     
             setlocale(LC_TIME, 'id_ID');
