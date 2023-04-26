@@ -69,7 +69,7 @@
                                 <th>Username</th>
                                 <th>Password</th>
                                 <th>Sisa Cuti</th>
-                                <th>No.Hp</th>
+                                {{-- <th>No.Hp</th> --}}
                                 <th>Alamat</th>
                                 <th>Action</th>
                             </tr>
@@ -82,7 +82,7 @@
                                     <td>{{ $kyw->username }}</td>
                                     <td>{{ $kyw->password }}</td>
                                     <td>{{ $kyw->sisa_cuti }} Hari</td>
-                                    <td>{{ $kyw->hp }}</td>
+                                    {{-- <td>{{ $kyw->hp }}</td> --}}
                                     <td>{{ Str::limit($kyw->alamat, 30) }}</td>
                                     <td>
                                         <div class="my-wrap-toggle">
@@ -154,7 +154,7 @@
                                                     <label class="my-label-input">Alamat <i
                                                             class="uil uil-map-pin"></i></label>
                                                     <div class="my-textarea-modal">
-                                                        <textarea type="text" name="alamat" autocomplete="off">{{ $kyw->alamat }}</textarea>
+                                                        <textarea type="text" maxlength="100" minlength="1" name="alamat" autocomplete="off">{{ $kyw->alamat }}</textarea>
                                                     </div>
                                                     <label class="my-label-input">Jenis Kelamin <i
                                                             class="uil uil-mars"></i></label>
@@ -269,7 +269,7 @@
                                 <div class="my-right-content-modal">
                                     <label class="my-label-input">Alamat <i class="uil uil-map-pin"></i></label>
                                     <div class="my-textarea-modal">
-                                        <textarea type="text" name="alamat" autocomplete="off"></textarea>
+                                        <textarea type="text" name="alamat" maxlength="100" minlength="1" autocomplete="off"></textarea>
                                     </div>
                                     <label class="my-label-input">Jenis Kelamin <i class="uil uil-mars"></i></label>
                                     <div class="my-radio-modal">
@@ -335,7 +335,7 @@
                                 <div class="my-right-content-modal">
                                     <label class="my-label-input">Alamat <i class="uil uil-map-pin"></i></label>
                                     <div class="my-textarea-modal">
-                                        <textarea type="text" name="alamat" autocomplete="off"></textarea>
+                                        <textarea type="text" maxlength="100" minlength="1" name="alamat" autocomplete="off"></textarea>
                                     </div>
                                     <label class="my-label-input">Jenis Kelamin <i class="uil uil-mars"></i></label>
                                     <div class="my-radio-modal">
@@ -418,7 +418,7 @@
                                         <label class="my-label-input">Alamat <i
                                                 class="uil uil-map-pin"></i></label>
                                         <div class="my-textarea-modal">
-                                            <textarea type="text" name="alamat" autocomplete="off">{{ $d->alamat }}</textarea>
+                                            <textarea type="text" maxlength="100" minlength="1" name="alamat" autocomplete="off">{{ $d->alamat }}</textarea>
                                         </div>
                                         <label class="my-label-input">Jenis Kelamin <i
                                                 class="uil uil-mars"></i></label>
