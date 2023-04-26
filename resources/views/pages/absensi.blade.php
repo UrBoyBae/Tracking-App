@@ -49,7 +49,7 @@
                         <!-- Button Filter -->
                         <div class="my-sortby">
                             <div class="my-sortBtn" id="my-trigger-sortBtn" data-sortby="my-dropdown-sortby">
-                                <span>Sort By</span>
+                                <span>Filter By</span>
                                 <i class="uil uil-angle-down"></i>
                             </div>
                             <!-- Dropdown Sort By -->

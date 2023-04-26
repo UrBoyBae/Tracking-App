@@ -389,7 +389,7 @@
                                             <label class="my-label-input">Username</label>
                                             <div class="my-input-modal" style="margin-bottom: 4px;">
                                                 <i class="uil uil-user"></i>
-                                                <input type="text" name="username" autocomplete="off"
+                                                <input type="text" maxlength="13" minlength="1" name="username" autocomplete="off"
                                                     value="{{ $d->username }}">
                                             </div>
                                             <small class="error-message">
@@ -405,7 +405,7 @@
                                         <label class="my-label-input">No.HP</label>
                                         <div class="my-input-modal">
                                             <i class="uil uil-phone"></i>
-                                            <input type="text" name="hp" autocomplete="off"
+                                            <input type="text" maxlength="13" minlength="1" pattern="[0-9]+" oninput="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')" name="hp" autocomplete="off"
                                                 value="{{ $d->hp }}">
                                         </div>
                                     </div>
