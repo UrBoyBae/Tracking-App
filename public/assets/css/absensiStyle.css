@@ -248,7 +248,7 @@ ul.my-sidebar-link {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 20px 0;
     justify-content: space-between;
 }
 
@@ -925,6 +925,7 @@ ul.pagination-list li a.pagination-link.is-current {
     backdrop-filter: blur(2px);
     display: none;
 }
+
 .my-bg-modal.my-modal-active {
     display: flex;
 }
@@ -1294,4 +1295,117 @@ ul.pagination-list li a.pagination-link.is-current {
 .my-toast i {
     font-size: 34px;
     color: var(--ontime-color-badge);
+}
+
+/* Resolusi 1366 x 768 */
+@media screen and (max-width: 1366px) {
+    .my-container {
+        height: 180vh;
+    }
+    
+    /* Sidebar */
+    .my-sidebar-menu {
+        margin-top: 50px;
+    }
+
+    ul.my-sidebar-link {
+        padding-bottom: 20px;
+    }
+
+    /* Inner Content */
+    .my-inner-content {
+        padding: 105px 30px 10px 10px;
+    }
+
+    #tableAbsensi.dataTable {
+        font-size: 15px;
+    }
+
+    .my-trigger-viewBtn {
+        padding: 3px 7px;
+    }
+
+    .my-bg-modal {
+        padding: 20px 0;
+    }
+}
+
+/* Resolusi 1280 x 720 */
+@media screen and (max-width: 1280px) {
+    .my-container {
+        height: 180vh;
+    }
+    
+     /* Sidebar */
+    .my-sidebar {
+        padding: 35px 30px;
+    }
+    
+    .my-sidebar-menu {
+        margin-top: 50px;
+    }
+
+    .my-sidebar-menu ul li a {
+        margin-bottom: 15px;
+    }
+
+    .my-sidebar-menu ul li a i {
+        color: var(--textColor);
+        height: 100%;
+        width: 45px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .my-sidebar-menu ul li a .my-link-name {
+        font-size: 15px;
+        font-weight: 400;
+        margin-left: 3px;
+        color: var(--textColor);
+    }
+
+    ul.my-sidebar-link {
+        padding-bottom: 10px;
+    }
+
+    .my-theme .my-link-theme i {
+        color: var(--textColor);
+        height: 100%;
+        width: 45px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .my-theme .my-link-theme span {
+        font-weight: 400 !important;
+        font-size: 15px;
+        font-weight: 400;
+        margin-left: 3px;
+        color: var(--textColor);
+    }
+
+    /* Inner Content */
+    .my-inner-content {
+        padding: 105px 30px 10px 10px;
+    }
+
+    #tableAbsensi.dataTable {
+        font-size: 13px;
+    }
+
+    .my-trigger-viewBtn {
+        padding: 3px 7px;
+    }
+
+    .my-bg-modal {
+        padding: 10px;
+    }
+    
+    .my-content-modal {
+        padding: 20px 25px 15px;
+    }
 }

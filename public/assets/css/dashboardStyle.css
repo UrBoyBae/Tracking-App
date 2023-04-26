@@ -85,7 +85,7 @@ body.my-dark-theme {
 }
 
 /* === SideBar === */
-div.my-sidebar {
+.my-sidebar {
     height: 100vh;
     width: 300px;
     padding: 40px 30px;
@@ -125,7 +125,7 @@ div.my-sidebar {
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
-ul.my-sidebar-link {
+.my-sidebar-link {
     padding-bottom: 40px;
     border-bottom: 2px solid var(--primaryColor);
 }
@@ -204,7 +204,7 @@ ul.my-sidebar-link {
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    margin-bottom: 20px;
+    margin: 20px 0;
     justify-content: space-between;
 }
 
@@ -511,13 +511,13 @@ div.my-main-content {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 125px 40px 10px 10px;
+    padding: 125px 30px 10px 10px;
 }
 
 .my-card-view {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 70px;
 }
 
 .my-card-view .my-card-content {
@@ -580,8 +580,8 @@ div.my-main-content {
 
 .my-mid-content {
     display: flex;
-    justify-content: space-between;
-    padding: 0 25px 0 25px;
+    justify-content: center;
+    gap: 70px;
     margin-top: 45px;
 }
 
@@ -594,7 +594,7 @@ div.my-main-content {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     color: var(--textColor);
-    width: 695px;
+    width: 712px;
     transition: var(--transition-3);
     -webkit-transition: var(--transition-3);
     -moz-transition: var(--transition-3);
@@ -605,9 +605,9 @@ div.my-main-content {
 
 .my-profile-account {
     background-color: var(--content-background-color);
-    width: 320px;
-    height: 400px;
-    padding: 20px 40px 0;
+    width: 321px;
+    height: fit-content;
+    padding: 20px 40px 25px;
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -723,4 +723,349 @@ div.my-main-content {
     font-size: 15px;
     text-align: center;
     color: var(--textColor);
+}
+
+/* Resolusi 1366 x 768 */
+@media screen and (max-width: 1366px) {
+    /* Sidebar */
+    .my-sidebar-menu {
+        margin-top: 50px;
+    }
+
+    .my-sidebar-link {
+        padding-bottom: 20px;
+    }
+
+    /* Inner Content */
+    .my-inner-content {
+        padding: 105px 30px 10px 10px;
+    }
+
+    .my-card-view {
+        gap: 40px;
+    }
+
+    .my-card-view .my-card-content {
+        width: 300px;
+        height: 120px;
+        gap: 20px;
+        padding: 0 0 0 30px;
+    }
+
+    .my-card-data span.my-title-card {
+        font-size: 16px;
+        color: var(--card-text-color);
+        font-weight: 400;
+    }
+    
+    .my-card-data span.my-count {
+        font-weight: 600;
+        color: var(--textColor);
+        font-size: 24px;
+    }
+
+    .my-mid-content {
+        gap: 40px;    
+    }
+
+    .my-chart {
+        width: 628px;
+        padding-bottom: 20px;
+    }
+
+    .my-profile-account {
+        width: 288px;
+        height: fit-content;
+    }
+
+    .my-profile-account span {
+        color: var(--textColor);
+        font-size: 16px !important;
+        font-weight: 300;
+    }
+    
+    .my-profile-account .my-data-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 18px;
+    }
+    
+    .my-profile-account .my-data-profile img {
+        outline: 4px solid var(--primaryBackground);
+        width: 80px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+    
+    .my-data-profile div.my-profile-name span {
+        font-weight: 600;
+        font-size: 20px;
+    }
+    
+    .my-data-profile div.my-profile-role span {
+        font-size: 14px !important;
+        font-weight: 300;
+        color: var(--card-text-color);
+    }
+    
+    .my-data-profile div.my-profile-address {
+        width: 250px;
+        margin-top: 15px;
+        padding: 10px 17px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        border: 2px solid var(--primaryBackground);
+        border-radius: 12px;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        -ms-border-radius: 12px;
+        -o-border-radius: 12px;
+    }
+    
+    .my-icon-profile {
+        height: 35px;
+        width: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primaryBackground);
+        border-radius: 25px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        -ms-border-radius: 25px;
+        -o-border-radius: 25px;
+    }
+    
+    .my-icon-profile i {
+        font-size: 18px !important;
+        color: var(--primaryColor);
+    }
+    
+    .my-data-profile div.my-profile-address span {
+        font-size: 14px !important;
+        margin-top: 0px;
+        font-weight: 400;
+    }
+    
+    .my-data-profile div.my-profile-no {
+        width: 250px;
+        margin-top: 13px;
+        padding: 10px 17px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        border: 2px solid var(--primaryBackground);
+        border-radius: 12px;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        -ms-border-radius: 12px;
+        -o-border-radius: 12px;
+    }
+    
+    .my-data-profile div.my-profile-no span {
+        font-size: 14px !important;
+        margin-top: 0px;
+        font-weight: 400;
+    }
+}
+
+/* Resolusi 1280 x 720 */
+@media screen and (max-width: 1280px) {
+    /* Sidebar */
+    .my-sidebar {
+        padding: 35px 30px;
+    }
+    
+    .my-sidebar-menu {
+        margin-top: 50px;
+    }
+
+    .my-sidebar-menu ul li a {
+        margin-bottom: 15px;
+    }
+
+    .my-sidebar-menu ul li a i {
+        color: var(--textColor);
+        height: 100%;
+        width: 45px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .my-sidebar-menu ul li a .my-link-name {
+        font-size: 15px;
+        font-weight: 400;
+        margin-left: 3px;
+        color: var(--textColor);
+    }
+
+    .my-sidebar-link {
+        padding-bottom: 10px;
+    }
+
+    .my-theme .my-link-theme i {
+        color: var(--textColor);
+        height: 100%;
+        width: 45px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .my-theme .my-link-theme span {
+        font-weight: 400 !important;
+        font-size: 15px;
+        font-weight: 400;
+        margin-left: 3px;
+        color: var(--textColor);
+    }
+
+    /* Inner Content */
+    .my-inner-content {
+        padding: 105px 30px 10px 10px;
+    }
+
+    .my-card-view {
+        gap: 20px;
+    }
+
+    .my-card-view .my-card-content {
+        width: 300px;
+        height: 120px;
+        gap: 20px;
+        padding: 0 0 0 30px;
+    }
+
+    .my-card-data span.my-title-card {
+        font-size: 15px;
+        color: var(--card-text-color);
+        font-weight: 400;
+    }
+    
+    .my-card-data span.my-count {
+        font-weight: 600;
+        color: var(--textColor);
+        font-size: 22px;
+    }
+
+    .my-mid-content {
+        gap: 20px;  
+        margin-top: 30px;  
+    }
+
+    .my-chart {
+        width: 615px;
+        height: fit-content;
+    }
+
+    .my-profile-account {
+        width: 275px;
+        height: fit-content;
+        padding-top: 15px;
+    }
+
+    .my-profile-account span {
+        color: var(--textColor);
+        font-size: 14px !important;
+        font-weight: 300;
+    }
+    
+    .my-profile-account .my-data-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 18px;
+    }
+    
+    .my-profile-account .my-data-profile img {
+        outline: 4px solid var(--primaryBackground);
+        width: 70px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+    
+    .my-data-profile div.my-profile-name span {
+        font-weight: 600;
+        font-size: 20px;
+    }
+    
+    .my-data-profile div.my-profile-role span {
+        font-size: 12px !important;
+        font-weight: 300;
+        color: var(--card-text-color);
+    }
+    
+    .my-data-profile div.my-profile-address {
+        width: 215px;
+        margin-top: 10px;
+        padding: 8px 17px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        border: 2px solid var(--primaryBackground);
+        border-radius: 12px;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        -ms-border-radius: 12px;
+        -o-border-radius: 12px;
+    }
+    
+    .my-icon-profile {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--primaryBackground);
+        border-radius: 25px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        -ms-border-radius: 25px;
+        -o-border-radius: 25px;
+    }
+    
+    .my-icon-profile i {
+        font-size: 16px !important;
+        color: var(--primaryColor);
+    }
+    
+    .my-data-profile div.my-profile-address span {
+        font-size: 12px !important;
+        margin-top: 0px;
+        font-weight: 400;
+    }
+    
+    .my-data-profile div.my-profile-no {
+        width: 215px;
+        margin-top: 13px;
+        padding: 8px 17px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        border: 2px solid var(--primaryBackground);
+        border-radius: 12px;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        -ms-border-radius: 12px;
+        -o-border-radius: 12px;
+    }
+    
+    .my-data-profile div.my-profile-no span {
+        font-size: 12px !important;
+        margin-top: 0px;
+        font-weight: 400;
+    }
 }
